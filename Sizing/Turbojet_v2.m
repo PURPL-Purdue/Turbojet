@@ -18,13 +18,13 @@ specHeat_hot = 1156; % specific heat for hot components [J/kgK]
 heatrxn_fuel = 42800000; % heat of combustion of jetA [J/kg]
 
 eff_diffuser = 0.95; % diffuser efficiency
-eff_compressor = 0.44; % compressor efficiency
+eff_compressor = 0.7; % compressor efficiency
 eff_burner = 0.9; % burner efficiency
 eff_turbine = 0.9; % turbine efficiency
 eff_nozzle = 0.95; % nozzle efficiency
 
 compr_pressure = 4; % compressor pressure ratio
-burner_temp = 1300; % Burner inlet temperature [K]
+burner_temp = 977; % Burner inlet temperature [K]
 
 stat_temp0 = 293.15; % initial static temp [K]
 stat_press0 = 100; % initial static pressure [kPa]
