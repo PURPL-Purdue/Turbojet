@@ -23,7 +23,7 @@ function output = Calc_Stage_Perf(deg_of_reaction, blade_height_mm, ...
     r_hub = r_tip-blade_height_mm./1000; %meters
     r_mid = (r_hub+r_tip)./2;
 
-    rpm = 80.*1000; %RPM
+    rpm = 60.*1000; %RPM
     mass_flux = 0.485; %kg/s
     inlet_total_pres = 400.*1000; %pascals
     inlet_total_temp = 1000; %Kelvin

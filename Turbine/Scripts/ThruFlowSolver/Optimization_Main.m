@@ -10,70 +10,26 @@ clear;clc;close all;
 % Repeat generation
 
 % Controls:
-evolution = 9; %Just a parameter for keeping track of different evolutions (plotting)
-population_size = 100; %Number of turbines in a generation.
-parent_count = 2;
-mutation_potency = 0.20; %How strong is a genetic mutation
-pwr_weight    = 10;
-tt_eff_weight = 0.0;
-ts_eff_weight = 0.2;
+evolution = 14;          %Just a parameter for keeping track of different evolutions.
+population_size = 300;   %Number of turbines in a generation.
+parent_count = 2;        %The shackles of biology need not apply to us.
+mutation_potency = 0.15; %How strong is a genetic mutation
+% Weights:
+pwr_weight    = 1.0;
+tt_eff_weight = 0.1;
+ts_eff_weight = 0.0;
 stress_weight = 0.0;
 
 weights = [pwr_weight, tt_eff_weight, ts_eff_weight, stress_weight];
 
 %Limits:
-lim_reac        = [0, 1];
+lim_reac        = [0, 0.5];
 lim_height      = [1, 100];
 lim_backpress   = [1, 3].*100.*1000;
-lim_rotorH2C    = [0.1, 0.9];
-lim_rotorT2C    = [0.1, 0.9];
-lim_statorH2C   = [0.1, 0.9];
-lim_statorT2C   = [0.1, 0.9];
-
-% if length(dir(fullfile('Optimization/', 'gen*'))) == 0
-%     %% Create the first generation
-%     gen1 = struct('inp', {}, ...
-%         'res',{}, ...
-%         'pwr',{}, ...
-%         'tte',{}, ...
-%         'tse',{}, ...
-%         'strs', {}, ...
-%         'fail', {}, ...
-%         'fit', {});
-%     for i=1:population_size
-%         random_inp = [...
-%             rand_interval(lim_reac), ...
-%             rand_interval(lim_height), ...
-%             rand_interval(lim_backpress), ...
-%             rand_interval(lim_rotorH2C), ...
-%             rand_interval(lim_rotorT2C), ...
-%             rand_interval(lim_statorH2C), ...
-%             rand_interval(lim_statorT2C)];
-% 
-%         res = Calc_Stage_Perf(random_inp(1), random_inp(2), random_inp(3), random_inp(4), random_inp(5), random_inp(6), random_inp(7)); 
-% 
-%         gen1(i).inp  = random_inp;
-%         gen1(i).res  = res;
-%         gen1(i).pwr  = res.power;
-%         gen1(i).tte  = res.tt_eff;
-%         gen1(i).tse  = res.ts_eff;
-%         gen1(i).strs = res.stress_frac;
-%         gen1(i).fail = res.fail;
-%     end
-% 
-%     % Calc fitnesses
-%     for i=1:population_size
-%         indiv = gen1(i);
-%         if indiv.fail == "success"
-%             gen1(i).fit = calc_fitness(gen1, indiv.pwr, indiv.tte, indiv.tse, indiv.strs, weights);
-%         else
-%             gen1(i).fit = 0;
-%         end
-%     end
-% 
-%     save('Optimization\gen1.mat', "gen1");
-% end
-
+lim_rotorH2C    = [1, 2];
+lim_rotorT2C    = [0.05, 0.2];
+lim_statorH2C   = [1, 2];
+lim_statorT2C   = [0.05, 0.2];
 
 % Do turbine sex:
 if ~isempty(dir(fullfile('Optimization', strcat('ev',char(string(evolution)),'gen*'))))
@@ -123,14 +79,14 @@ for i=1:population_size
     new_gen(i).tse  = res.ts_eff;
     new_gen(i).strs = res.stress_frac;
     new_gen(i).fail = res.fail;
-    new_gen(i).ind_name = "turbine_g"+(last_gen_num+1)+"n"+i;
+    new_gen(i).ind_name = "turbine_ev"+(evolution)+"gen"+(last_gen_num+1)+"n"+i;
 end
 
 % Calc fitnesses
 for i=1:population_size
     indiv = new_gen(i);
-    if indiv.fail == "success"
-        new_gen(i).fit = calc_fitness(new_gen, indiv.pwr, indiv.tte, indiv.tse, indiv.strs, weights);
+    if indiv.fail == "success"  && indiv.pwr >= 80*1000
+        new_gen(i).fit = calc_fitness(indiv.pwr, indiv.tte, indiv.tse, indiv.strs, weights);
     else
         new_gen(i).fit = 0;
     end
@@ -139,12 +95,20 @@ end
 gen_name = "ev" + char(string(evolution)) + "gen" + (last_gen_num+1) + ".mat";
 save('Optimization\'+gen_name, "new_gen");
 
+% Find and display the best-fit index:
+[best_fit, best_idx] = max([new_gen(:).fit]);
+
+fprintf("Best Individual:   Index: %d   TT Efficiency: %.2f, TS Efficiency: %.2f, Power: %.2f KW", ...
+    best_idx, new_gen(best_idx).tte, new_gen(best_idx).tse, new_gen(best_idx).pwr);
+
+load gong.mat;
+soundsc(y); %Gong
 
 function num = rand_interval(interval)
     num = (interval(2)-interval(1)).*rand()+interval(1);
 end
 
-function fitness = calc_fitness(generation, pwr, tte, tse, strs, weights)
+function fitness = calc_fitness(pwr, tte, tse, strs, weights)
     % max_pwr = max([generation.pwr].*([generation.fail] == "success")); 
     targ_pwr = 80.*1000;
 
@@ -162,7 +126,7 @@ function [gen_num, gen_data] = get_latest_gen(evolution)
      
     gen_nums = zeros(size(gen_files));
     for i = 1:length(gen_files)
-        gen_nums(i) = str2double(gen_files(i).name(7));
+        gen_nums(i) = str2double(gen_files(i).name(8));
     end
     
     gen_num = max(gen_nums);
@@ -184,7 +148,7 @@ function parents = pick_parents(count, gen)
     
         rand_num = rand;
     
-        picked_idx = find(rand_num < cum_weights, 1, 'last');
+        picked_idx = find(rand_num < cum_weights, 1);
         picked_parent = gen(picked_idx);
     
         parents(n).gen_idx = picked_idx;
