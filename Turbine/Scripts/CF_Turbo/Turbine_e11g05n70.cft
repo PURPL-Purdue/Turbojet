@@ -1,0 +1,1644 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CFturboFile Version="2024.1" Info="Purdue University">
+  <CFturboProject Type="Object">
+    <Version>2024.1.2.106</Version>
+    <ProjectType Type="Enum">GasTurb</ProjectType>
+    <Title></Title>
+    <Classification></Classification>
+    <MyName></MyName>
+    <Comment></Comment>
+    <Creation Type="DateTime">2024-10-14T22:05:35.861-04:00</Creation>
+    <LastChange Type="DateTime">2024-10-14T23:18:00.664-04:00</LastChange>
+    <AskDeactAutoCalc Type="Boolean">False</AskDeactAutoCalc>
+    <CurrentDesignIndex Type="Integer">1</CurrentDesignIndex>
+    <DesignPoint_GasTurb Type="Object">
+      <nRot Type="Float">1333.33333333333</nRot>
+      <mFlow Type="Float">0.485</mFlow>
+      <EnergyMode Type="Enum">Total-to-static pressure ratio</EnergyMode>
+      <FlowMode Type="Enum">Mass flow</FlowMode>
+      <ptInlet Type="Float">400000</ptInlet>
+      <TtInlet Type="Float">1000</TtInlet>
+      <EtaC Type="Float">1</EtaC>
+      <RotDir Type="Enum">Right</RotDir>
+      <FluidGasModel Type="Enum">Perfect</FluidGasModel>
+      <PressureRatio-t-s Type="Float">1.9105</PressureRatio-t-s>
+      <FluidGas Type="Object" Name="Air">
+        <FluidDescription></FluidDescription>
+        <FluidSymbol>N2;O2</FluidSymbol>
+        <FluidCp Type="Float">1004.85</FluidCp>
+        <FluidZ Type="Float">1</FluidZ>
+        <FluidR Type="Float">287.1</FluidR>
+        <Fluidpcrit Type="Float">3720000</Fluidpcrit>
+        <FluidTcrit Type="Float">132.5</FluidTcrit>
+        <Fluidrhocrit Type="Float">313</Fluidrhocrit>
+        <Fluidomega Type="Float">0.035</Fluidomega>
+        <cpfactor0 Type="Float">1050.01</cpfactor0>
+        <cpfactor1 Type="Float">-0.36506</cpfactor1>
+        <cpfactor2 Type="Float">0.0008482</cpfactor2>
+        <cpfactor3 Type="Float">-3.9183E-7</cpfactor3>
+        <FluidVisc Type="Float">1.535E-5</FluidVisc>
+        <FluidLambda Type="Float">0.0262</FluidLambda>
+      </FluidGas>
+    </DesignPoint_GasTurb>
+    <PolyList_CFturboDesign Type="Object">
+      <CFturboDesign_Stator Type="Object" Name="[Stator_1]" Index="0">
+        <GUID>{3394F934-FF62-4B00-94B9-A72DA513A97C}</GUID>
+        <Color Type="Integer">0x00FF0000</Color>
+        <Active Type="Boolean">True</Active>
+        <ComponentLinkReference>{00000000-0000-0000-0000-000000000000}</ComponentLinkReference>
+        <PrimaryInlet Type="Boolean">True</PrimaryInlet>
+        <PrimaryOutlet Type="Boolean">True</PrimaryOutlet>
+        <Caption>[Stator_1]</Caption>
+        <ModelSetup_RotSym Type="Object">
+          <DistTolerance Type="Float">5E-5</DistTolerance>
+          <TRotSymCtObj Type="Object" Name="ExpPointCt">
+            <hub Type="Integer">80</hub>
+            <SkeletonLine Type="Integer">80</SkeletonLine>
+            <SuctionSide Type="Integer">80</SuctionSide>
+            <LeadingEdge Type="Integer">55</LeadingEdge>
+          </TRotSymCtObj>
+          <TRotSymCtObj Type="Object" Name="3DPointCt">
+            <hub Type="Integer">40</hub>
+            <SkeletonLine Type="Integer">50</SkeletonLine>
+            <SuctionSide Type="Integer">27</SuctionSide>
+            <LeadingEdge Type="Integer">23</LeadingEdge>
+          </TRotSymCtObj>
+        </ModelSetup_RotSym>
+        <MainDimensionsElement Type="Object">
+          <UnShrouded Type="Boolean">False</UnShrouded>
+          <SplitterBlades Type="Boolean">False</SplitterBlades>
+          <SolidDensity Type="Float">7900</SolidDensity>
+          <InflowSwirl Type="Enum">InflowSwirl</InflowSwirl>
+          <StatorType Type="Enum">FreeForm</StatorType>
+          <Bladed Type="Boolean">True</Bladed>
+          <StatorLossType Type="Enum">Etas</StatorLossType>
+          <IsenVeloRatio Type="Float">1</IsenVeloRatio>
+          <SuperSonicInlet Type="Boolean">False</SuperSonicInlet>
+          <SuperSonicOutlet Type="Boolean">False</SuperSonicOutlet>
+          <ExtIntfMode Type="Enum">InOut</ExtIntfMode>
+          <DirHub Type="Enum">FreeForm</DirHub>
+          <DirShr Type="Enum">FreeForm</DirShr>
+          <Hub Type="Vector2">
+            <x Type="Float">0.035</x>
+            <y Type="Float">0</y>
+          </Hub>
+          <Shr Type="Vector2">
+            <x Type="Float">0.035</x>
+            <y Type="Float">0</y>
+          </Shr>
+          <HubShr Type="Boolean">True</HubShr>
+          <MerData Type="Object" Name="MerInlet">
+            <HubShr Type="Boolean">True</HubShr>
+            <Hub Type="Vector2">
+              <x Type="Float">0</x>
+              <y Type="Float">0.03585</y>
+            </Hub>
+            <Shr Type="Vector2">
+              <x Type="Float">0</x>
+              <y Type="Float">0.0635</y>
+            </Shr>
+          </MerData>
+          <MerData Type="Object" Name="MerOutlet">
+            <HubShr Type="Boolean">True</HubShr>
+            <Hub Type="Vector2">
+              <x Type="Float">0.035</x>
+              <y Type="Float">0.03585</y>
+            </Hub>
+            <Shr Type="Vector2">
+              <x Type="Float">0.035</x>
+              <y Type="Float">0.0635</y>
+            </Shr>
+          </MerData>
+        </MainDimensionsElement>
+        <Meridian Type="Object">
+          <LE_fixed Type="Boolean">False</LE_fixed>
+          <TE_fixed Type="Boolean">False</TE_fixed>
+          <TMerSolid_Active Type="Boolean">True</TMerSolid_Active>
+          <TgrMer_Stator Type="Object">
+            <LE_enabled Type="Boolean">1</LE_enabled>
+            <SPLITTER_enabled Type="Boolean">0</SPLITTER_enabled>
+            <TE_enabled Type="Boolean">1</TE_enabled>
+            <Bezier4MerLE Type="Object" Name="GeoLeadingEdge">
+              <CurveMode>Line_ConstZ</CurveMode>
+              <Points Count="2" Type="Array1">
+                <Value Type="Vector2" Index="0">
+                  <x Type="Float">0.0001</x>
+                  <y Type="Float">0.03585</y>
+                </Value>
+                <Value Type="Vector2" Index="1">
+                  <x Type="Float">0.0001</x>
+                  <y Type="Float">0.0635</y>
+                </Value>
+              </Points>
+              <Coupled Type="Boolean">1</Coupled>
+              <Limit Type="Boolean">1</Limit>
+              <u-Hub Type="Float">0.00285714285714286</u-Hub>
+              <u-Shroud Type="Float">0.00285714285714286</u-Shroud>
+            </Bezier4MerLE>
+            <Bezier4MerTE Type="Object" Name="GeoTrailingEdge">
+              <CurveMode>Line_ConstZ</CurveMode>
+              <Points Count="2" Type="Array1">
+                <Value Type="Vector2" Index="0">
+                  <x Type="Float">0.0349</x>
+                  <y Type="Float">0.03585</y>
+                </Value>
+                <Value Type="Vector2" Index="1">
+                  <x Type="Float">0.0349</x>
+                  <y Type="Float">0.0635</y>
+                </Value>
+              </Points>
+              <Coupled Type="Boolean">1</Coupled>
+              <Limit Type="Boolean">1</Limit>
+              <u-Hub Type="Float">0.997142857142857</u-Hub>
+              <u-Shroud Type="Float">0.997142857142857</u-Shroud>
+            </Bezier4MerTE>
+            <TCCurveMer_Stator Type="Object" Name="GeoHub">
+              <MasterIndex Type="Integer">0</MasterIndex>
+              <TReadWriteArray_Bezier4Mer Type="Object">
+                <Bezier4Mer Type="Object" Index="0">
+                  <CurveMode>Bezier</CurveMode>
+                  <Angle Type="Array" Count="2">
+                    <Value Type="Float" Index="0">0</Value>
+                    <Value Type="Float" Index="1">0</Value>
+                  </Angle>
+                  <FixedStartAngle Type="Boolean">0</FixedStartAngle>
+                  <FixedEndAngle Type="Boolean">0</FixedEndAngle>
+                  <CanChangeFixedStartAngle Type="Boolean">1</CanChangeFixedStartAngle>
+                  <CanChangeFixedEndAngle Type="Boolean">1</CanChangeFixedEndAngle>
+                  <Points Count="5" Type="Array1">
+                    <Value Type="Vector2" Index="0">
+                      <x Type="Float">0</x>
+                      <y Type="Float">0.03585</y>
+                    </Value>
+                    <Value Type="Vector2" Index="1">
+                      <x Type="Float">0.007</x>
+                      <y Type="Float">0.03585</y>
+                    </Value>
+                    <Value Type="Vector2" Index="2">
+                      <x Type="Float">0.014</x>
+                      <y Type="Float">0.03585</y>
+                    </Value>
+                    <Value Type="Vector2" Index="3">
+                      <x Type="Float">0.0245</x>
+                      <y Type="Float">0.03585</y>
+                    </Value>
+                    <Value Type="Vector2" Index="4">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.03585</y>
+                    </Value>
+                  </Points>
+                  <Rel1 Type="Vector2">
+                    <x Type="Float">0.5</x>
+                    <y Type="Float">0.5</y>
+                  </Rel1>
+                  <Rel2 Type="Vector2">
+                    <x Type="Float">0.4</x>
+                    <y Type="Float">0</y>
+                  </Rel2>
+                  <Rel3 Type="Vector2">
+                    <x Type="Float">0.5</x>
+                    <y Type="Float">0.5</y>
+                  </Rel3>
+                  <Coupled Type="Boolean">1</Coupled>
+                  <Limit Type="Boolean">0</Limit>
+                  <RelRadius Type="Float">0</RelRadius>
+                  <Gamma Type="Float">0</Gamma>
+                </Bezier4Mer>
+              </TReadWriteArray_Bezier4Mer>
+              <TReadWriteArray_TCurveConnector Type="Object">
+                <TCurveConnector Type="Object" Index="0">
+                  <Position Type="Vector2">
+                    <x Type="Float">0</x>
+                    <y Type="Float">0.03585</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+                <TCurveConnector Type="Object" Index="1">
+                  <Position Type="Vector2">
+                    <x Type="Float">0.035</x>
+                    <y Type="Float">0.03585</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+              </TReadWriteArray_TCurveConnector>
+            </TCCurveMer_Stator>
+            <TCCurveMer_Stator Type="Object" Name="GeoShroud">
+              <MasterIndex Type="Integer">0</MasterIndex>
+              <TReadWriteArray_Bezier4Mer Type="Object">
+                <Bezier4Mer Type="Object" Index="0">
+                  <CurveMode>Line</CurveMode>
+                  <Points Count="2" Type="Array1">
+                    <Value Type="Vector2" Index="0">
+                      <x Type="Float">0</x>
+                      <y Type="Float">0.0635</y>
+                    </Value>
+                    <Value Type="Vector2" Index="1">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.0635</y>
+                    </Value>
+                  </Points>
+                  <Coupled Type="Boolean">1</Coupled>
+                  <Limit Type="Boolean">0</Limit>
+                  <RelRadius Type="Float">0</RelRadius>
+                  <Gamma Type="Float">0</Gamma>
+                </Bezier4Mer>
+              </TReadWriteArray_Bezier4Mer>
+              <TReadWriteArray_TCurveConnector Type="Object">
+                <TCurveConnector Type="Object" Index="0">
+                  <Position Type="Vector2">
+                    <x Type="Float">0</x>
+                    <y Type="Float">0.0635</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+                <TCurveConnector Type="Object" Index="1">
+                  <Position Type="Vector2">
+                    <x Type="Float">0.035</x>
+                    <y Type="Float">0.0635</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+              </TReadWriteArray_TCurveConnector>
+            </TCCurveMer_Stator>
+          </TgrMer_Stator>
+          <TMerSolid Type="Object">
+            <Sketch Type="Object" Name="Sketch">
+              <Wire Type="Object" Name="Hub">
+                <Connectors Type="Object">
+                  <ConnectorPoint Type="Object" Index="0">
+                    <Position Type="Vector2">
+                      <x Type="Float">0</x>
+                      <y Type="Float">0.03585</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.03585</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                  <ConnectorPoint Type="Object" Index="1">
+                    <Position Type="Vector2">
+                      <x Type="Float">0</x>
+                      <y Type="Float">0.0348</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.0348</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                  <ConnectorPoint Type="Object" Index="2">
+                    <Position Type="Vector2">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.0348</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0.035</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.0348</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                  <ConnectorPoint Type="Object" Index="3">
+                    <Position Type="Vector2">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.03585</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0.035</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.03585</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                </Connectors>
+                <Curves Type="Object">
+                  <Curve Type="Object" Index="0">
+                    <CurveType Type="Enum">crtBezier</CurveType>
+                    <Points Type="Object">
+                      <ControlPoint Type="Object" Index="0">
+                        <Position Type="Vector2">
+                          <x Type="Float">0</x>
+                          <y Type="Float">0.03585</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                      <ControlPoint Type="Object" Index="1">
+                        <Position Type="Vector2">
+                          <x Type="Float">0</x>
+                          <y Type="Float">0.0348</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                    </Points>
+                  </Curve>
+                  <Curve Type="Object" Index="1">
+                    <CurveType Type="Enum">crtBezier</CurveType>
+                    <Points Type="Object">
+                      <ControlPoint Type="Object" Index="0">
+                        <Position Type="Vector2">
+                          <x Type="Float">0</x>
+                          <y Type="Float">0.0348</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                      <ControlPoint Type="Object" Index="1">
+                        <Position Type="Vector2">
+                          <x Type="Float">0.035</x>
+                          <y Type="Float">0.0348</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                    </Points>
+                  </Curve>
+                  <Curve Type="Object" Index="2">
+                    <CurveType Type="Enum">crtBezier</CurveType>
+                    <Points Type="Object">
+                      <ControlPoint Type="Object" Index="0">
+                        <Position Type="Vector2">
+                          <x Type="Float">0.035</x>
+                          <y Type="Float">0.0348</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                      <ControlPoint Type="Object" Index="1">
+                        <Position Type="Vector2">
+                          <x Type="Float">0.035</x>
+                          <y Type="Float">0.03585</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                    </Points>
+                  </Curve>
+                </Curves>
+              </Wire>
+              <Wire Type="Object" Name="Shroud">
+                <Connectors Type="Object">
+                  <ConnectorPoint Type="Object" Index="0">
+                    <Position Type="Vector2">
+                      <x Type="Float">0</x>
+                      <y Type="Float">0.0635</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.0635</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                  <ConnectorPoint Type="Object" Index="1">
+                    <Position Type="Vector2">
+                      <x Type="Float">0</x>
+                      <y Type="Float">0.06455</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.06455</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                  <ConnectorPoint Type="Object" Index="2">
+                    <Position Type="Vector2">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.06455</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0.035</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.06455</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                  <ConnectorPoint Type="Object" Index="3">
+                    <Position Type="Vector2">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.0635</y>
+                    </Position>
+                    <GCS_Constraint Type="Object" Name="xVal">
+                      <xVal Type="Float">0.035</xVal>
+                    </GCS_Constraint>
+                    <GCS_Constraint Type="Object" Name="yVal">
+                      <yVal Type="Float">0.0635</yVal>
+                    </GCS_Constraint>
+                  </ConnectorPoint>
+                </Connectors>
+                <Curves Type="Object">
+                  <Curve Type="Object" Index="0">
+                    <CurveType Type="Enum">crtBezier</CurveType>
+                    <Points Type="Object">
+                      <ControlPoint Type="Object" Index="0">
+                        <Position Type="Vector2">
+                          <x Type="Float">0</x>
+                          <y Type="Float">0.0635</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                      <ControlPoint Type="Object" Index="1">
+                        <Position Type="Vector2">
+                          <x Type="Float">0</x>
+                          <y Type="Float">0.06455</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                    </Points>
+                  </Curve>
+                  <Curve Type="Object" Index="1">
+                    <CurveType Type="Enum">crtBezier</CurveType>
+                    <Points Type="Object">
+                      <ControlPoint Type="Object" Index="0">
+                        <Position Type="Vector2">
+                          <x Type="Float">0</x>
+                          <y Type="Float">0.06455</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                      <ControlPoint Type="Object" Index="1">
+                        <Position Type="Vector2">
+                          <x Type="Float">0.035</x>
+                          <y Type="Float">0.06455</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                    </Points>
+                  </Curve>
+                  <Curve Type="Object" Index="2">
+                    <CurveType Type="Enum">crtBezier</CurveType>
+                    <Points Type="Object">
+                      <ControlPoint Type="Object" Index="0">
+                        <Position Type="Vector2">
+                          <x Type="Float">0.035</x>
+                          <y Type="Float">0.06455</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                      <ControlPoint Type="Object" Index="1">
+                        <Position Type="Vector2">
+                          <x Type="Float">0.035</x>
+                          <y Type="Float">0.0635</y>
+                        </Position>
+                        <PointSpec Type="Enum">pstCoin</PointSpec>
+                      </ControlPoint>
+                    </Points>
+                  </Curve>
+                </Curves>
+              </Wire>
+            </Sketch>
+          </TMerSolid>
+          <TCmContourScale Type="Object">
+            <contourAutoScale Type="Boolean">True</contourAutoScale>
+          </TCmContourScale>
+        </Meridian>
+        <BladeProperties Type="Object">
+          <Geometry Type="Enum">RuledSurface</Geometry>
+          <nBl Type="Integer">8</nBl>
+          <Count Type="Integer">2</Count>
+          <BladeThicknessMode Type="Enum">Tangential</BladeThicknessMode>
+          <inc_RQHub Type="Float">1</inc_RQHub>
+          <inc_RQShr Type="Float">1</inc_RQShr>
+          <incidence Type="Enum">Q-ratio</incidence>
+          <DeltaHub Type="Float">0</DeltaHub>
+          <DeltaShr Type="Float">0</DeltaShr>
+          <SlipModel Type="Enum">User</SlipModel>
+          <UserSlipModel Type="Enum">usiDelta</UserSlipModel>
+          <AutoUpdate1 Type="Boolean">True</AutoUpdate1>
+          <AutoUpdate2 Type="Boolean">False</AutoUpdate2>
+          <TReadWriteArray_TBladeProps Type="Object" Name="BladeValues">
+            <TBladePropsStator Type="Object" Name="Main blade" Index="0">
+              <s1 Count="2" Type="Array1">
+                <Value Type="Float" Index="0">0.001</Value>
+                <Value Type="Float" Index="1">0.001</Value>
+              </s1>
+              <s2 Count="2" Type="Array1">
+                <Value Type="Float" Index="0">0.001</Value>
+                <Value Type="Float" Index="1">0.001</Value>
+              </s2>
+              <Beta1 Count="2" Type="Array1">
+                <Value Type="Float" Index="0">1.5707963267949</Value>
+                <Value Type="Float" Index="1">1.5707963267949</Value>
+              </Beta1>
+              <Beta2 Count="2" Type="Array1">
+                <Value Type="Float" Index="0">0.132645023151573</Value>
+                <Value Type="Float" Index="1">0.132645023151573</Value>
+              </Beta2>
+            </TBladePropsStator>
+          </TReadWriteArray_TBladeProps>
+          <TSpanDistrib Type="Object">
+            <CurveMode Type="Enum">Line</CurveMode>
+          </TSpanDistrib>
+        </BladeProperties>
+        <SkeletonLines Type="Object">
+          <TMeanSurfSet Type="Object">
+            <MeanSurfaceShape Type="Enum">RuledSurface</MeanSurfaceShape>
+            <rsDistribution Type="Enum">rsd3D</rsDistribution>
+            <TReadWriteArray_MeanSurface Type="Object">
+              <MeanSurface Type="Object" Name="Mean surface" Index="0">
+                <rLEAct Type="Boolean">False</rLEAct>
+                <rTEAct Type="Boolean">False</rTEAct>
+                <rStack Type="Float">0</rStack>
+                <DesignMode Type="Enum">dmTM</DesignMode>
+                <TReadWriteArray_TMeanLine Type="Object">
+                  <TMeanLine Type="Object" Index="0">
+                    <ProgMode Type="Enum">pmManual</ProgMode>
+                    <ProgPoints Count="5" Type="Array1">
+                      <Value Type="Vector2" Index="0">
+                        <x Type="Float">0.0679503455943839</x>
+                        <y Type="Float">0</y>
+                      </Value>
+                      <Value Type="Vector2" Index="1">
+                        <x Type="Float">0.0679503455943844</x>
+                        <y Type="Float">0.431213326898002</y>
+                      </Value>
+                      <Value Type="Vector2" Index="2">
+                        <x Type="Float">0.30148951997494</x>
+                        <y Type="Float">0.676043749414794</y>
+                      </Value>
+                      <Value Type="Vector2" Index="3">
+                        <x Type="Float">0.768475190149438</x>
+                        <y Type="Float">0.916056045859861</y>
+                      </Value>
+                      <Value Type="Vector2" Index="4">
+                        <x Type="Float">1.17809724509617</x>
+                        <y Type="Float">0.970711297071129</y>
+                      </Value>
+                    </ProgPoints>
+                    <StackingPhi Type="Float">0.0679503455943839</StackingPhi>
+                    <ConstBetaLE Type="Boolean">False</ConstBetaLE>
+                    <ConstBetaTE Type="Boolean">False</ConstBetaTE>
+                  </TMeanLine>
+                  <TMeanLine Type="Object" Index="1">
+                    <ProgMode Type="Enum">pmManual</ProgMode>
+                    <ProgPoints Count="5" Type="Array1">
+                      <Value Type="Vector2" Index="0">
+                        <x Type="Float">0.356064964066604</x>
+                        <y Type="Float">0</y>
+                      </Value>
+                      <Value Type="Vector2" Index="1">
+                        <x Type="Float">0.356064964066604</x>
+                        <y Type="Float">0.133163457030159</y>
+                      </Value>
+                      <Value Type="Vector2" Index="2">
+                        <x Type="Float">0.498621770726652</x>
+                        <y Type="Float">0.389443169880479</y>
+                      </Value>
+                      <Value Type="Vector2" Index="3">
+                        <x Type="Float">0.614256025770993</x>
+                        <y Type="Float">0.472799015015327</y>
+                      </Value>
+                      <Value Type="Vector2" Index="4">
+                        <x Type="Float">1.17809724509617</x>
+                        <y Type="Float">0.548031496062992</y>
+                      </Value>
+                    </ProgPoints>
+                    <StackingPhi Type="Float">0.356064964066604</StackingPhi>
+                    <ConstBetaLE Type="Boolean">False</ConstBetaLE>
+                    <ConstBetaTE Type="Boolean">False</ConstBetaTE>
+                  </TMeanLine>
+                </TReadWriteArray_TMeanLine>
+              </MeanSurface>
+            </TReadWriteArray_MeanSurface>
+          </TMeanSurfSet>
+        </SkeletonLines>
+        <BladeProfiles Type="Object">
+          <TReadWriteArray_TBladeProfParam Type="Object">
+            <TBladeProfParam Type="Object" Index="0">
+              <IdenticProfile Type="Boolean">True</IdenticProfile>
+              <ThicknessExp Type="Float">1</ThicknessExp>
+              <TThicknessMode Type="Enum">tmPerpToML</TThicknessMode>
+            </TBladeProfParam>
+          </TReadWriteArray_TBladeProfParam>
+          <TReadWriteArray_BezFillProf Type="Object" Name="MainBlades">
+            <BezFillProf Type="Object" Index="0">
+              <Coupling>None</Coupling>
+              <InitThick Type="Float" Edge="LeadingEdge">0.001</InitThick>
+              <InitThick Type="Float" Edge="TrailingEdge">0.001</InitThick>
+              <Asym Type="Float" Edge="LeadingEdge">0</Asym>
+              <Asym Type="Float" Edge="TrailingEdge">0</Asym>
+              <BezierNProf Type="Object" Name="PS">
+                <CurveMode>Polyline</CurveMode>
+                <ProfMode>Freeform</ProfMode>
+                <FlexibleXDir Type="Boolean">1</FlexibleXDir>
+                <FlexibleYDir Type="Boolean">0</FlexibleYDir>
+                <IsLoaded Type="Boolean">1</IsLoaded>
+                <ProfileName>NACA 65-015</ProfileName>
+                <RoundedLE Type="Boolean">0</RoundedLE>
+                <RoundedTE Type="Boolean">0</RoundedTE>
+                <Polyline Type="Object">
+                  <Points Count="128" Type="Array1">
+                    <Value Type="Vector2" Index="0">
+                      <x Type="Float">0</x>
+                      <y Type="Float">-1.69919036696395E-19</y>
+                    </Value>
+                    <Value Type="Vector2" Index="1">
+                      <x Type="Float">3.31190799502007E-6</x>
+                      <y Type="Float">1.47471045350143E-5</y>
+                    </Value>
+                    <Value Type="Vector2" Index="2">
+                      <x Type="Float">1.40273767891216E-5</x>
+                      <y Type="Float">3.10108651644941E-5</y>
+                    </Value>
+                    <Value Type="Vector2" Index="3">
+                      <x Type="Float">3.34270956050381E-5</x>
+                      <y Type="Float">4.85271093220685E-5</y>
+                    </Value>
+                    <Value Type="Vector2" Index="4">
+                      <x Type="Float">6.29510720085151E-5</x>
+                      <y Type="Float">6.73399272637447E-5</y>
+                    </Value>
+                    <Value Type="Vector2" Index="5">
+                      <x Type="Float">0.000104213036532838</x>
+                      <y Type="Float">8.75248274505424E-5</y>
+                    </Value>
+                    <Value Type="Vector2" Index="6">
+                      <x Type="Float">0.000159015091780342</x>
+                      <y Type="Float">0.000109166590061575</y>
+                    </Value>
+                    <Value Type="Vector2" Index="7">
+                      <x Type="Float">0.000229362282163129</x>
+                      <y Type="Float">0.000132354074487988</y>
+                    </Value>
+                    <Value Type="Vector2" Index="8">
+                      <x Type="Float">0.000317476645625004</x>
+                      <y Type="Float">0.000157177741024724</y>
+                    </Value>
+                    <Value Type="Vector2" Index="9">
+                      <x Type="Float">0.000425810164923321</x>
+                      <y Type="Float">0.000183727551988816</y>
+                    </Value>
+                    <Value Type="Vector2" Index="10">
+                      <x Type="Float">0.000557055857099526</x>
+                      <y Type="Float">0.000212090606310217</y>
+                    </Value>
+                    <Value Type="Vector2" Index="11">
+                      <x Type="Float">0.000714156018208765</x>
+                      <y Type="Float">0.000242348207872611</y>
+                    </Value>
+                    <Value Type="Vector2" Index="12">
+                      <x Type="Float">0.000900306367382941</x>
+                      <y Type="Float">0.000274572139559603</y>
+                    </Value>
+                    <Value Type="Vector2" Index="13">
+                      <x Type="Float">0.00111895449942819</x>
+                      <y Type="Float">0.000308783934519856</y>
+                    </Value>
+                    <Value Type="Vector2" Index="14">
+                      <x Type="Float">0.00137379064602463</x>
+                      <y Type="Float">0.000344923148696654</y>
+                    </Value>
+                    <Value Type="Vector2" Index="15">
+                      <x Type="Float">0.00166872824757524</x>
+                      <y Type="Float">0.000383128089155661</y>
+                    </Value>
+                    <Value Type="Vector2" Index="16">
+                      <x Type="Float">0.00200787123347538</x>
+                      <y Type="Float">0.000423365447386166</y>
+                    </Value>
+                    <Value Type="Vector2" Index="17">
+                      <x Type="Float">0.0023954641773962</x>
+                      <y Type="Float">0.000465550827550117</y>
+                    </Value>
+                    <Value Type="Vector2" Index="18">
+                      <x Type="Float">0.00283582061134738</x>
+                      <y Type="Float">0.000509532510915372</y>
+                    </Value>
+                    <Value Type="Vector2" Index="19">
+                      <x Type="Float">0.00333322371789028</x>
+                      <y Type="Float">0.000555070799312671</y>
+                    </Value>
+                    <Value Type="Vector2" Index="20">
+                      <x Type="Float">0.00389179233727139</x>
+                      <y Type="Float">0.0006018115646868</y>
+                    </Value>
+                    <Value Type="Vector2" Index="21">
+                      <x Type="Float">0.00451530367984932</x>
+                      <y Type="Float">0.000649252062273131</y>
+                    </Value>
+                    <Value Type="Vector2" Index="22">
+                      <x Type="Float">0.00520696226624892</x>
+                      <y Type="Float">0.000696522296995153</y>
+                    </Value>
+                    <Value Type="Vector2" Index="23">
+                      <x Type="Float">0.00596910235359488</x>
+                      <y Type="Float">0.000742854375435724</y>
+                    </Value>
+                    <Value Type="Vector2" Index="24">
+                      <x Type="Float">0.00682031446098913</x>
+                      <y Type="Float">0.000789748456183258</y>
+                    </Value>
+                    <Value Type="Vector2" Index="25">
+                      <x Type="Float">0.00778914683852618</x>
+                      <y Type="Float">0.000839215583661309</y>
+                    </Value>
+                    <Value Type="Vector2" Index="26">
+                      <x Type="Float">0.00885917920643319</x>
+                      <y Type="Float">0.000889194011288323</y>
+                    </Value>
+                    <Value Type="Vector2" Index="27">
+                      <x Type="Float">0.0100211546313919</x>
+                      <y Type="Float">0.000938651890307558</y>
+                    </Value>
+                    <Value Type="Vector2" Index="28">
+                      <x Type="Float">0.0113051108716768</x>
+                      <y Type="Float">0.000989577938393286</y>
+                    </Value>
+                    <Value Type="Vector2" Index="29">
+                      <x Type="Float">0.0127098950866349</x>
+                      <y Type="Float">0.00104271898495219</y>
+                    </Value>
+                    <Value Type="Vector2" Index="30">
+                      <x Type="Float">0.0142274708865637</x>
+                      <y Type="Float">0.00109602040606845</y>
+                    </Value>
+                    <Value Type="Vector2" Index="31">
+                      <x Type="Float">0.0158484494510214</x>
+                      <y Type="Float">0.00114788935458332</y>
+                    </Value>
+                    <Value Type="Vector2" Index="32">
+                      <x Type="Float">0.0176051004235808</x>
+                      <y Type="Float">0.00119952018617886</y>
+                    </Value>
+                    <Value Type="Vector2" Index="33">
+                      <x Type="Float">0.0195107980596084</x>
+                      <y Type="Float">0.00125176976613061</y>
+                    </Value>
+                    <Value Type="Vector2" Index="34">
+                      <x Type="Float">0.0215686763807545</x>
+                      <y Type="Float">0.001305554232643</y>
+                    </Value>
+                    <Value Type="Vector2" Index="35">
+                      <x Type="Float">0.0237791502122419</x>
+                      <y Type="Float">0.00136226603621322</y>
+                    </Value>
+                    <Value Type="Vector2" Index="36">
+                      <x Type="Float">0.0261389892876266</x>
+                      <y Type="Float">0.00142314699775635</y>
+                    </Value>
+                    <Value Type="Vector2" Index="37">
+                      <x Type="Float">0.0286401674368553</x>
+                      <y Type="Float">0.00148513777287227</y>
+                    </Value>
+                    <Value Type="Vector2" Index="38">
+                      <x Type="Float">0.0312769154714207</x>
+                      <y Type="Float">0.00154717588282242</y>
+                    </Value>
+                    <Value Type="Vector2" Index="39">
+                      <x Type="Float">0.0340859925644945</x>
+                      <y Type="Float">0.00161004319371234</y>
+                    </Value>
+                    <Value Type="Vector2" Index="40">
+                      <x Type="Float">0.0370824086675898</x>
+                      <y Type="Float">0.00167405246233419</y>
+                    </Value>
+                    <Value Type="Vector2" Index="41">
+                      <x Type="Float">0.0402756422186948</x>
+                      <y Type="Float">0.00173946542287693</y>
+                    </Value>
+                    <Value Type="Vector2" Index="42">
+                      <x Type="Float">0.0436748273704528</x>
+                      <y Type="Float">0.00180667648015508</y>
+                    </Value>
+                    <Value Type="Vector2" Index="43">
+                      <x Type="Float">0.0472884981493349</x>
+                      <y Type="Float">0.00187627435722102</y>
+                    </Value>
+                    <Value Type="Vector2" Index="44">
+                      <x Type="Float">0.0511242649811155</x>
+                      <y Type="Float">0.00194892426416618</y>
+                    </Value>
+                    <Value Type="Vector2" Index="45">
+                      <x Type="Float">0.0551884078016899</x>
+                      <y Type="Float">0.00202275257861896</y>
+                    </Value>
+                    <Value Type="Vector2" Index="46">
+                      <x Type="Float">0.0594868272147192</x>
+                      <y Type="Float">0.00209705563433949</y>
+                    </Value>
+                    <Value Type="Vector2" Index="47">
+                      <x Type="Float">0.0640474602849286</x>
+                      <y Type="Float">0.00217243778796827</y>
+                    </Value>
+                    <Value Type="Vector2" Index="48">
+                      <x Type="Float">0.0688899006469638</x>
+                      <y Type="Float">0.00224951506168735</y>
+                    </Value>
+                    <Value Type="Vector2" Index="49">
+                      <x Type="Float">0.0740267126084453</x>
+                      <y Type="Float">0.00232901348547565</y>
+                    </Value>
+                    <Value Type="Vector2" Index="50">
+                      <x Type="Float">0.0794697800405662</x>
+                      <y Type="Float">0.00241057861809466</y>
+                    </Value>
+                    <Value Type="Vector2" Index="51">
+                      <x Type="Float">0.0852299085398357</x>
+                      <y Type="Float">0.00249321739711981</y>
+                    </Value>
+                    <Value Type="Vector2" Index="52">
+                      <x Type="Float">0.0913279989610987</x>
+                      <y Type="Float">0.00257712239558399</y>
+                    </Value>
+                    <Value Type="Vector2" Index="53">
+                      <x Type="Float">0.0977907717849012</x>
+                      <y Type="Float">0.00266295648481283</y>
+                    </Value>
+                    <Value Type="Vector2" Index="54">
+                      <x Type="Float">0.1046357610021</x>
+                      <y Type="Float">0.00275048976600098</y>
+                    </Value>
+                    <Value Type="Vector2" Index="55">
+                      <x Type="Float">0.111880228846638</x>
+                      <y Type="Float">0.00283889937775071</y>
+                    </Value>
+                    <Value Type="Vector2" Index="56">
+                      <x Type="Float">0.119550620534873</x>
+                      <y Type="Float">0.00292789996090896</y>
+                    </Value>
+                    <Value Type="Vector2" Index="57">
+                      <x Type="Float">0.12767805992676</x>
+                      <y Type="Float">0.0030176964529748</y>
+                    </Value>
+                    <Value Type="Vector2" Index="58">
+                      <x Type="Float">0.136288579514354</x>
+                      <y Type="Float">0.00310853756107796</y>
+                    </Value>
+                    <Value Type="Vector2" Index="59">
+                      <x Type="Float">0.145409195228146</x>
+                      <y Type="Float">0.00320080096110878</y>
+                    </Value>
+                    <Value Type="Vector2" Index="60">
+                      <x Type="Float">0.155067737156044</x>
+                      <y Type="Float">0.00329441305833653</y>
+                    </Value>
+                    <Value Type="Vector2" Index="61">
+                      <x Type="Float">0.165293175102634</x>
+                      <y Type="Float">0.00338811828330649</y>
+                    </Value>
+                    <Value Type="Vector2" Index="62">
+                      <x Type="Float">0.176128750386363</x>
+                      <y Type="Float">0.00348138784231552</y>
+                    </Value>
+                    <Value Type="Vector2" Index="63">
+                      <x Type="Float">0.187615556343995</x>
+                      <y Type="Float">0.00357437547117273</y>
+                    </Value>
+                    <Value Type="Vector2" Index="64">
+                      <x Type="Float">0.199791471272181</x>
+                      <y Type="Float">0.00366721531861436</y>
+                    </Value>
+                    <Value Type="Vector2" Index="65">
+                      <x Type="Float">0.212106798049085</x>
+                      <y Type="Float">0.00375511567541286</y>
+                    </Value>
+                    <Value Type="Vector2" Index="66">
+                      <x Type="Float">0.224394981989374</x>
+                      <y Type="Float">0.0038363712984191</y>
+                    </Value>
+                    <Value Type="Vector2" Index="67">
+                      <x Type="Float">0.236664136128628</x>
+                      <y Type="Float">0.00391162078973052</y>
+                    </Value>
+                    <Value Type="Vector2" Index="68">
+                      <x Type="Float">0.248915413031956</x>
+                      <y Type="Float">0.00398141417964733</y>
+                    </Value>
+                    <Value Type="Vector2" Index="69">
+                      <x Type="Float">0.261149399817327</x>
+                      <y Type="Float">0.00404571458257156</y>
+                    </Value>
+                    <Value Type="Vector2" Index="70">
+                      <x Type="Float">0.273370269528324</x>
+                      <y Type="Float">0.00410440213762761</y>
+                    </Value>
+                    <Value Type="Vector2" Index="71">
+                      <x Type="Float">0.28558240077929</x>
+                      <y Type="Float">0.00415783726419116</y>
+                    </Value>
+                    <Value Type="Vector2" Index="72">
+                      <x Type="Float">0.297786068752405</x>
+                      <y Type="Float">0.00420639974077962</y>
+                    </Value>
+                    <Value Type="Vector2" Index="73">
+                      <x Type="Float">0.309981281039607</x>
+                      <y Type="Float">0.00425018227835288</y>
+                    </Value>
+                    <Value Type="Vector2" Index="74">
+                      <x Type="Float">0.322171029586288</x>
+                      <y Type="Float">0.00428909259967936</y>
+                    </Value>
+                    <Value Type="Vector2" Index="75">
+                      <x Type="Float">0.334358065902386</x>
+                      <y Type="Float">0.00432313184767421</y>
+                    </Value>
+                    <Value Type="Vector2" Index="76">
+                      <x Type="Float">0.346542478572685</x>
+                      <y Type="Float">0.004352335141694</y>
+                    </Value>
+                    <Value Type="Vector2" Index="77">
+                      <x Type="Float">0.358724253018601</x>
+                      <y Type="Float">0.00437690229256342</y>
+                    </Value>
+                    <Value Type="Vector2" Index="78">
+                      <x Type="Float">0.370906135741756</x>
+                      <y Type="Float">0.00439683548018389</y>
+                    </Value>
+                    <Value Type="Vector2" Index="79">
+                      <x Type="Float">0.383089745978814</x>
+                      <y Type="Float">0.00441177499804387</y>
+                    </Value>
+                    <Value Type="Vector2" Index="80">
+                      <x Type="Float">0.395274703376828</x>
+                      <y Type="Float">0.0044212318364794</y>
+                    </Value>
+                    <Value Type="Vector2" Index="81">
+                      <x Type="Float">0.407460678696244</x>
+                      <y Type="Float">0.00442510020791312</y>
+                    </Value>
+                    <Value Type="Vector2" Index="82">
+                      <x Type="Float">0.419650927116759</x>
+                      <y Type="Float">0.00442356419788024</y>
+                    </Value>
+                    <Value Type="Vector2" Index="83">
+                      <x Type="Float">0.431846030329075</x>
+                      <y Type="Float">0.00441640412822943</y>
+                    </Value>
+                    <Value Type="Vector2" Index="84">
+                      <x Type="Float">0.444044500803501</x>
+                      <y Type="Float">0.00440313830434244</y>
+                    </Value>
+                    <Value Type="Vector2" Index="85">
+                      <x Type="Float">0.456245196522524</x>
+                      <y Type="Float">0.00438350491258101</y>
+                    </Value>
+                    <Value Type="Vector2" Index="86">
+                      <x Type="Float">0.468452277055927</x>
+                      <y Type="Float">0.00435780046822173</y>
+                    </Value>
+                    <Value Type="Vector2" Index="87">
+                      <x Type="Float">0.480665332407774</x>
+                      <y Type="Float">0.00432581689467378</y>
+                    </Value>
+                    <Value Type="Vector2" Index="88">
+                      <x Type="Float">0.492881800045218</x>
+                      <y Type="Float">0.00428707117866887</y>
+                    </Value>
+                    <Value Type="Vector2" Index="89">
+                      <x Type="Float">0.505099678641067</x>
+                      <y Type="Float">0.00424083419791702</y>
+                    </Value>
+                    <Value Type="Vector2" Index="90">
+                      <x Type="Float">0.517322278559803</x>
+                      <y Type="Float">0.00418654641928124</y>
+                    </Value>
+                    <Value Type="Vector2" Index="91">
+                      <x Type="Float">0.529550662056903</x>
+                      <y Type="Float">0.00412542354668879</y>
+                    </Value>
+                    <Value Type="Vector2" Index="92">
+                      <x Type="Float">0.54178489844946</x>
+                      <y Type="Float">0.00405859238266047</y>
+                    </Value>
+                    <Value Type="Vector2" Index="93">
+                      <x Type="Float">0.55402529385803</x>
+                      <y Type="Float">0.00398683545884421</y>
+                    </Value>
+                    <Value Type="Vector2" Index="94">
+                      <x Type="Float">0.566273622340393</x>
+                      <y Type="Float">0.00390941125188602</y>
+                    </Value>
+                    <Value Type="Vector2" Index="95">
+                      <x Type="Float">0.578531387559264</x>
+                      <y Type="Float">0.00382656779384359</y>
+                    </Value>
+                    <Value Type="Vector2" Index="96">
+                      <x Type="Float">0.590800006478717</x>
+                      <y Type="Float">0.00373908340400088</y>
+                    </Value>
+                    <Value Type="Vector2" Index="97">
+                      <x Type="Float">0.603080728591061</x>
+                      <y Type="Float">0.00364750436065359</y>
+                    </Value>
+                    <Value Type="Vector2" Index="98">
+                      <x Type="Float">0.61537466948305</x>
+                      <y Type="Float">0.00355151230089281</y>
+                    </Value>
+                    <Value Type="Vector2" Index="99">
+                      <x Type="Float">0.627684023425238</x>
+                      <y Type="Float">0.00345109142333611</y>
+                    </Value>
+                    <Value Type="Vector2" Index="100">
+                      <x Type="Float">0.640011141334127</x>
+                      <y Type="Float">0.00334687013347916</y>
+                    </Value>
+                    <Value Type="Vector2" Index="101">
+                      <x Type="Float">0.652357705171501</x>
+                      <y Type="Float">0.0032392923938441</y>
+                    </Value>
+                    <Value Type="Vector2" Index="102">
+                      <x Type="Float">0.66472484899435</x>
+                      <y Type="Float">0.0031282188987388</y>
+                    </Value>
+                    <Value Type="Vector2" Index="103">
+                      <x Type="Float">0.677115664417527</x>
+                      <y Type="Float">0.00301347734276304</y>
+                    </Value>
+                    <Value Type="Vector2" Index="104">
+                      <x Type="Float">0.68953348004238</x>
+                      <y Type="Float">0.00289564199970744</y>
+                    </Value>
+                    <Value Type="Vector2" Index="105">
+                      <x Type="Float">0.70198001918773</x>
+                      <y Type="Float">0.00277512599338081</y>
+                    </Value>
+                    <Value Type="Vector2" Index="106">
+                      <x Type="Float">0.714457230398343</x>
+                      <y Type="Float">0.00265171147850605</y>
+                    </Value>
+                    <Value Type="Vector2" Index="107">
+                      <x Type="Float">0.726970261853845</x>
+                      <y Type="Float">0.00252522193198571</y>
+                    </Value>
+                    <Value Type="Vector2" Index="108">
+                      <x Type="Float">0.739524651490993</x>
+                      <y Type="Float">0.00239645156646509</y>
+                    </Value>
+                    <Value Type="Vector2" Index="109">
+                      <x Type="Float">0.752122910918136</x>
+                      <y Type="Float">0.00226609837780566</y>
+                    </Value>
+                    <Value Type="Vector2" Index="110">
+                      <x Type="Float">0.764768837622549</x>
+                      <y Type="Float">0.00213377483066873</y>
+                    </Value>
+                    <Value Type="Vector2" Index="111">
+                      <x Type="Float">0.777469777768789</x>
+                      <y Type="Float">0.00199930030268316</y>
+                    </Value>
+                    <Value Type="Vector2" Index="112">
+                      <x Type="Float">0.790233723816061</x>
+                      <y Type="Float">0.00186344704263372</y>
+                    </Value>
+                    <Value Type="Vector2" Index="113">
+                      <x Type="Float">0.803064424088657</x>
+                      <y Type="Float">0.00172693852505741</y>
+                    </Value>
+                    <Value Type="Vector2" Index="114">
+                      <x Type="Float">0.815970834042057</x>
+                      <y Type="Float">0.00158877560357206</y>
+                    </Value>
+                    <Value Type="Vector2" Index="115">
+                      <x Type="Float">0.828966383647949</x>
+                      <y Type="Float">0.00144927742196373</y>
+                    </Value>
+                    <Value Type="Vector2" Index="116">
+                      <x Type="Float">0.842065552873566</x>
+                      <y Type="Float">0.00130979939063823</y>
+                    </Value>
+                    <Value Type="Vector2" Index="117">
+                      <x Type="Float">0.855277052611788</x>
+                      <y Type="Float">0.00117141140501511</y>
+                    </Value>
+                    <Value Type="Vector2" Index="118">
+                      <x Type="Float">0.868619271589437</x>
+                      <y Type="Float">0.00103242698375141</y>
+                    </Value>
+                    <Value Type="Vector2" Index="119">
+                      <x Type="Float">0.882116535065868</x>
+                      <y Type="Float">0.000893960846458538</y>
+                    </Value>
+                    <Value Type="Vector2" Index="120">
+                      <x Type="Float">0.895794351561462</x>
+                      <y Type="Float">0.000758014817157484</y>
+                    </Value>
+                    <Value Type="Vector2" Index="121">
+                      <x Type="Float">0.909673019067464</x>
+                      <y Type="Float">0.000624497043317302</y>
+                    </Value>
+                    <Value Type="Vector2" Index="122">
+                      <x Type="Float">0.923794485611446</x>
+                      <y Type="Float">0.000491127522085944</y>
+                    </Value>
+                    <Value Type="Vector2" Index="123">
+                      <x Type="Float">0.938210591524836</x>
+                      <y Type="Float">0.000364450881200175</y>
+                    </Value>
+                    <Value Type="Vector2" Index="124">
+                      <x Type="Float">0.952983803846551</x>
+                      <y Type="Float">0.000252896111324274</y>
+                    </Value>
+                    <Value Type="Vector2" Index="125">
+                      <x Type="Float">0.968171961282151</x>
+                      <y Type="Float">0.000161132885567177</y>
+                    </Value>
+                    <Value Type="Vector2" Index="126">
+                      <x Type="Float">0.983824204751745</x>
+                      <y Type="Float">8.16573776510107E-5</y>
+                    </Value>
+                    <Value Type="Vector2" Index="127">
+                      <x Type="Float">1</x>
+                      <y Type="Float">0</y>
+                    </Value>
+                  </Points>
+                </Polyline>
+              </BezierNProf>
+              <BezierNProf Type="Object" Name="SS">
+                <CurveMode>Bezier</CurveMode>
+                <Angle Type="Array" Count="2">
+                  <Value Type="Float" Index="0">6.28303530718071</Value>
+                  <Value Type="Float" Index="1">0.000149999998875</Value>
+                </Angle>
+                <FixedStartAngle Type="Boolean">0</FixedStartAngle>
+                <FixedEndAngle Type="Boolean">0</FixedEndAngle>
+                <CanChangeFixedStartAngle Type="Boolean">1</CanChangeFixedStartAngle>
+                <CanChangeFixedEndAngle Type="Boolean">1</CanChangeFixedEndAngle>
+                <Points Count="4" Type="Array1">
+                  <Value Type="Vector2" Index="0">
+                    <x Type="Float">0</x>
+                    <y Type="Float">-0.0005</y>
+                  </Value>
+                  <Value Type="Vector2" Index="1">
+                    <x Type="Float">0.333333333333333</x>
+                    <y Type="Float">-0.00055</y>
+                  </Value>
+                  <Value Type="Vector2" Index="2">
+                    <x Type="Float">0.666666666666667</x>
+                    <y Type="Float">-0.00055</y>
+                  </Value>
+                  <Value Type="Vector2" Index="3">
+                    <x Type="Float">1</x>
+                    <y Type="Float">-0.0005</y>
+                  </Value>
+                </Points>
+                <ProfMode>Freeform</ProfMode>
+                <FlexibleXDir Type="Boolean">1</FlexibleXDir>
+                <FlexibleYDir Type="Boolean">0</FlexibleYDir>
+                <IsLoaded Type="Boolean">0</IsLoaded>
+                <ProfileName></ProfileName>
+                <RoundedLE Type="Boolean">0</RoundedLE>
+                <RoundedTE Type="Boolean">0</RoundedTE>
+              </BezierNProf>
+            </BezFillProf>
+          </TReadWriteArray_BezFillProf>
+        </BladeProfiles>
+        <BladeEdges Type="Object">
+          <TReadWriteArray_LeadingEdgeElement Type="Object">
+            <LeadingEdgeElement Type="Object" Index="0">
+              <Coupled Type="Enum">Uniform</Coupled>
+              <TReadWriteArray_Bezier4Edge Type="Object">
+                <Bezier4Edge Type="Object" Index="0">
+                  <CurveMode>Polyline</CurveMode>
+                  <EdgeMode>Ellipse</EdgeMode>
+                  <EllRatio Type="Float">3</EllRatio>
+                </Bezier4Edge>
+                <Bezier4Edge Type="Object" Index="1">
+                  <CurveMode>Polyline</CurveMode>
+                  <EdgeMode>Ellipse</EdgeMode>
+                  <EllRatio Type="Float">3</EllRatio>
+                </Bezier4Edge>
+              </TReadWriteArray_Bezier4Edge>
+            </LeadingEdgeElement>
+          </TReadWriteArray_LeadingEdgeElement>
+          <TReadWriteArray_TrailingEdgeElement Type="Object">
+            <TrailingEdgeElement Type="Object" Index="0">
+              <IsTrimmed Type="Boolean">True</IsTrimmed>
+              <TReadWriteArray_Bezier4Edge Type="Object">
+                <Bezier4Edge Type="Object" Index="0">
+                  <CurveMode>Polyline</CurveMode>
+                  <EdgeMode>Line</EdgeMode>
+                </Bezier4Edge>
+                <Bezier4Edge Type="Object" Index="1">
+                  <CurveMode>Polyline</CurveMode>
+                  <EdgeMode>Line</EdgeMode>
+                </Bezier4Edge>
+              </TReadWriteArray_Bezier4Edge>
+            </TrailingEdgeElement>
+          </TReadWriteArray_TrailingEdgeElement>
+        </BladeEdges>
+        <Finishing Type="Object">
+          <FilletHub Type="Boolean">False</FilletHub>
+          <FilletShroud Type="Boolean">False</FilletShroud>
+          <ExtBlade Type="Boolean">False</ExtBlade>
+        </Finishing>
+        <Performance Type="Object">
+          <Zeta Type="Float">0</Zeta>
+          <ShockLoss Type="Float">0</ShockLoss>
+        </Performance>
+      </CFturboDesign_Stator>
+      <CFturboDesign_AxialImpeller Type="Object" Name="[Impeller_1]" Index="1">
+        <GUID>{EB3A9159-379F-49DA-BEAF-F54ED028CCD8}</GUID>
+        <Color Type="Integer">0x00008000</Color>
+        <Active Type="Boolean">True</Active>
+        <ComponentLinkReference>{00000000-0000-0000-0000-000000000000}</ComponentLinkReference>
+        <Caption>[Impeller_1]</Caption>
+        <ModelSetup_RotSym Type="Object">
+          <DistTolerance Type="Float">5E-5</DistTolerance>
+          <TRotSymCtObj Type="Object" Name="ExpPointCt">
+            <hub Type="Integer">80</hub>
+            <SkeletonLine Type="Integer">80</SkeletonLine>
+            <SuctionSide Type="Integer">80</SuctionSide>
+            <LeadingEdge Type="Integer">55</LeadingEdge>
+          </TRotSymCtObj>
+          <TRotSymCtObj Type="Object" Name="3DPointCt">
+            <hub Type="Integer">40</hub>
+            <SkeletonLine Type="Integer">50</SkeletonLine>
+            <SuctionSide Type="Integer">27</SuctionSide>
+            <LeadingEdge Type="Integer">23</LeadingEdge>
+          </TRotSymCtObj>
+        </ModelSetup_RotSym>
+        <MainDimensions Type="Object">
+          <CurrentDimIndex Type="Integer">0</CurrentDimIndex>
+          <MainDimensionsElement Type="Object" Name="Version 1.">
+            <UnShrouded Type="Boolean">True</UnShrouded>
+            <xTipInlet Type="Float">0.00064</xTipInlet>
+            <xTipOutlet Type="Float">0.00064</xTipOutlet>
+            <SolidDensity Type="Float">8190</SolidDensity>
+            <InflowSwirl Type="Enum">Reaction</InflowSwirl>
+            <FreeStyle Type="Boolean">True</FreeStyle>
+            <Type Type="Enum">Standard</Type>
+            <EnergyRel Type="Float">1</EnergyRel>
+            <ContraRotating Type="Boolean">False</ContraRotating>
+            <HasAlternativeSpeed Type="Boolean">False</HasAlternativeSpeed>
+            <Psi Type="Float">0</Psi>
+            <EtaV Type="Float">1</EtaV>
+            <EtaT Type="Float">1</EtaT>
+            <dH Type="Float">0.0717</dH>
+            <dS Type="Float">0.127</dS>
+            <dH2 Type="Float">0.0717</dH2>
+            <dS2 Type="Float">0.127</dS2>
+            <BladeDesignMode Type="Enum">Airfoil</BladeDesignMode>
+            <d2Type Type="Enum">Psi</d2Type>
+            <dS2FuncName></dS2FuncName>
+            <dH2FuncName></dH2FuncName>
+            <dS1FuncName></dS1FuncName>
+            <dH1FuncName></dH1FuncName>
+            <FlowCoefficient Type="Float">0</FlowCoefficient>
+            <DegreeOfReaction Type="Float">0.5</DegreeOfReaction>
+          </MainDimensionsElement>
+        </MainDimensions>
+        <Meridian Type="Object">
+          <LE_fixed Type="Boolean">False</LE_fixed>
+          <TE_fixed Type="Boolean">False</TE_fixed>
+          <TMerSolid_Active Type="Boolean">False</TMerSolid_Active>
+          <TMer2ndaryFlowPath_Active Type="Boolean">False</TMer2ndaryFlowPath_Active>
+          <TgrMer_AImp Type="Object">
+            <LE_enabled Type="Boolean">1</LE_enabled>
+            <SPLITTER_enabled Type="Boolean">0</SPLITTER_enabled>
+            <TE_enabled Type="Boolean">1</TE_enabled>
+            <Bezier4MerLE Type="Object" Name="GeoLeadingEdge">
+              <CurveMode>Line</CurveMode>
+              <Points Count="2" Type="Array1">
+                <Value Type="Vector2" Index="0">
+                  <x Type="Float">0.035901943</x>
+                  <y Type="Float">0.03585</y>
+                </Value>
+                <Value Type="Vector2" Index="1">
+                  <x Type="Float">0.039509715</x>
+                  <y Type="Float">0.06286</y>
+                </Value>
+              </Points>
+              <Coupled Type="Boolean">1</Coupled>
+              <Limit Type="Boolean">1</Limit>
+              <u-Hub Type="Float">0.02</u-Hub>
+              <u-Shroud Type="Float">0.1</u-Shroud>
+            </Bezier4MerLE>
+            <Bezier4MerTE Type="Object" Name="GeoTrailingEdge">
+              <CurveMode>Line</CurveMode>
+              <Points Count="2" Type="Array1">
+                <Value Type="Vector2" Index="0">
+                  <x Type="Float">0.0778422925</x>
+                  <y Type="Float">0.03585</y>
+                </Value>
+                <Value Type="Vector2" Index="1">
+                  <x Type="Float">0.0778422925</x>
+                  <y Type="Float">0.06286</y>
+                </Value>
+              </Points>
+              <Coupled Type="Boolean">1</Coupled>
+              <Limit Type="Boolean">1</Limit>
+              <u-Hub Type="Float">0.95</u-Hub>
+              <u-Shroud Type="Float">0.95</u-Shroud>
+            </Bezier4MerTE>
+            <TCCurveMer_AImp Type="Object" Name="GeoHub">
+              <MasterIndex Type="Integer">0</MasterIndex>
+              <TReadWriteArray_Bezier4Mer Type="Object">
+                <Bezier4Mer Type="Object" Index="0">
+                  <CurveMode>Line</CurveMode>
+                  <Points Count="2" Type="Array1">
+                    <Value Type="Vector2" Index="0">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.03585</y>
+                    </Value>
+                    <Value Type="Vector2" Index="1">
+                      <x Type="Float">0.08009715</x>
+                      <y Type="Float">0.03585</y>
+                    </Value>
+                  </Points>
+                  <Coupled Type="Boolean">0</Coupled>
+                  <Limit Type="Boolean">0</Limit>
+                  <RelRadius Type="Float">0.14</RelRadius>
+                  <Gamma Type="Float">0</Gamma>
+                </Bezier4Mer>
+              </TReadWriteArray_Bezier4Mer>
+              <TReadWriteArray_TCurveConnector Type="Object">
+                <TCurveConnector Type="Object" Index="0">
+                  <Position Type="Vector2">
+                    <x Type="Float">0.035</x>
+                    <y Type="Float">0.03585</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+                <TCurveConnector Type="Object" Index="1">
+                  <Position Type="Vector2">
+                    <x Type="Float">0.08009715</x>
+                    <y Type="Float">0.03585</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+              </TReadWriteArray_TCurveConnector>
+            </TCCurveMer_AImp>
+            <TCCurveMer_AImp Type="Object" Name="GeoShroud">
+              <MasterIndex Type="Integer">0</MasterIndex>
+              <TReadWriteArray_Bezier4Mer Type="Object">
+                <Bezier4Mer Type="Object" Index="0">
+                  <CurveMode>Line</CurveMode>
+                  <Points Count="2" Type="Array1">
+                    <Value Type="Vector2" Index="0">
+                      <x Type="Float">0.035</x>
+                      <y Type="Float">0.0635</y>
+                    </Value>
+                    <Value Type="Vector2" Index="1">
+                      <x Type="Float">0.08009715</x>
+                      <y Type="Float">0.0635</y>
+                    </Value>
+                  </Points>
+                  <Coupled Type="Boolean">0</Coupled>
+                  <Limit Type="Boolean">0</Limit>
+                  <RelRadius Type="Float">0.14</RelRadius>
+                  <Gamma Type="Float">0</Gamma>
+                </Bezier4Mer>
+              </TReadWriteArray_Bezier4Mer>
+              <TReadWriteArray_TCurveConnector Type="Object">
+                <TCurveConnector Type="Object" Index="0">
+                  <Position Type="Vector2">
+                    <x Type="Float">0.035</x>
+                    <y Type="Float">0.0635</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+                <TCurveConnector Type="Object" Index="1">
+                  <Position Type="Vector2">
+                    <x Type="Float">0.08009715</x>
+                    <y Type="Float">0.0635</y>
+                  </Position>
+                  <IsTangential Type="Boolean">0</IsTangential>
+                </TCurveConnector>
+              </TReadWriteArray_TCurveConnector>
+            </TCCurveMer_AImp>
+          </TgrMer_AImp>
+          <TCmContourScale Type="Object">
+            <contourAutoScale Type="Boolean">True</contourAutoScale>
+          </TCmContourScale>
+        </Meridian>
+        <BladeProperties Type="Object">
+          <nBl Type="Integer">40</nBl>
+          <Count Type="Integer">15</Count>
+          <UserSlipModel Type="Enum">usiDelta</UserSlipModel>
+          <BetaModeLE Type="Enum">User</BetaModeLE>
+          <BetaModeTE Type="Enum">User</BetaModeTE>
+          <AutoUpdate1 Type="Boolean">False</AutoUpdate1>
+          <AutoUpdate2 Type="Boolean">False</AutoUpdate2>
+          <AirfoilParaMode Type="Enum">Linear</AirfoilParaMode>
+          <TReadWriteArray_TBladeProps Type="Object" Name="BladeValues">
+            <TBladePropsAx Type="Object" Name="Main blade" Index="0">
+              <GammaStagger Count="15" Type="Array1">
+                <Value Type="Float" Index="0">0</Value>
+                <Value Type="Float" Index="1">0</Value>
+                <Value Type="Float" Index="2">0</Value>
+                <Value Type="Float" Index="3">0</Value>
+                <Value Type="Float" Index="4">0</Value>
+                <Value Type="Float" Index="5">0</Value>
+                <Value Type="Float" Index="6">0</Value>
+                <Value Type="Float" Index="7">0</Value>
+                <Value Type="Float" Index="8">0</Value>
+                <Value Type="Float" Index="9">0</Value>
+                <Value Type="Float" Index="10">0</Value>
+                <Value Type="Float" Index="11">0</Value>
+                <Value Type="Float" Index="12">0</Value>
+                <Value Type="Float" Index="13">0</Value>
+                <Value Type="Float" Index="14">0</Value>
+              </GammaStagger>
+              <ChordLength Count="15" Type="Array1">
+                <Value Type="Float" Index="0">0.00675756579787164</Value>
+                <Value Type="Float" Index="1">0.00686689803077675</Value>
+                <Value Type="Float" Index="2">0.00695025442156754</Value>
+                <Value Type="Float" Index="3">0.007007634970244</Value>
+                <Value Type="Float" Index="4">0.00703903967680613</Value>
+                <Value Type="Float" Index="5">0.00704446854125394</Value>
+                <Value Type="Float" Index="6">0.00702392156358743</Value>
+                <Value Type="Float" Index="7">0.00697739874380659</Value>
+                <Value Type="Float" Index="8">0.00690490008191143</Value>
+                <Value Type="Float" Index="9">0.00680642557790194</Value>
+                <Value Type="Float" Index="10">0.00668197523177813</Value>
+                <Value Type="Float" Index="11">0.00653154904353999</Value>
+                <Value Type="Float" Index="12">0.00635514701318753</Value>
+                <Value Type="Float" Index="13">0.00615276914072074</Value>
+                <Value Type="Float" Index="14">0.00592441542613963</Value>
+              </ChordLength>
+            </TBladePropsAx>
+          </TReadWriteArray_TBladeProps>
+          <TSpanDistrib Type="Object">
+            <CurveMode Type="Enum">Line</CurveMode>
+          </TSpanDistrib>
+          <KinematicsAImp Type="Object">
+            <Theory Type="Enum">SimpleAirfoilMethod</Theory>
+            <Solidity Count="15" Type="Array1">
+              <Value Type="Float" Index="0">1.2</Value>
+              <Value Type="Float" Index="14">0.6</Value>
+            </Solidity>
+          </KinematicsAImp>
+          <ProfileHandler Type="Object">
+            <ProfileSpanMapping Count="15" Type="Array1">
+              <Value Index="0">NACA 4 Digit_NACA 6309</Value>
+              <Value Index="1">Interpol_Prof</Value>
+              <Value Index="2">Interpol_Prof</Value>
+              <Value Index="3">Interpol_Prof</Value>
+              <Value Index="4">Interpol_Prof</Value>
+              <Value Index="5">Interpol_Prof</Value>
+              <Value Index="6">Interpol_Prof</Value>
+              <Value Index="7">Interpol_Prof</Value>
+              <Value Index="8">Interpol_Prof</Value>
+              <Value Index="9">Interpol_Prof</Value>
+              <Value Index="10">Interpol_Prof</Value>
+              <Value Index="11">Interpol_Prof</Value>
+              <Value Index="12">Interpol_Prof</Value>
+              <Value Index="13">Interpol_Prof</Value>
+              <Value Index="14">Interpol_Prof</Value>
+            </ProfileSpanMapping>
+            <PolyList_TBladeProfile Type="Object">
+              <BladeProfileNACA4Dig Type="Object" Name="NACA 6309" Index="0">
+                <ProfileTEThickness Type="Float">0.00188999999999999</ProfileTEThickness>
+                <CLvsAlpha Count="9" Type="Array1">
+                  <Value Type="Vector2" Index="0">
+                    <x Type="Float">0.034906585</x>
+                    <y Type="Float">0.8313</y>
+                  </Value>
+                  <Value Type="Vector2" Index="1">
+                    <x Type="Float">0.052359878</x>
+                    <y Type="Float">0.9348</y>
+                  </Value>
+                  <Value Type="Vector2" Index="2">
+                    <x Type="Float">0.06981317</x>
+                    <y Type="Float">1.0402</y>
+                  </Value>
+                  <Value Type="Vector2" Index="3">
+                    <x Type="Float">0.087266463</x>
+                    <y Type="Float">1.1456</y>
+                  </Value>
+                  <Value Type="Vector2" Index="4">
+                    <x Type="Float">0.10471976</x>
+                    <y Type="Float">1.2516</y>
+                  </Value>
+                  <Value Type="Vector2" Index="5">
+                    <x Type="Float">0.12217305</x>
+                    <y Type="Float">1.3525</y>
+                  </Value>
+                  <Value Type="Vector2" Index="6">
+                    <x Type="Float">0.13962634</x>
+                    <y Type="Float">1.4513</y>
+                  </Value>
+                  <Value Type="Vector2" Index="7">
+                    <x Type="Float">0.15707963</x>
+                    <y Type="Float">1.5187</y>
+                  </Value>
+                  <Value Type="Vector2" Index="8">
+                    <x Type="Float">0.17453293</x>
+                    <y Type="Float">1.5657</y>
+                  </Value>
+                </CLvsAlpha>
+                <EpsilonvsAlpha Count="9" Type="Array1">
+                  <Value Type="Vector2" Index="0">
+                    <x Type="Float">0.034906585</x>
+                    <y Type="Float">0.0144</y>
+                  </Value>
+                  <Value Type="Vector2" Index="1">
+                    <x Type="Float">0.052359878</x>
+                    <y Type="Float">0.0141</y>
+                  </Value>
+                  <Value Type="Vector2" Index="2">
+                    <x Type="Float">0.06981317</x>
+                    <y Type="Float">0.0138</y>
+                  </Value>
+                  <Value Type="Vector2" Index="3">
+                    <x Type="Float">0.087266463</x>
+                    <y Type="Float">0.0137</y>
+                  </Value>
+                  <Value Type="Vector2" Index="4">
+                    <x Type="Float">0.10471976</x>
+                    <y Type="Float">0.0138</y>
+                  </Value>
+                  <Value Type="Vector2" Index="5">
+                    <x Type="Float">0.12217305</x>
+                    <y Type="Float">0.014</y>
+                  </Value>
+                  <Value Type="Vector2" Index="6">
+                    <x Type="Float">0.13962634</x>
+                    <y Type="Float">0.0141</y>
+                  </Value>
+                  <Value Type="Vector2" Index="7">
+                    <x Type="Float">0.15707963</x>
+                    <y Type="Float">0.0136</y>
+                  </Value>
+                  <Value Type="Vector2" Index="8">
+                    <x Type="Float">0.17453293</x>
+                    <y Type="Float">0.0137</y>
+                  </Value>
+                </EpsilonvsAlpha>
+                <ProfileCamber Type="Float">0.06</ProfileCamber>
+                <ProfileCamberPos Type="Float">0.3</ProfileCamberPos>
+                <ProfileMaxThickness Type="Float">0.09</ProfileMaxThickness>
+                <ProfileReNo Type="Float">200000</ProfileReNo>
+              </BladeProfileNACA4Dig>
+            </PolyList_TBladeProfile>
+          </ProfileHandler>
+          <CuCmDefinition Type="Object" Name="Cu-Cm-definition">
+            <Cu-Cm-definition Type="Enum">Free vortex</Cu-Cm-definition>
+          </CuCmDefinition>
+        </BladeProperties>
+        <AxProfiles Type="Object">
+          <Radial2D-shape Type="Boolean">False</Radial2D-shape>
+          <ThicknessMode Type="Enum">Relative</ThicknessMode>
+          <Trailing-edge-relative-thickness Type="Float">0.00188999999999999</Trailing-edge-relative-thickness>
+          <coLERelPos Type="Float">0.05</coLERelPos>
+          <RoundedTE Type="Boolean">False</RoundedTE>
+        </AxProfiles>
+      </CFturboDesign_AxialImpeller>
+    </PolyList_CFturboDesign>
+    <Export_Interfaces Type="Object">
+      <TSimericsInterface Type="Object">
+        <DomainType Type="Enum">Flow domain</DomainType>
+        <BaseFileName></BaseFileName>
+        <ExportDir></ExportDir>
+        <FileConfig Type="Enum">fcAll</FileConfig>
+        <RefZoneIndex Type="Integer">-1</RefZoneIndex>
+        <UseLocalRotSym Type="Boolean">False</UseLocalRotSym>
+        <UseLocalVolutes Type="Boolean">False</UseLocalVolutes>
+        <SplitNearSurfaces Type="Boolean">True</SplitNearSurfaces>
+        <SizeSpecification Type="Enum">cssRelToSelCAD</SizeSpecification>
+        <CellSizeOnSurf Type="Float">0.006</CellSizeOnSurf>
+        <MinCellSize Type="Float">0.0001</MinCellSize>
+        <MaxCellSize Type="Float">0.012</MaxCellSize>
+        <HubCellSize Type="Float">0.006</HubCellSize>
+        <ShroudCellSize Type="Float">0.006</ShroudCellSize>
+        <BladesCellSize Type="Float">0.006</BladesCellSize>
+        <BladeLECellSize Type="Float">0.006</BladeLECellSize>
+        <BladeTECellSize Type="Float">0.006</BladeTECellSize>
+        <BladeTipCellSize Type="Float">0.006</BladeTipCellSize>
+        <InletRSCellSize Type="Float">0.006</InletRSCellSize>
+        <OutletRSCellSize Type="Float">0.006</OutletRSCellSize>
+        <SolidHubCellSize Type="Float">0.006</SolidHubCellSize>
+        <SolidShrCellSize Type="Float">0.006</SolidShrCellSize>
+        <SpiralCellSize Type="Float">0.006</SpiralCellSize>
+        <DiffuserCellSize Type="Float">0.006</DiffuserCellSize>
+        <CutWaterCellSize Type="Float">0.006</CutWaterCellSize>
+        <SplitterCellSize Type="Float">0.006</SplitterCellSize>
+        <InletSPCellSize Type="Float">0.006</InletSPCellSize>
+        <OutletSPCellSize Type="Float">0.006</OutletSPCellSize>
+        <RefineCasing Type="Boolean">False</RefineCasing>
+        <Solver Type="Enum">SimericsMP</Solver>
+        <SimulationType Type="Enum">Steady</SimulationType>
+        <ActivateCavitation Type="Boolean">False</ActivateCavitation>
+        <ActivateReverseFlow Type="Boolean">False</ActivateReverseFlow>
+        <WriteTurboExpressions Type="Boolean">True</WriteTurboExpressions>
+        <Iterations Type="Integer">500</Iterations>
+        <SavingFrecPerRotation Type="Integer">500</SavingFrecPerRotation>
+        <ConvergeCrierion Type="Float">0.001</ConvergeCrierion>
+        <NumberOfRotations Type="Integer">3</NumberOfRotations>
+        <TimeStepType Type="Enum">tstRotAnglePerStep</TimeStepType>
+        <DregreesPerStep Type="Float">0.0523598775598299</DregreesPerStep>
+        <StepsPerPocket Type="Integer">100</StepsPerPocket>
+        <NumericSchemeVelocity Type="Enum">nsUpwind</NumericSchemeVelocity>
+        <NumericSchemePressure Type="Enum">nsUpwind</NumericSchemePressure>
+        <RelaxationVel Type="Float">0</RelaxationVel>
+        <DiagRelaxationPress Type="Float">0</DiagRelaxationPress>
+        <STLData Type="Object">
+          <MinSize Type="Float">0.0002</MinSize>
+          <MaxSize Type="Float">0.003</MaxSize>
+          <STL_granularity Type="Enum">Fine</STL_granularity>
+          <STL_write_mode Type="Enum">Binary</STL_write_mode>
+        </STLData>
+        <TGasTableSimerics Type="Object">
+          <LowPress Type="Float">1000</LowPress>
+          <HighPress Type="Float">5000000</HighPress>
+          <LowTemp Type="Float">200</LowTemp>
+          <HighTemp Type="Float">500</HighTemp>
+          <PressDim Type="Integer">500</PressDim>
+          <TempDim Type="Integer">200</TempDim>
+          <FluidGasModel Type="Enum">Perfect</FluidGasModel>
+        </TGasTableSimerics>
+      </TSimericsInterface>
+    </Export_Interfaces>
+    <SimpleReport>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</SimpleReport>
+    <MeridianContourImage Height="400" Width="600">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</MeridianContourImage>
+  </CFturboProject>
+</CFturboFile>
