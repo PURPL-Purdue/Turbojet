@@ -23,8 +23,8 @@ eff_burner = 0.9; % burner efficiency
 eff_turbine = 0.9; % turbine efficiency
 eff_nozzle = 0.95; % nozzle efficiency
 
-compr_pressure = 4; % compressor pressure ratio
-burner_temp = 977; % Burner inlet temperature [K]
+compr_pressure = 3; % compressor pressure ratio
+burner_temp = 1000; % Burner outlet temperature [K]
 
 stat_temp0 = 293.15; % initial static temp [K]
 stat_press0 = 100; % initial static pressure [kPa]
@@ -48,7 +48,7 @@ compr_temp = diffuser_temp * (1 + ((1/eff_compressor) * ...
 compr_press = compr_pressure * diffuser_press;                             % stagnation pressure exiting compressor [kPa]
 
 % BURNER OUTLET / TURBINE INLET
-burner_press = compr_press;                                                % stagnation pressure exiting burner [kPa]
+burner_press = compr_press * .94;                                                % stagnation pressure exiting burner [kPa]
 fuel_ratio = ((burner_temp/compr_temp) - 1) / (((eff_burner*heatrxn_fuel) ...
     / (specHeat_hot*compr_temp)) - (burner_temp/compr_temp));              % fuel to air ratio
 
@@ -65,7 +65,7 @@ exit_velocity = sqrt(2 * specHeat_hot * turbine_temp * eff_nozzle * ...
 
 % PERFORMANCE VALUES 
 specific_thrust = (1 + fuel_ratio) * exit_velocity;                        % specific thrust assuming static operation [m/s]
-st_fuel = fuel_ratio / specific_thrust;                                    % Thrust Specific Fuel Consumption [kg/Ns]
+st_fuel = fuel_ratio / specific_thrust * 60 *60;                                    % Thrust Specific Fuel Consumption [kg/Nh]
 eff_thermal = ((1 + fuel_ratio) * (exit_velocity^2 / 2)) ...
     / (fuel_ratio * heatrxn_fuel);                                         % Thermal Efficiency 
 
@@ -93,7 +93,28 @@ fprintf("Nozzle Exit Specific Thrust: %f m/s\n\n", specific_thrust);
 fprintf("Nozzle Exit Mass Flow: %f kg/s\n", mass_flow);
 fprintf("Mass Flow of Air: %f kg/s\n", mass_flow_air);
 fprintf("Mass Flow of Fuel: %f kg/s\n\n", mass_flow_fuel);
-fprintf("Thrust Specific Fuel Consumption: %f kg/Ns\n", st_fuel);
+fprintf("Thrust Specific Fuel Consumption: %f kg/Nh\n", st_fuel);
 fprintf("Thermal Efficiency: %f\n", eff_thermal);
 fprintf("\n");
+
+subplot(2,1,1)
+temp = [stagn_temp, diffuser_temp,compr_temp,burner_temp,turbine_temp];
+stage = [1 2 3 4 5];
+plot(stage,temp)
+title("Stagnation Temperatures")
+grid on;
+ylabel("Stagnation Temperature [K]")
+set(gca,'XTick',[])
+
+subplot(2,1,2)
+press = [stat_press0, diffuser_press,compr_press,burner_press,turbine_press];
+stage = [1 2 3 4 5];
+plot(stage,press)
+title("Stagnation Pressures")
+grid on;
+ylabel("Stagnation Pressure [kPa]")
+set(gca,'XTick',[])
+ylim([50 450])
+
+power = mass_flow_air * specHeat_hot / 1000 * diffuser_temp * (compr_pressure^((gamma_hot-1)/gamma_hot)-1) / .7
 
