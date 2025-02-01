@@ -204,9 +204,9 @@ end
 % Writes the prepped final XY matricies to .txt files
 function export(rotor_blade, stator_blade)
     % EXPORTING
-    folder = fileparts(fileparts(mfilename('fullpath'))); 
+    folder = fileparts(fileparts(mfilename('fullpath')));
 
-    writematrix(export_prep(stator_blade(1), stator_blade(1).parameters.R, stator_blade(1).parameters.Ct), fullfile(folder, 'Curve_Files\stator_hub.txt'), 'Delimiter', 'tab');
+    writematrix(export_prep(stator_blade(1), stator_blade(1).parameters.R, stator_blade(1).parameters.Ct), fullfile(folder, 'Curve_Files\stator_hub.txt'), 'tab');
     writematrix(export_prep(stator_blade(2), stator_blade(2).parameters.R, stator_blade(2).parameters.Ct), fullfile(folder, 'Curve_Files\stator_mid.txt'), 'Delimiter', 'tab');
     writematrix(export_prep(stator_blade(3), stator_blade(3).parameters.R, stator_blade(3).parameters.Ct), fullfile(folder, 'Curve_Files\stator_tip.txt'), 'Delimiter', 'tab');
 
