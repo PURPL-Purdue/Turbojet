@@ -1,27 +1,70 @@
 %% GENERATES BLADE GEOMETRY
-function blade = pritchard(R, R_LE, R_TE, Cx, Ct, zeta, beta_IN, ep_IN, beta_OUT, ep_OUT, N_B)
-    beta_IN = deg2rad(beta_IN);
-    beta_OUT = deg2rad(beta_OUT);
-    ep_IN = deg2rad(ep_IN);
-    ep_OUT = deg2rad(ep_OUT);
-    zeta = deg2rad(zeta);   
+function blade = pritchard(params)
+    params.beta_IN = deg2rad(params.beta_IN);
+    params.beta_OUT = deg2rad(params.beta_OUT);
+    params.ep_IN = deg2rad(params.ep_IN);
+    params.ep_OUT = deg2rad(params.ep_OUT);
+    params.zeta = deg2rad(params.zeta);   
 
-    o = 2*pi*R/N_B*cos(beta_OUT)-2*R_TE;
+    o = 2*pi*params.R/params.N_B*cos(params.beta_OUT)-2*params.R_TE;
 
-    pts = points(R, R_LE, R_TE, Cx, Ct, zeta, beta_IN, ep_IN, beta_OUT, ep_OUT, N_B, o);
-    blade = generate_curves(pts.x_coords, pts.y_coords, pts.betas, R_LE, R_TE, pts.R_new, o);
-    [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade);     % Combine separate sections into big x and y vectors (good for solidworks exporting later too)
+    factor = 1;
+    while factor > 0.1
+        pts = points(params.R, params.R_LE, params.R_TE, params.Cx, params.Ct, params.zeta, params.beta_IN, params.ep_IN, params.beta_OUT, params.ep_OUT, params.N_B, o);
+        blade = generate_curves(pts.x_coords, pts.y_coords, pts.betas, params.R_LE, params.R_TE, pts.R_new, o);
+        [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade);     % Combine separate sections into big x and y vectors (good for solidworks exporting later too)
+    
+        [t_max, pos_ss, pos_ps] = max_t(blade);
 
-    [blade.t_max, pos_ss, pos_ps] = max_t(blade);
-    blade.x_thicc = linspace(blade.x_pressure(pos_ps), blade.x_ss_comb(pos_ss), 20);
-    blade.y_thicc = linspace(blade.y_pressure(pos_ps), blade.y_ss_comb(pos_ss), 20);
-    blade.R = R;
-    fprintf(">:D\n")
+        ttc = params.Ct/100;
+        chord = sqrt(params.Ct^2 + params.Cx^2);
+        factor = abs(t_max/chord-ttc);
+        if factor > 0.1
+            params.Ct = params.Ct*(3+t_max/chord/ttc)/4;
+        end
+    end
+
+    
+    ps_p1x_target = (blade.x(4)+blade.x(5))/2;
+    ss_p1x_target = (blade.x(2)+blade.x(3))/2;
+    ps_error = ps_p1x_target-blade.ps_p1x;
+    ss_error = ss_p1x_target-blade.ss_p1x;
+    avg_error = (abs(ps_error) + abs(ss_error))/2;
+
+    ss_is_bad = not(blade.ss_p1x > blade.x(3) && blade.ss_p1x < blade.x(2));
+    ps_is_bad = not(blade.ps_p1x > blade.x(4) && blade.ps_p1x < blade.x(5));
+    while ss_is_bad || ps_is_bad
+        params.Ct = params.Ct+avg_error/100;
+        fprintf("Ct: %.3f", params.Ct)
+        pts = points(params.R, params.R_LE, params.R_TE, params.Cx, params.Ct, params.zeta, params.beta_IN, params.ep_IN, params.beta_OUT, params.ep_OUT, params.N_B, o);
+        blade = generate_curves(pts.x_coords, pts.y_coords, pts.betas, params.R_LE, params.R_TE, pts.R_new, o);
+        [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade);     % Combine separate sections into big x and y vectors (good for solidworks exporting later too)
+
+        [~, pos_ss, pos_ps] = max_t(blade);
+        ps_error = ps_p1x_target-blade.ps_p1x;
+        ss_error = ss_p1x_target-blade.ss_p1x;
+        avg_error = (abs(ps_error) + abs(ss_error))/2;
+
+        fprintf(" --> Error: %.3f\n", avg_error)
+        fprintf("Boundaries -----------------------------------\n")
+        fprintf("ss: %.3f --> %.3f --> %.3f\n", blade.x(3), blade.ss_p1x, blade.x(2))
+        fprintf("ps: %.3f --> %.3f --> %.3f\n", blade.x(4), blade.ps_p1x, blade.x(5))
+        ss_is_bad = not(blade.ss_p1x > blade.x(3) && blade.ss_p1x < blade.x(2));
+        ps_is_bad = not(blade.ps_p1x > blade.x(4) && blade.ps_p1x < blade.x(5));
+    end
+    blade.x_thicc = [blade.x_pressure(pos_ps), blade.x_ss_comb(pos_ss)];
+    blade.y_thicc = [blade.y_pressure(pos_ps), blade.y_ss_comb(pos_ss)];
+
+    blade.R = params.R;
+    blade.parameters.o = o;
+
+    blade.parameters = params;
+    fprintf("(O_o)\n")
 end
 
 %% HELPER FUNCTIONS
 % Generates bezier curves for suction and pressure side
-function [x_suction, y_suction, x_pressure, y_pressure] = generate_bezier(x, y, betas, UGx_length)
+function [x_suction, y_suction, x_pressure, y_pressure, ss_p1x, ss_p1y, ps_p1x, ps_p1y] = generate_bezier(x, y, betas, UGx_length)
     %% BEZIERS!?
 
     % Tangent Line Equations at Points 2-5
@@ -64,7 +107,7 @@ end
 function [x_o, y_o] = generate_throat(x, y, betas, o)
     %% Throat Plotting
     o_slope = -1/tan(betas(2));                                 % Gets perpendicular slope
-    x_o = linspace(x(2), x(2) + o*cos(atan(o_slope)),1000);     % X-coords for throat plot
+    x_o = [x(2), x(2) + o*cos(atan(o_slope))];     % X-coords for throat plot
     y_o = o_slope.*(x_o-x(2))+y(2);                             % Y-coords for throat plot
 end
 
@@ -81,7 +124,7 @@ end
 % Combines all the generation functions
 function blade = generate_curves(x, y, betas, R_LE, R_TE, R_new, o)
     blade = generate_arcs(x, y, betas, R_LE, R_TE, R_new);
-    [blade.x_suction, blade.y_suction, blade.x_pressure, blade.y_pressure] = generate_bezier(x, y, betas, length(blade.UGx));
+    [blade.x_suction, blade.y_suction, blade.x_pressure, blade.y_pressure, blade.ss_p1x, blade.ss_p1y, blade.ps_p1x, blade.ps_p1y] = generate_bezier(x, y, betas, length(blade.UGx));
     [blade.x_o, blade.y_o] = generate_throat(x, y, betas, o);
 end
 
@@ -133,7 +176,7 @@ function pts = points(R, R_LE, R_TE, Cx, Ct, zeta, beta_IN, ep_IN, beta_OUT, ep_
         R_01 = sqrt((x1-x01)^2 + (y1-y01)^2);
         yy2 = y01 + sqrt(R_01^2 - (x2-x01)^2);
         delta = abs(yy2 - y2);
-        if delta > 0.0000001
+        if delta > 0.0001
             ep_OUT = ep_OUT * (y2/yy2);
         else
             cont = 0;
