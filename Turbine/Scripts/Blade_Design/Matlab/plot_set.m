@@ -1,5 +1,5 @@
 % Modifies the output matricies as required for aesthetics, then plots
-function plot(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stator, num_rotor, profiles_to_plot, pitch_align)
+function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stator, num_rotor, profiles_to_plot, pitch_align)
     
     % Flipping Stator upside down and translating back down
     y_flip = (rotor_blade(2).parameters.Ct + stator_blade(2).parameters.Ct)/2;
@@ -56,7 +56,6 @@ function plot(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, L
     rotor_pitch = 2*pi*rotor_blade(pitch_align).parameters.R/rotor_blade(pitch_align).parameters.N_B;
 
     % PLOTTING
-    figure(1)
     hold on
     [x_low, x_high, y_diff] = scale_graph(stator_blade, rotor_blade);
     min_ys = ones(1,length(profiles_to_plot)*(num_stator+num_stator));

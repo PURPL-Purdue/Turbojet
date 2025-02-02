@@ -45,8 +45,9 @@ LE_align = true;        % Set "true" to align the leading edges
 num_stators = 4;        % Number of stators to display
 num_rotors  = 5;        % Number of rotors to display
 
-profiles_to_plot = [1,2,3];     % Which blade profiles to display                   | 1 = hub, 2 = mid, 3 = tip
-pitch_align = 2;                % Which profile to use for pitch calculations       | 1 = hub, 2 = mid, 3 = tip
+% profiles_to_plot = [1,2,3];     % Which blade profiles to display                   | 1 = hub, 2 = mid, 3 = tip
+% pitch_align = 2;                % Which profile to use for pitch calculations       | 1 = hub, 2 = mid, 3 = tip
+
 %% VELOCITY TRIANGLES
 velocity_triangles.V1_mag = 402;
 velocity_triangles.V2_mag = 350;
@@ -72,7 +73,25 @@ rotor_params =  blade_parameters(T_R, T_R_LE, T_R_TE, T_Cx, T_Ct, T_zeta, T_beta
 stator_blade = generate_blade(stator_params, stator_exclusion_factor);
 rotor_blade  = generate_blade(rotor_params, rotor_exclusion_factor);
 
-plot(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, profiles_to_plot, pitch_align)
+
+
+tiledlayout(2,2, TileSpacing='tight', Padding='tight')
+
+nexttile
+title("Full Blade")
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3], 2)
+
+nexttile
+title("Hub Profiles")
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1], 1)
+
+nexttile
+title("Mid Profiles")
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [2], 2)
+
+nexttile
+title("Tip Profiles")
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [3], 3)
 
 %% FUNCTIONS
 % Puts all the user input into one struct for easy parameter passing
