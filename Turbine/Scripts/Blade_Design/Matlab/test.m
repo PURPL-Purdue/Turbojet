@@ -1,3 +1,13 @@
-folder = fileparts(fileparts(mfilename('fullpath')))
-a = [2 3 4 5]
-writematrix(a, fullfile(folder, 'Curve_Files\asdf.txt'))
+% The cool little guy who tells me my blades are finished
+% -#-#-#-#-
+% 
+%  _/~~~\_ 
+%   (O_o)  
+%  \__|__/ 
+%     |    
+%   _/ \_  
+% _________
+
+asdf = "asdf"
+
+fprintf(asdf + "2345\n")

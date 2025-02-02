@@ -1,5 +1,5 @@
 %% GENERATES BLADE GEOMETRY
-function blade = pritchard(params)
+function blade = pritchard(params, exclusion_factor)
     params.beta_IN = deg2rad(params.beta_IN);
     params.beta_OUT = deg2rad(params.beta_OUT);
     params.ep_IN = deg2rad(params.ep_IN);
@@ -15,7 +15,6 @@ function blade = pritchard(params)
         [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade);     % Combine separate sections into big x and y vectors (good for solidworks exporting later too)
     
         [t_max, pos_ss, pos_ps] = max_t(blade);
-
         ttc = params.Ct/100;
         chord = sqrt(params.Ct^2 + params.Cx^2);
         factor = abs(t_max/chord-ttc);
@@ -23,7 +22,6 @@ function blade = pritchard(params)
             params.Ct = params.Ct*(3+t_max/chord/ttc)/4;
         end
     end
-
     
     ps_p1x_target = (blade.x(4)+blade.x(5))/2;
     ss_p1x_target = (blade.x(2)+blade.x(3))/2;
@@ -31,11 +29,17 @@ function blade = pritchard(params)
     ss_error = ss_p1x_target-blade.ss_p1x;
     avg_error = (abs(ps_error) + abs(ss_error))/2;
 
-    ss_is_bad = not(blade.ss_p1x > blade.x(3) && blade.ss_p1x < blade.x(2));
-    ps_is_bad = not(blade.ps_p1x > blade.x(4) && blade.ps_p1x < blade.x(5));
+    ss_del = blade.x(2)-blade.x(3);
+    ss_bez_low = blade.x(3) + exclusion_factor * ss_del;
+    ss_bez_high = blade.x(2) - exclusion_factor * ss_del;
+
+    ps_del = blade.x(5)-blade.x(4);
+    ps_bez_low = blade.x(4) + exclusion_factor * ps_del;
+    ps_bez_high = blade.x(5) - exclusion_factor * ps_del;
+    ss_is_bad = not(blade.ss_p1x > ss_bez_low && blade.ss_p1x < ss_bez_high);
+    ps_is_bad = not(blade.ps_p1x > ps_bez_low && blade.ps_p1x < ps_bez_high);
     while ss_is_bad || ps_is_bad
         params.Ct = params.Ct+avg_error/100;
-        fprintf("Ct: %.3f", params.Ct)
         pts = points(params.R, params.R_LE, params.R_TE, params.Cx, params.Ct, params.zeta, params.beta_IN, params.ep_IN, params.beta_OUT, params.ep_OUT, params.N_B, o);
         blade = generate_curves(pts.x_coords, pts.y_coords, pts.betas, params.R_LE, params.R_TE, pts.R_new, o);
         [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade);     % Combine separate sections into big x and y vectors (good for solidworks exporting later too)
@@ -43,23 +47,41 @@ function blade = pritchard(params)
         [~, pos_ss, pos_ps] = max_t(blade);
         ps_error = ps_p1x_target-blade.ps_p1x;
         ss_error = ss_p1x_target-blade.ss_p1x;
+        prev_error = avg_error;
         avg_error = (abs(ps_error) + abs(ss_error))/2;
 
-        fprintf(" --> Error: %.3f\n", avg_error)
+        % Tells us if we're absolutely dao mei
+        if avg_error > prev_error
+            fprintf("I think we're cooked... ")
+        end
+        
+        % Debugging
+        fprintf("----------------------------------------------\n")
+        fprintf("Ct: %.3f --> Error: %.3f\n", params.Ct, avg_error)
         fprintf("Boundaries -----------------------------------\n")
-        fprintf("ss: %.3f --> %.3f --> %.3f\n", blade.x(3), blade.ss_p1x, blade.x(2))
-        fprintf("ps: %.3f --> %.3f --> %.3f\n", blade.x(4), blade.ps_p1x, blade.x(5))
-        ss_is_bad = not(blade.ss_p1x > blade.x(3) && blade.ss_p1x < blade.x(2));
-        ps_is_bad = not(blade.ps_p1x > blade.x(4) && blade.ps_p1x < blade.x(5));
+        fprintf("ss: %.3f --> %.3f --> %.3f\n", ss_bez_low, blade.ss_p1x, ss_bez_high)
+        fprintf("ps: %.3f --> %.3f --> %.3f\n", ps_bez_low, blade.ps_p1x, ps_bez_high)
+        fprintf("Fixing " + params.name + " beziers...\n")
+
+        ss_is_bad = not(blade.ss_p1x > ss_bez_low && blade.ss_p1x < ss_bez_high);
+        ps_is_bad = not(blade.ps_p1x > ps_bez_low && blade.ps_p1x < ps_bez_high);
     end
+
     blade.x_thicc = [blade.x_pressure(pos_ps), blade.x_ss_comb(pos_ss)];
     blade.y_thicc = [blade.y_pressure(pos_ps), blade.y_ss_comb(pos_ss)];
 
+    % Extra params
     blade.R = params.R;
     blade.parameters.o = o;
+    blade.pitch = 2*pi*params.R/params.N_B;
+    blade.zweiffel = (4*pi*params.R) / (params.Cx*params.N_B) * sin(params.beta_IN - params.beta_OUT) * cos(params.beta_OUT)/cos(params.beta_IN);
+    blade.blockage_IN = 2*params.R_LE / (blade.pitch * cos(params.beta_IN))  * 100;
+    blade.blockage_IN = 2*params.R_TE / (blade.pitch * cos(params.beta_OUT)) * 100;
+    blade.chord = sqrt(params.Ct^2 + params.Cx^2);
 
     blade.parameters = params;
-    fprintf("(O_o)\n")
+    fprintf("zweiffel: %.3f\n", blade.zweiffel)
+    fprintf("-#-#-#-#-\n\n\n _/~~~\\_ \n  (O_o)  \n \\__|__/ \n    |    \n  _/ \\_  \n_________\n")
 end
 
 %% HELPER FUNCTIONS
