@@ -1,5 +1,5 @@
 % Modifies the output matricies as required for aesthetics, then plots
-function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stator, num_rotor, profiles_to_plot, pitch_align)
+function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stator, num_rotor, profiles_to_plot, pitch_align, triangles)
     
     % Flipping Stator upside down and translating back down
     y_flip = (rotor_blade(2).parameters.Ct + stator_blade(2).parameters.Ct)/2;
@@ -101,12 +101,15 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
     y_low = min(min_ys)-2;
     y_high = max(max_ys)+2;
 
+    if triangles
+        y_low = y_low - 0.5*y_diff;
+        triangle_y = y_low + 0.25*(y_diff);
+        % plot_triangles(rotor_blade, stator_blade, triangle_vectors)
+    end
     xlim([x_low,x_high]);
     ylim([y_low,y_high]);
     pbaspect([x_high-x_low,y_high-y_low,stator_blade(2).parameters.blade_height]);
     
-    triangle_y = y_low + 0.25*(y_diff);
-    % plot_triangles(rotor_blade, stator_blade, triangle_vectors)
 end
 
 function plot_triangles(rotor_blade, stator_blade, triangle_vectors)

@@ -41,6 +41,7 @@ plot_throat = true;     % Set "true" to display the throat lines
 plot_t_max  = true;     % Set "true" to display the maximum airfoil thickness lines
 plot_bez_p1 = false;     % Set "true" to display the P0 -> P1 and P1 -> P2 lines
 LE_align = true;        % Set "true" to align the leading edges
+triangles = true;       % Set "true" to display velocity triangles
 
 num_stators = 4;        % Number of stators to display
 num_rotors  = 5;        % Number of rotors to display
@@ -73,25 +74,23 @@ rotor_params =  blade_parameters(T_R, T_R_LE, T_R_TE, T_Cx, T_Ct, T_zeta, T_beta
 stator_blade = generate_blade(stator_params, stator_exclusion_factor);
 rotor_blade  = generate_blade(rotor_params, rotor_exclusion_factor);
 
-
-
 tiledlayout(2,2, TileSpacing='tight', Padding='tight')
 
 nexttile
 title("Full Blade")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3], 2)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3], 2, triangles)
 
 nexttile
 title("Hub Profiles")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1], 1)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1], 1, triangles)
 
 nexttile
 title("Mid Profiles")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [2], 2)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [2], 2, triangles)
 
 nexttile
 title("Tip Profiles")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [3], 3)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [3], 3, triangles)
 
 %% FUNCTIONS
 % Puts all the user input into one struct for easy parameter passing
