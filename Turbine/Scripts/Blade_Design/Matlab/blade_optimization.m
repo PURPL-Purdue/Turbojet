@@ -38,23 +38,23 @@ rotor_exclusion_factor = 0.0;
 
 %% Optimization Stuff
 % Controls
-blade_type = "stator";          % Which type of blade we are optimizing
+blade_type = "rotor";          % Which type of blade we are optimizing
 
 evolution_number = 1;
-population_size = 10;
+population_size = 200;
 parent_count = 2;
-mutation_potency = 0.1;
+mutation_potency = 0.15;
 
 % Weighting
-zweifel_weight = 0.2;
-curvature_weight = 0.8;
+zweifel_weight = 0.6;
+curvature_weight = 0.4;
 
 weights = [zweifel_weight, curvature_weight];
 
 % Randomization limits
 lim_ttc  = [5, 30];
-lim_Cx   = [10, 30];
-lim_N_B  = [13, 51];
+lim_Cx   = [10, 25];
+lim_N_B  = [13, 35];
 
 % Get last generation, if it exists
 if ~isempty(dir(fullfile(blade_type + "_optimization", blade_type + "_ev" + evolution_number + "gen*")))
@@ -100,7 +100,7 @@ for i = 1:population_size
     new_gen_blade(i).avg_kurv = (blade(1).k_max_ss + blade(2).k_max_ss + blade(3).k_max_ss + blade(1).k_max_ps + blade(2).k_max_ps + blade(3).k_max_ps)/6;
     if blade(1).failcode == "success!!" && blade(2).failcode == "success!!" && blade(3).failcode == "success!!"
         new_gen_blade(i).failcode = "success!!";
-        plot_single(blade, true, true, false, true, 2, [1,2,3], true, blade_type)
+        plot_single(blade, true, true, false, true, 1, [1,2,3], true, blade_type)
     else
         new_gen_blade(i).failcode = "fail D:";
     end
@@ -111,14 +111,21 @@ end
 for i = 1:population_size
     blade = new_gen_blade(i);
     if blade.failcode == "success!!"
-        new_gen_blade(i).fitness = calculate_fitness(blade.avg_zweifel, blade.avg_kurv, weights);
+        [new_gen_blade(i).fitness, minimum] = calculate_fitness(blade.avg_zweifel, blade.avg_kurv, weights);
+        if ~minimum
+            new_gen_blade(i).fitness = 0;
+            blade.failcode = "failed, didn't reach minimums";
+        end
     else
         new_gen_blade(i).fitness = 0;
     end
 end
 
-gen_name = blade_type + "_ev" + char(string(evolution_number)) + "gen" + (last_gen_num+1) + ".mat";
+gen_name = blade_type + "_ev" + char(string(evolution_number)) + "gen" + char(num2str(last_gen_num+1,'%02.f')) + ".mat";
 save(blade_type + "_optimization\"+gen_name, "new_gen_blade");
+
+load gong.mat;
+soundsc(y); %Gong
 
 %% REGULAR FUNCTIONS
 % Puts all the user input into one struct for easy parameter passing
@@ -158,9 +165,9 @@ function full_blade = generate_blade(params, exclusion_factor)
     [full_blade(1), failcode_hub] = pritchard(params_hub, exclusion_factor);
     fprintf("\n" + params_hub.name + " profile done\n")
     [full_blade(2), failcode_mid] = pritchard(params, exclusion_factor);
-    fprintf("\n" + params.name + " profile done\n")
+    fprintf(params.name + " profile done\n")
     [full_blade(3), failcode_tip] = pritchard(params_tip, exclusion_factor);
-    fprintf("\n" + params_tip.name + " profile done\n")
+    fprintf(params_tip.name + " profile done\n")
 
     full_blade(1).failcode = failcode_hub;
     full_blade(2).failcode = failcode_mid;
@@ -195,11 +202,12 @@ function [gen_num, gen_data] = get_latest_gen(evolution, blade_type)
      
     gen_nums = zeros(size(gen_files));
     for i = 1:length(gen_files)
-        gen_nums(i) = str2double(gen_files(i).name(end-4));
+        char_name = convertStringsToChars(gen_files(i).name);
+        gen_nums(i) = str2double(char_name(end-5:end-4));
     end
     
     gen_num = max(gen_nums);
-    fname = blade_type + "_optimization/" + blade_type + '_ev' + num2str(evolution) + 'gen' + gen_num + ".mat";
+    fname = blade_type + "_optimization/" + blade_type + '_ev' + num2str(evolution) + 'gen' + char(num2str(gen_num,'%02.f')) + ".mat";
     gen_data = importdata(fname);
 end
 
@@ -228,16 +236,23 @@ function parents = pick_parents(count, gen)
     end
 end
 
-function fitness = calculate_fitness(zweifel, kurv, weights)
-    % max_pwr = max([generation.pwr].*([generation.fail] == "success")); 
+function [fitness, minimum] = calculate_fitness(zweifel, kurv, weights)
 
     max_kurv = 0.5;
-    kurv_dist = max_kurv-kurv;
+    kurv_frac = (max_kurv-kurv)/max_kurv;
+    if kurv > max_kurv
+        kurv_frac = 0;
+    end
 
     targ_zweifel = 1;
     zweifel_frac = abs(targ_zweifel - zweifel)./targ_zweifel;
     zweifel_frac = 1 - zweifel_frac;
     
+    minimum = true;
+    if kurv_frac < 0.2 && zweifel_frac < 0.2
+        minimum = false;
+    end
+
     norm_weights = weights./sum(weights);
-    fitness = sum([zweifel_frac, kurv_dist].*norm_weights);    
+    fitness = sum([zweifel_frac, kurv_frac].*norm_weights);    
 end

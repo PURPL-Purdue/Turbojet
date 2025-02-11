@@ -7,7 +7,7 @@ function plot_single(blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_
     y_flip = blade(2).parameters.Ct;
 
     if type == "stator"
-        % % Flipping Stator upside down and translating back down
+        % Flipping Stator upside down and translating back down
         for i = 1:3
             blade(i).y_comb  = 2*y_flip - blade(i).y_comb  - blade(2).parameters.Ct;
             blade(i).y       = 2*y_flip - blade(i).y       - blade(2).parameters.Ct;
@@ -16,7 +16,7 @@ function plot_single(blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_
             blade(i).ss_p1y  = 2*y_flip - blade(i).ss_p1y  - blade(2).parameters.Ct;
             blade(i).ps_p1y  = 2*y_flip - blade(i).ps_p1y  - blade(2).parameters.Ct;
         end
-        
+
         % Lines up leading edges
         if LE_align
             for i = 1:3
@@ -29,6 +29,15 @@ function plot_single(blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_
             end
         end
     else
+        % Translating rotor down
+        for i = 1:3
+            blade(i).y_comb  = blade(i).y_comb  - blade(2).parameters.Ct;
+            blade(i).y       = blade(i).y       - blade(2).parameters.Ct;
+            blade(i).y_thicc = blade(i).y_thicc - blade(2).parameters.Ct;
+            blade(i).y_o     = blade(i).y_o     - blade(2).parameters.Ct;
+            blade(i).ss_p1y  = blade(i).ss_p1y  - blade(2).parameters.Ct;
+            blade(i).ps_p1y  = blade(i).ps_p1y  - blade(2).parameters.Ct;
+        end
         % Lines up leading edges
         if LE_align
             for i = 1:3
@@ -51,7 +60,7 @@ function plot_single(blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_
 
     counter = 1;
     for i = profiles_to_plot            
-        plot_blade_V3(blade(i), plot_throat, plot_t_max, plot_bez_p1)
+        plot_blade_V3(blade(i), plot_throat, plot_t_max, plot_bez_p1, '-k')
         [min_ys(counter), max_ys(counter)] = maxmin_y(blade(i));
         counter = counter + 1;
     end
@@ -64,7 +73,7 @@ function plot_single(blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_
             blade(i).ss_p1y  = blade(i).ss_p1y  + pitch;
             blade(i).ps_p1y  = blade(i).ps_p1y  + pitch;
     
-            plot_blade_V3(blade(i), plot_throat, plot_t_max, plot_bez_p1)
+            plot_blade_V3(blade(i), plot_throat, plot_t_max, plot_bez_p1, '-r')
             [min_ys(counter), max_ys(counter)] = maxmin_y(blade(i));
             counter = counter + 1;
         end

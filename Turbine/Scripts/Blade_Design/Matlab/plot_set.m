@@ -31,9 +31,6 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
         end
     end
 
-    % Must export at this stage to capture only flipped stator geometry
-    export_solidworks(rotor_blade, stator_blade)
-
     % Lines up leading edges
     if LE_align
         for i = 1:3
@@ -44,6 +41,12 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
             rotor_blade(i).ss_p1y  = rotor_blade(i).ss_p1y  + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
             rotor_blade(i).ps_p1y  = rotor_blade(i).ps_p1y  + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
         end
+    end
+
+    % Must export at this stage to capture only flipped stator geometry
+    if length(profiles_to_plot) == 3
+        export_solidworks(stator_blade, "stator" , "", x_offset)
+        export_solidworks(rotor_blade, "rotor" , "", x_offset)
     end
 
     % Shifting rotor to the right
@@ -66,10 +69,10 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
 
     counter = 1;
     for i = profiles_to_plot            
-        plot_blade_V3(stator_blade(i), plot_throat, plot_t_max, plot_bez_p1)
+        plot_blade_V3(stator_blade(i), plot_throat, plot_t_max, plot_bez_p1, '-k')
         [min_ys(counter), max_ys(counter)] = maxmin_y(stator_blade(i));
         counter = counter + 1;
-        plot_blade_V3(rotor_blade(i), plot_throat, plot_t_max, plot_bez_p1)
+        plot_blade_V3(rotor_blade(i), plot_throat, plot_t_max, plot_bez_p1, '-k')
         [min_ys(counter), max_ys(counter)] = maxmin_y(rotor_blade(i));
         counter = counter + 1;
     end
@@ -82,7 +85,10 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
             stator_blade(i).ss_p1y  = stator_blade(i).ss_p1y  + stator_pitch;
             stator_blade(i).ps_p1y  = stator_blade(i).ps_p1y  + stator_pitch;
             
-            plot_blade_V3(stator_blade(i), plot_throat, plot_t_max, plot_bez_p1)
+            plot_blade_V3(stator_blade(i), plot_throat, plot_t_max, plot_bez_p1, '-k')
+            if j == 1 && length(profiles_to_plot) == 3
+                export_solidworks(stator_blade, "stator", "_shifted", x_offset)
+            end
             [min_ys(counter), max_ys(counter)] = maxmin_y(stator_blade(i));
             counter = counter + 1;
         end
@@ -96,7 +102,11 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
             rotor_blade(i).ss_p1y  = rotor_blade(i).ss_p1y  + rotor_pitch;
             rotor_blade(i).ps_p1y  = rotor_blade(i).ps_p1y  + rotor_pitch;
     
-            plot_blade_V3(rotor_blade(i), plot_throat, plot_t_max, plot_bez_p1)
+            plot_blade_V3(rotor_blade(i), plot_throat, plot_t_max, plot_bez_p1, '-k')
+            if j == 1 && length(profiles_to_plot) == 3
+                export_solidworks(rotor_blade, "rotor", "_shifted", x_offset)
+                fprintf("huehehehe\n")
+            end
             [min_ys(counter), max_ys(counter)] = maxmin_y(rotor_blade(i));
             counter = counter + 1;
         end
@@ -138,48 +148,24 @@ function xyz = export_prep(blade, R, Ct)
 end
 
 % Writes the prepped final XY matricies to .txt files
-function export_solidworks(rotor_blade, stator_blade)
+function export_solidworks(blade, name, addon, x_offset)
     % EXPORTING
     folder = fileparts(fileparts(mfilename('fullpath'))); 
 
-    writematrix(export_prep(stator_blade(1), stator_blade(1).parameters.R, stator_blade(1).parameters.Ct), fullfile(folder, 'Curve_Files\stator_hub.txt'), 'Delimiter', 'tab');
-    writematrix(export_prep(stator_blade(2), stator_blade(2).parameters.R, stator_blade(2).parameters.Ct), fullfile(folder, 'Curve_Files\stator_mid.txt'), 'Delimiter', 'tab');
-    writematrix(export_prep(stator_blade(3), stator_blade(3).parameters.R, stator_blade(3).parameters.Ct), fullfile(folder, 'Curve_Files\stator_tip.txt'), 'Delimiter', 'tab');
-
-    writematrix(export_prep(rotor_blade(1),  rotor_blade(1).parameters.R,  rotor_blade(1).parameters.Ct),  fullfile(folder, 'Curve_Files\rotor_hub.txt'),  'Delimiter', 'tab');
-    writematrix(export_prep(rotor_blade(2),  rotor_blade(2).parameters.R,  rotor_blade(2).parameters.Ct),  fullfile(folder, 'Curve_Files\rotor_mid.txt'),  'Delimiter', 'tab');
-    writematrix(export_prep(rotor_blade(3),  rotor_blade(3).parameters.R,  rotor_blade(3).parameters.Ct),  fullfile(folder, 'Curve_Files\rotor_tip.txt'),  'Delimiter', 'tab');
-end
-
-function export_ansys(rotor_blade, stator_blade)
-    % EXPORTING
-    folder = fileparts(fileparts(mfilename('fullpath'))); 
-
-    writematrix(export_prep(stator_blade(1), stator_blade(1).parameters.R, stator_blade(1).parameters.Ct), fullfile(folder, 'Curve_Files\stator_hub.txt'), 'Delimiter', 'tab');
-    writematrix(export_prep(stator_blade(2), stator_blade(2).parameters.R, stator_blade(2).parameters.Ct), fullfile(folder, 'Curve_Files\stator_mid.txt'), 'Delimiter', 'tab');
-    writematrix(export_prep(stator_blade(3), stator_blade(3).parameters.R, stator_blade(3).parameters.Ct), fullfile(folder, 'Curve_Files\stator_tip.txt'), 'Delimiter', 'tab');
-    
-    writematrix(export_prep(rotor_blade(1),  rotor_blade(1).parameters.R,  rotor_blade(1).parameters.Ct),  fullfile(folder, 'Curve_Files\rotor_hub.txt'),  'Delimiter', 'tab');
-    writematrix(export_prep(rotor_blade(2),  rotor_blade(2).parameters.R,  rotor_blade(2).parameters.Ct),  fullfile(folder, 'Curve_Files\rotor_mid.txt'),  'Delimiter', 'tab');
-    writematrix(export_prep(rotor_blade(3),  rotor_blade(3).parameters.R,  rotor_blade(3).parameters.Ct),  fullfile(folder, 'Curve_Files\rotor_tip.txt'),  'Delimiter', 'tab');
-    
-    for i = 3
-        stator_blade(i).y_comb  = stator_blade(i).y_comb  + stator_pitch;
-        stator_blade(i).y       = stator_blade(i).y       + stator_pitch;
-        stator_blade(i).y_thicc = stator_blade(i).y_thicc + stator_pitch;
-        stator_blade(i).y_o     = stator_blade(i).y_o     + stator_pitch;
-        stator_blade(i).ss_p1y  = stator_blade(i).ss_p1y  + stator_pitch;
-        stator_blade(i).ps_p1y  = stator_blade(i).ps_p1y  + stator_pitch;
+    if name == "rotor" && addon == "_shifted"
+        for i = 1:3
+            blade(i).x_comb  = blade(i).x_comb  - x_offset;
+            blade(i).x       = blade(i).x       - x_offset;
+            blade(i).x_o     = blade(i).x_o     - x_offset;
+            blade(i).x_thicc = blade(i).x_thicc - x_offset;
+            blade(i).ss_p1x  = blade(i).ss_p1x  - x_offset;
+            blade(i).ps_p1x  = blade(i).ps_p1x  - x_offset;
+        end
     end
 
-    for i = 3
-        rotor_blade(i).y_comb  = rotor_blade(i).y_comb  + rotor_pitch;
-        rotor_blade(i).y       = rotor_blade(i).y       + rotor_pitch;
-        rotor_blade(i).y_thicc = rotor_blade(i).y_thicc + rotor_pitch;
-        rotor_blade(i).y_o     = rotor_blade(i).y_o     + rotor_pitch;
-        rotor_blade(i).ss_p1y  = rotor_blade(i).ss_p1y  + rotor_pitch;
-        rotor_blade(i).ps_p1y  = rotor_blade(i).ps_p1y  + rotor_pitch;
-    end
+    writematrix(export_prep(blade(1), blade(1).parameters.R, blade(1).parameters.Ct), fullfile(folder, "Curve_Files\" + name + "_hub" + addon + ".txt"), 'Delimiter', 'tab');
+    writematrix(export_prep(blade(2), blade(2).parameters.R, blade(2).parameters.Ct), fullfile(folder, "Curve_Files\" + name + "_mid" + addon + ".txt"), 'Delimiter', 'tab');
+    writematrix(export_prep(blade(3), blade(3).parameters.R, blade(3).parameters.Ct), fullfile(folder, "Curve_Files\" + name + "_tip" + addon + ".txt"), 'Delimiter', 'tab');
 end
 
 % Autoscales the plot

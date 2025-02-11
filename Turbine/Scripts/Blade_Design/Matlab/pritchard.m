@@ -98,11 +98,21 @@ function [blade, failcode] = pritchard(params, exclusion_factor)
     blade.parameters.o = o;
     blade.parameters.pitch = 2*pi*params.R/params.N_B;
     blade.parameters.t_max = max_t(blade);
+    blade.parameters.t_min = min_t(blade);
+    if blade.parameters.t_min < 2.5
+        failcode = "blade too thin";
+    end
     blade.parameters.zweifel = (4*pi*params.R) / (params.Cx*params.N_B) * sin(params.beta_IN - params.beta_OUT) * cos(params.beta_OUT)/cos(params.beta_IN);
     blade.parameters.blockage_IN = 2*params.R_LE / (blade.parameters.pitch * cos(params.beta_IN))  * 100;
     blade.parameters.blockage_OUT = 2*params.R_TE / (blade.parameters.pitch * cos(params.beta_OUT)) * 100;
     blade.parameters.chord = sqrt(params.Ct^2 + params.Cx^2);
     blade.parameters.calc_ttc = blade.parameters.t_max/blade.parameters.chord;
+
+    blade.parameters.beta_IN = rad2deg(blade.parameters.beta_IN);
+    blade.parameters.beta_OUT = rad2deg(blade.parameters.beta_OUT);
+    blade.parameters.ep_IN = rad2deg(blade.parameters.ep_IN);
+    blade.parameters.ep_OUT = rad2deg(blade.parameters.ep_OUT);
+    blade.parameters.zeta = rad2deg(blade.parameters.zeta); 
 
     % fprintf("zweifel: %.3f\n", blade.parameters.zweifel)
     % fprintf("blade: " + params.name)
@@ -285,6 +295,16 @@ function [t_max, pos_ss, pos_ps] = max_t(blade)
         thiccnesses(i) = min(vecnorm([blade.x_ss_comb(i); blade.y_ss_comb(i)] - [blade.x_pressure; blade.y_pressure]));
     end
     [t_max, pos_ss] = max(thiccnesses);
+    [~, pos_ps] = min(vecnorm([blade.x_ss_comb(pos_ss); blade.y_ss_comb(pos_ss)] - [blade.x_pressure; blade.y_pressure]));
+    % fprintf("t_max: %f\n", t_max)
+end
+
+function [t_min, pos_ss, pos_ps] = min_t(blade)
+    thiccnesses = zeros(1, length(blade.x_pressure));
+    for i = 1:length(blade.x_pressure)
+        thiccnesses(i) = min(vecnorm([blade.x_ss_comb(i); blade.y_ss_comb(i)] - [blade.x_pressure; blade.y_pressure]));
+    end
+    [t_min, pos_ss] = min(thiccnesses);
     [~, pos_ps] = min(vecnorm([blade.x_ss_comb(pos_ss); blade.y_ss_comb(pos_ss)] - [blade.x_pressure; blade.y_pressure]));
     % fprintf("t_max: %f\n", t_max)
 end

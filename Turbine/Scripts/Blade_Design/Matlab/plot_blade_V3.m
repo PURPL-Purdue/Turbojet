@@ -1,6 +1,6 @@
-function plot_blade_V3(blade, plot_throat, plot_t_max, plot_bez_p1)
+function plot_blade_V3(blade, plot_throat, plot_t_max, plot_bez_p1, main_linestyle)
     for i = 1:length(blade)
-        plot3(blade.x_comb,blade.y_comb, ones(1, length(blade.x_comb))*blade.parameters.R, '-k')           % Curves!
+        plot3(blade.x_comb,blade.y_comb, ones(1, length(blade.x_comb))*blade.parameters.R, main_linestyle)           % Curves!
         scatter3(blade.x, blade.y, ones(1, 6)*blade.parameters.R, 4, 'b', "filled")                        % Points!!
         
         if plot_throat
