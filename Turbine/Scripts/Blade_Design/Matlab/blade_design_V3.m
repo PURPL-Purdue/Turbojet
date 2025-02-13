@@ -2,7 +2,7 @@ clear;clc;clf;
 
 %% STATOR INPUTS
 % (The column of numbers that starts with 5.5 contain the sample values given in the Pritchard paper)
-S_R = 65;               % Tip Radius                i| mm           5.5
+S_R = 53;               % Tip Radius                i| mm           5.5
 S_R_LE = 1.4;           % Leading edge radius       i| mm           0.031
 S_R_TE = 0.7;           % Trailing edge radius      i| mm           0.016
 
@@ -21,25 +21,25 @@ stator_exclusion_factor = 0.0;
 %% ROTOR INPUTS
 % (The column of numbers that starts with 5.5 contain the sample values given in the Pritchard paper)
 T_R = 65;               % Tip Radius                i| mm           5.5
-T_R_LE = .8;            % Leading edge radius       i| mm           0.031
-T_R_TE = .6;            % Trailing edge radius      i| mm           0.016
+T_R_LE = 0.8;           % Leading edge radius       i| mm           0.031
+T_R_TE = 0.6;           % Trailing edge radius      i| mm           0.016
 
-T_ttc = 8.93;             % Thickness to Chord ratio  i| %            N/A
+T_ttc = 20;             % Thickness to Chord ratio  i| %            N/A
 T_Cx = 17;              % Axial chord               i| mm           1.102
 T_zeta = 0.01;          % Unguided turning angle    i| degrees      6.3
-T_beta_IN = -27;        % Inlet blade angle         i| degrees      35
+T_beta_IN = 41;         % Inlet blade angle         i| degrees      35
 T_ep_IN = 10;           % Inlet half wedge angle    i| degrees      8
-T_beta_OUT = -60;       % Exit blade angle          i| degrees      -57
+T_beta_OUT = -71;       % Exit blade angle          i| degrees      -57
 T_ep_OUT = T_zeta/2;    % Exit half wedge angle     u| degrees      3.32
 
-T_N_B = 17;             % Number of blades          i| N/A          51 
+T_N_B = 25;             % Number of blades          i| N/A          51 
 T_blade_height = 14;    % Height of blade           i| mm           N/A
-rotor_exclusion_factor = 0.0; 
+rotor_exclusion_factor = 0.0;
 
 %% PLOTTING CONTROLS
 plot_throat = true;     % Set "true" to display the throat lines
 plot_t_max  = true;     % Set "true" to display the maximum airfoil thickness lines
-plot_bez_p1 = false;     % Set "true" to display the P0 -> P1 and P1 -> P2 lines
+plot_bez_p1 = false;    % Set "true" to display the P0 -> P1 and P1 -> P2 lines
 LE_align = true;        % Set "true" to align the leading edges
 triangles = true;       % Set "true" to display velocity triangles
 
