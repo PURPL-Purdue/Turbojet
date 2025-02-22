@@ -99,7 +99,7 @@ function [blade, failcode] = pritchard(params, exclusion_factor)
     blade.parameters.pitch = 2*pi*params.R/params.N_B;
     blade.parameters.t_max = max_t(blade);
     blade.parameters.t_min = min_t(blade);
-    if blade.parameters.t_min < 2.5
+    if blade.parameters.t_min < 1
         failcode = "blade too thin";
     end
     blade.parameters.zweifel = (4*pi*params.R) / (params.Cx*params.N_B) * sin(params.beta_IN - params.beta_OUT) * cos(params.beta_OUT)/cos(params.beta_IN);
@@ -323,8 +323,8 @@ end
 
 % Combines XY matricies into one big XY matrix
 function [x_comb, y_comb, x_ss_comb, y_ss_comb] = combiner(blade)
-    x_comb = [blade.x_suction, blade.LEx, blade.x_pressure, blade.TEx, blade.UGx];
-    y_comb = [blade.y_suction, blade.LEy, blade.y_pressure, blade.TEy, blade.UGy];
+    x_comb = [blade.LEx, blade.x_pressure, blade.TEx, blade.UGx, blade.x_suction];
+    y_comb = [blade.LEy, blade.y_pressure, blade.TEy, blade.UGy, blade.y_suction];
     x_ss_comb = flip([blade.UGx, blade.x_suction]);
     y_ss_comb = flip([blade.UGy, blade.y_suction]);
 end

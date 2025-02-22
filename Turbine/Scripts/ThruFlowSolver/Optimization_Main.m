@@ -10,13 +10,13 @@ clear;clc;close all;
 % Repeat generation
 
 % Controls:
-evolution = 14;          %Just a parameter for keeping track of different evolutions.
+evolution = 19;          %Just a parameter for keeping track of different evolutions.
 population_size = 300;   %Number of turbines in a generation.
 parent_count = 2;        %The shackles of biology need not apply to us.
 mutation_potency = 0.15; %How strong is a genetic mutation
 % Weights:
 pwr_weight    = 1.0;
-tt_eff_weight = 0.1;
+tt_eff_weight = 0.0;
 ts_eff_weight = 0.0;
 stress_weight = 0.0;
 
@@ -66,7 +66,7 @@ for i=1:population_size
         new_inp = mean(vertcat(parents.genes), 1);
 
         % Do mutation:
-        new_inp = new_inp + random_inp.*mutation_potency;
+        new_inp = new_inp + ((rand(1) > 0.5)*2 - 1)*random_inp.*mutation_potency;
     end
 
     res = Calc_Stage_Perf(new_inp(1), new_inp(2), new_inp(3), new_inp(4), new_inp(5), ...
@@ -85,7 +85,7 @@ end
 % Calc fitnesses
 for i=1:population_size
     indiv = new_gen(i);
-    if indiv.fail == "success"  && indiv.pwr >= 80*1000
+    if indiv.fail == "success"%  && indiv.pwr >= 80*1000
         new_gen(i).fit = calc_fitness(indiv.pwr, indiv.tte, indiv.tse, indiv.strs, weights);
     else
         new_gen(i).fit = 0;
@@ -110,7 +110,7 @@ end
 
 function fitness = calc_fitness(pwr, tte, tse, strs, weights)
     % max_pwr = max([generation.pwr].*([generation.fail] == "success")); 
-    targ_pwr = 80.*1000;
+    targ_pwr = 75.*1000;
 
     pwr_frac = abs(targ_pwr - pwr)./targ_pwr;
 

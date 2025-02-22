@@ -2,52 +2,52 @@ clear;clc;clf;
 
 %% STATOR INPUTS
 % (The column of numbers that starts with 5.5 contain the sample values given in the Pritchard paper)
-S_R = 65;               % Tip Radius                i| mm           5.5
+S_R = 50;               % Tip Radius                i| mm           5.5
 S_R_LE = 1.4;           % Leading edge radius       i| mm           0.031
 S_R_TE = 0.7;           % Trailing edge radius      i| mm           0.016
 
 % !!!! Currently being optimized for !!!!           S_ttc = 15;             % Thickness to Chord ratio  i| %            N/A
-% !!!! Currently being optimized for !!!!           S_Cx = 17;              % Axial chord               i| mm           1.102              
+% !!!! Currently being optimiz   ed for !!!!           S_Cx = 17;              % Axial chord               i| mm           1.102              
 S_zeta = 0.01;          % Unguided turning angle    i| degrees      6.3
 S_beta_IN = 0;          % Inlet blade angle         i| degrees      35
 S_ep_IN = 8;            % Inlet half wedge angle    i| degrees      8
-S_beta_OUT = -66;       % Exit blade angle          i| degrees      -57
+S_beta_OUT = -64.48;       % Exit blade angle          i| degrees      -57
 S_ep_OUT = S_zeta/2;    % Exit half wedge angle     u| degrees      3.32
 
 % !!!! Currently being optimized for !!!!           S_N_B = 23;             % Number of blades          i| N/A          51 
-S_blade_height = 14;    % Height of blade           i| mm           N/A
+S_blade_height = 10.43;    % Height of blade           i| mm           N/A
 stator_exclusion_factor = 0.0;
 
 %% ROTOR INPUTS
 % (The column of numbers that starts with 5.5 contain the sample values given in the Pritchard paper)
-T_R = 65;               % Tip Radius                i| mm           5.5
+T_R = 50;               % Tip Radius                i| mm           5.5
 T_R_LE = .8;            % Leading edge radius       i| mm           0.031
 T_R_TE = .6;            % Trailing edge radius      i| mm           0.016
 
-T_ttc = 15;             % Thickness to Chord ratio  i| %            N/A
-T_Cx = 15;              % Axial chord               i| mm           1.102
+% !!!! Currently being optimized for !!!!           T_ttc = 15;             % Thickness to Chord ratio  i| %            N/A
+% !!!! Currently being optimized for !!!!           T_Cx = 15;              % Axial chord               i| mm           1.102
 T_zeta = 0.01;          % Unguided turning angle    i| degrees      6.3
-T_beta_IN = -27;        % Inlet blade angle         i| degrees      35
+T_beta_IN = 23.67;        % Inlet blade angle         i| degrees      35
 T_ep_IN = 10;           % Inlet half wedge angle    i| degrees      8
-T_beta_OUT = -60;       % Exit blade angle          i| degrees      -57
+T_beta_OUT = -51;       % Exit blade angle          i| degrees      -57
 T_ep_OUT = T_zeta/2;    % Exit half wedge angle     u| degrees      3.32
 
-T_N_B = 31;             % Number of blades          i| N/A          51 
-T_blade_height = 14;    % Height of blade           i| mm           N/A
+% !!!! Currently being optimized for !!!!           T_N_B = 31;             % Number of blades          i| N/A          51 
+T_blade_height = 10.43;    % Height of blade           i| mm           N/A
 rotor_exclusion_factor = 0.0;
 
 %% Optimization Stuff
 % Controls
-blade_type = "rotor";          % Which type of blade we are optimizing
+blade_type = "stator";          % Which type of blade we are optimizing
 
-evolution_number = 1;
+evolution_number = 3;
 population_size = 200;
 parent_count = 2;
 mutation_potency = 0.15;
 
 % Weighting
-zweifel_weight = 0.6;
-curvature_weight = 0.4;
+zweifel_weight = 0.4;
+curvature_weight = 0.6;
 
 weights = [zweifel_weight, curvature_weight];
 
@@ -67,7 +67,7 @@ end
 new_gen_blade = struct('inputs', {}, ...
     'profile', {}, ...
     'avg_zweifel', {}, ...
-    'avg_kurv', {}, ...
+    'max_kurv', {}, ...
     'failcode', {}, ...
     'fitness', {}, ...
     'ind_name', {});
@@ -97,7 +97,7 @@ for i = 1:population_size
     new_gen_blade(i).inputs = new_inputs;
     new_gen_blade(i).profile = blade;
     new_gen_blade(i).avg_zweifel = (blade(1).parameters.zweifel + blade(2).parameters.zweifel + blade(3).parameters.zweifel)/3;
-    new_gen_blade(i).avg_kurv = (blade(1).k_max_ss + blade(2).k_max_ss + blade(3).k_max_ss + blade(1).k_max_ps + blade(2).k_max_ps + blade(3).k_max_ps)/6;
+    new_gen_blade(i).max_kurv = max(blade(1).k_max_ss + blade(2).k_max_ss + blade(3).k_max_ss + blade(1).k_max_ps + blade(2).k_max_ps + blade(3).k_max_ps);
     if blade(1).failcode == "success!!" && blade(2).failcode == "success!!" && blade(3).failcode == "success!!"
         new_gen_blade(i).failcode = "success!!";
         plot_single(blade, true, true, false, true, 1, [1,2,3], true, blade_type)
@@ -111,7 +111,7 @@ end
 for i = 1:population_size
     blade = new_gen_blade(i);
     if blade.failcode == "success!!"
-        [new_gen_blade(i).fitness, minimum] = calculate_fitness(blade.avg_zweifel, blade.avg_kurv, weights);
+        [new_gen_blade(i).fitness, minimum] = calculate_fitness(blade.avg_zweifel, blade.max_kurv, weights);
         if ~minimum
             new_gen_blade(i).fitness = 0;
             blade.failcode = "failed, didn't reach minimums";
