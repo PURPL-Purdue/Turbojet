@@ -1,0 +1,10 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-27092016-074236";"";
+"REFERENCE";"W 617/8";"";
+"TraceParts.PartTitle";"Deep groove ball bearings, single row, stainless steel";"";
+"TraceParts.InstanceId";"10-27092016-074236EGRTS67QV5HSUZSAQV1A53F29";"";
+"SUPPLIER";"SKF";"";
+"DESIGN";"Stainless steel single row deep groove ball bearing, Bore Ø 8 mm, Outside Ø 12 mm";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartVersion";"1.3.8";"";
