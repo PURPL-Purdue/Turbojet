@@ -47,8 +47,8 @@ plot_optimized_stator = false;  % Set "true" to search directory for blades of m
 plot_optimized_rotor = false;  % Set "true" to search directory for blades of max fitness and plot those
 evo_to_search = 2;
 
-num_stators = 4;        % Number of stators to display, minimum 3
-num_rotors  = 5;        % Number of rotors to display, minimum 3
+num_stators = 2;        % Number of stators to display, minimum 3
+num_rotors  = 2;        % Number of rotors to display, minimum 3
 
 %% MAIN
 if plot_optimized_stator
@@ -73,7 +73,7 @@ tiledlayout(1,4, TileSpacing='tight', Padding='tight')
 
 nexttile
 title("Full Blade")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3,4,5], 2, triangles)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3], 2, triangles)
 
 nexttile
 title("Hub Profiles")

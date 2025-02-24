@@ -28,7 +28,7 @@ function output = Calc_Stage_Perf(deg_of_reaction, blade_height_mm, ...
     rpm = 80.*1000; %RPM
     mass_flux = 0.485; %kg/s
     inlet_total_pres = 303.*1000; %pascals
-    inlet_total_temp = 1000; %Kelvin
+    inlet_total_temp =  1000; %Kelvin
     
     g = 1.4; % gamma specific heat
     R = 287; %m^2/s^2K;
