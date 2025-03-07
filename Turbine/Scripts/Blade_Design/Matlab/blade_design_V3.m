@@ -47,8 +47,8 @@ plot_optimized_stator = false;  % Set "true" to search directory for blades of m
 plot_optimized_rotor = false;  % Set "true" to search directory for blades of max fitness and plot those
 evo_to_search = 2;
 
-num_stators = 2;        % Number of stators to display, minimum 3
-num_rotors  = 2;        % Number of rotors to display, minimum 3
+num_stators = 4;        % Number of stators to display, minimum 3
+num_rotors  = 5;        % Number of rotors to display, minimum 3
 
 %% MAIN
 if plot_optimized_stator
@@ -65,15 +65,15 @@ else
     rotor_params =  blade_parameters(T_R, T_R_LE, T_R_TE, T_Cx, T_ttc, T_zeta, T_beta_IN, T_ep_IN, T_beta_OUT, T_ep_OUT, T_N_B, T_blade_height, "Rotor");
 end
 
-stator_blade = generate_blade(stator_params, stator_exclusion_factor);
+stator_blade = generate_blade(stator_params, stator_exclusion_factor, "stator");
 fprintf("\nOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\n\n")
-rotor_blade  = generate_blade(rotor_params, rotor_exclusion_factor);
+rotor_blade  = generate_blade(rotor_params, rotor_exclusion_factor, "rotor");
 
 tiledlayout(1,4, TileSpacing='tight', Padding='tight')
 
 nexttile
 title("Full Blade")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3], 2, triangles)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3,4,5], 2, triangles)
 
 nexttile
 title("Hub Profiles")
@@ -122,14 +122,14 @@ function input = blade_parameters(R, R_LE, R_TE, Cx, ttc, zeta, beta_IN, ep_IN, 
 end
     
 % Generates a blade profile with complete info set
-function full_blade = generate_blade(params, exclusion_factor)
+function full_blade = generate_blade(params, exclusion_factor, type)
     % RADIAL EQUILIBRIUM
     params_hub = params;
     params_tip = params;
     params_mega_hub = params;
     params_mega_tip = params;
-    [params_hub.beta_OUT, params_tip.beta_OUT, params_mega_hub.beta_OUT, params_mega_tip.beta_OUT] = rad_eq(params.beta_OUT, params.R, params.R-params.blade_height, params.R+5, params.R-params.blade_height-20);
-    [params_hub.beta_IN, params_tip.beta_IN, params_mega_hub.beta_IN, params_mega_tip.beta_IN] =   rad_eq(params.beta_IN,  params.R, params.R-params.blade_height, params.R+5, params.R-params.blade_height-20);
+    [params_hub.beta_OUT, params_tip.beta_OUT, params_mega_hub.beta_OUT, params_mega_tip.beta_OUT] = rad_eq(params.beta_OUT, params.R, params.R-params.blade_height, params.R+5, params.R-params.blade_height-20, type, "out");
+    [params_hub.beta_IN, params_tip.beta_IN, params_mega_hub.beta_IN, params_mega_tip.beta_IN] =   rad_eq(params.beta_IN,  params.R, params.R-params.blade_height, params.R+5, params.R-params.blade_height-20, type, "in");
     
     params_mega_hub.name = params_mega_hub.name + " Mega Hub";
     params_hub.name = params_hub.name + " Hub";
@@ -162,25 +162,43 @@ function full_blade = generate_blade(params, exclusion_factor)
 end
 
 % Radial Equilibrium calculations
-function [beta_H, beta_T, beta_mH, beta_mT] = rad_eq(theta, r_tip, r_hub, r_mega_tip, r_mega_hub)
+function [beta_H, beta_T, beta_mH, beta_mT] = rad_eq(theta, r_tip, r_hub, r_mega_tip, r_mega_hub, type, inorout)
     % info = load('e11g05n70.mat');
     % V = info.ans.res.sol.V2;
     
-    V_mag = 402;
-    V_theta_M = V_mag * sind(theta);
-    r_mid = (r_hub + r_tip) / 2;
-    
-    K = V_theta_M * r_mid;
-    
-    V_theta_H = K/r_hub;
-    V_theta_T = K/r_tip;
-    V_theta_mH = K/r_mega_hub;
-    V_theta_mT = K/r_mega_tip;
-    
-    beta_H = atand(V_theta_H/(V_mag * cosd(theta)));
-    beta_T = atand(V_theta_T/(V_mag * cosd(theta)));
-    beta_mH = atand(V_theta_mH/(V_mag * cosd(theta)));
-    beta_mT = atand(V_theta_mT/(V_mag * cosd(theta)));
+    if type == "stator" || (type == "rotor" && inorout == "in")
+        V_mag = 525;
+        V_theta_M = V_mag * sind(theta);
+        r_mid = (r_hub + r_tip) / 2;
+        
+        K = V_theta_M * r_mid;
+        
+        V_theta_H = K/r_hub;
+        V_theta_T = K/r_tip;
+        V_theta_mH = K/r_mega_hub;
+        V_theta_mT = K/r_mega_tip;
+        
+        beta_H = atand(V_theta_H/(V_mag * cosd(theta)));
+        beta_T = atand(V_theta_T/(V_mag * cosd(theta)));
+        beta_mH = atand(V_theta_mH/(V_mag * cosd(theta)));
+        beta_mT = atand(V_theta_mT/(V_mag * cosd(theta)));
+    elseif type == "rotor" && inorout == "out"
+        V_mag = 277;
+        V_theta_M = V_mag * sind(theta);
+        r_mid = (r_hub + r_tip) / 2;
+        
+        K = V_theta_M * r_mid;
+        
+        V_theta_H = K/r_hub;
+        V_theta_T = K/r_tip;
+        V_theta_mH = K/r_mega_hub;
+        V_theta_mT = K/r_mega_tip;
+        
+        beta_H = atand(V_theta_H/(V_mag * cosd(theta)));
+        beta_T = atand(V_theta_T/(V_mag * cosd(theta)));
+        beta_mH = atand(V_theta_mH/(V_mag * cosd(theta)));
+        beta_mT = atand(V_theta_mT/(V_mag * cosd(theta)));
+    end
 end
 
 function params = get_best(evolution, type)

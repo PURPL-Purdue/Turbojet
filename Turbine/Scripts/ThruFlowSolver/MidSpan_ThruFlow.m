@@ -132,7 +132,7 @@ function results = MidSpan_ThruFlow(reaction, blade_height_mm, r_tip_mm, rpm, ma
         W2 = V2-U2;
         w2 = norm(W2);
        
-        alpha1 = 0; %asumed axial inflow
+        alpha1 = 0; %assumed axial inflow
         beta2  = -atan(W2(2)./W2(1));
         
         % Rotor Thermodynamics:

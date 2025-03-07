@@ -107,6 +107,8 @@ function [blade, failcode] = pritchard(params, exclusion_factor)
     blade.parameters.blockage_OUT = 2*params.R_TE / (blade.parameters.pitch * cos(params.beta_OUT)) * 100;
     blade.parameters.chord = sqrt(params.Ct^2 + params.Cx^2);
     blade.parameters.calc_ttc = blade.parameters.t_max/blade.parameters.chord;
+    blade.parameters.pitch_to_chord = blade.parameters.pitch/blade.parameters.chord;
+    blade.parameters.height_to_chord = blade.parameters.blade_height/blade.parameters.chord;
 
     blade.parameters.beta_IN = rad2deg(blade.parameters.beta_IN);
     blade.parameters.beta_OUT = rad2deg(blade.parameters.beta_OUT);
