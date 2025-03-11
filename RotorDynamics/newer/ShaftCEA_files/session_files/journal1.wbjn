@@ -162,3 +162,23 @@ matlProp6.SetData(
     Variables=["Specific Heat"],
     Values=[["700 [J kg^-1 C^-1]"]])
 Save(Overwrite=True)
+geometry1 = system3.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+Save(Overwrite=True)
+geometry1.Exit()
+modelComponent1 = system3.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system3.GetContainer(ComponentName="Model")
+model1.Edit()
+model1.Edit()
+matl3 = engineeringData2.ImportMaterial(
+    Name="Stainless Steel",
+    Source="General_Materials.xml")
+Save(Overwrite=True)
+model1.Exit()
+modelComponent1.Refresh()
+model1.Edit()
+Extensions.AddToDefaultExtensions(Id="97cb66d9-d248-4d40-a54a-265af9484739")
+Extensions.LoadExtension(Id="97cb66d9-d248-4d40-a54a-265af9484739")
+Save(Overwrite=True)
+Save(Overwrite=True)

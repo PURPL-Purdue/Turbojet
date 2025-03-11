@@ -1,0 +1,52 @@
+/COM,ANSYS RELEASE 2025 R1           BUILD 25.1      UP20241202       23:06:09
+
+ *** WARNING ***                         CP =       2.969   TIME= 23:06:11
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** WARNING ***                         CP =       3.547   TIME= 23:06:11
+ It has been detected that you are using reduced integration brick       
+ elements along with the PCG solver (EQSLV,PCG).  Please verify that     
+ you have multiple elements through the thickness in your model or       
+ switch to the SPARSE solver (EQSLV,SPARSE).                             
+
+ *** WARNING ***                         CP =       4.234   TIME= 23:06:11
+ Material property EX of material 1 of element 158 is evaluated at a     
+ temperature of 22, which is below the supplied temperature range.       
+ Temperature range checking terminates.                                  
+
+ *** WARNING ***                         CP =       6.781   TIME= 23:06:13
+ Overconstraint may occur for Lagrange multiplier or MPC based contact   
+ algorithm.                                                              
+
+ *** WARNING ***                         CP =       6.797   TIME= 23:06:13
+ Certain contact elements (for example 46451 & 41792) overlap with       
+ other.                                                                  
+
+ *** WARNING ***                         CP =       6.797   TIME= 23:06:13
+ Certain contact pairs (for example 249 & 215) overlap with other.       
+
+ *** WARNING ***                         CP =      10.578   TIME= 23:06:16
+ Multiple constraints have been applied on degree of freedom 1 of        
+ contact node 20751.  The program will remove certain internal MPCs.     
+ Please check the model carefully.                                       
+
+ *** WARNING ***                         CP =      10.578   TIME= 23:06:16
+ Multiple constraints have been applied on degree of freedom 1 of        
+ contact node 520.  The program will remove certain internal MPCs.       
+ Please check the model carefully.                                       
+
+ *** WARNING ***                         CP =      10.875   TIME= 23:06:16
+ Material property EX of material 35 of element 13003 is evaluated at a  
+ temperature of 22, which is below the supplied temperature range.       
+ Temperature range checking terminates.                                  
+
+ *** WARNING ***                         CP =      10.875   TIME= 23:06:16
+ Material property EX of material 13 of element 6463 is evaluated at a   
+ temperature of 22, which is below the supplied temperature range.       
+ Temperature range checking terminates.                                  
+
+ *** WARNING ***                         CP =      10.875   TIME= 23:06:16
+ Material property EX of material 35 of element 12820 is evaluated at a  
+ temperature of 22, which is below the supplied temperature range.       
+ Temperature range checking terminates.                                  
