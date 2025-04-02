@@ -1,0 +1,1760 @@
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2025 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright 1971-2025 Ansys, Inc.  All rights reserved.       *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2025 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys Service Pack 2025 R1.04   
+ Ansys Dynamic Reporting 2025 R1.04  
+ Core WB Files 2025 R1.04
+ CFX (includes CFD-Post) 2025 R1.04  
+ Chemkin 2025 R1.04  
+ EnSight 2025 R1.04  
+ FENSAP-ICE 2025 R1.04   
+ Fluent (includes CFD-Post) 2025 R1.04   
+ Polyflow (includes CFD-Post) 2025 R1.04 
+ Forte (includes EnSight) 2025 R1.04 
+ Rocky 2025 R1.04
+ TurboGrid 2025 R1.04
+ ACIS Geometry Interface 2025 R1.04  
+ AutoCAD Geometry Interface 2025 R1.04   
+ Catia, Version 4 Geometry Interface 2025 R1.04  
+ Catia, Version 5 Geometry Interface 2025 R1.04  
+ Catia, Version 6 Geometry Interface 2025 R1.04  
+ Creo Elements/Direct Modeling Geometry Interface 2025 R1.04 
+ Creo Parametric Geometry Interface 2025 R1.04   
+ Inventor Geometry Interface 2025 R1.04  
+ JTOpen Geometry Interface 2025 R1.04
+ NX Geometry Interface 2025 R1.04
+ Parasolid Geometry Interface  2025 R1.04
+ Solid Edge Geometry Interface 2025 R1.04
+ SOLIDWORKS Geometry Interface 2025 R1.04
+ Speos 2025 R1.04
+ SpaceClaim 2025 R1.04   
+ Speos RPC 2025 R1.04
+ Aqwa 2025 R1.04 
+ Autodyn 2025 R1.04  
+ Material Calibration App 2025 R1.04 
+ Mechanical Products 2025 R1.04  
+ Motion 2025 R1.04   
+ Academic Student 2025 R1.04 
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  BATCH MODE REQUESTED (-b)    = NOLIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  DISTRIBUTED MEMORY PARALLEL REQUESTED
+       4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
+    TOTAL OF     4 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ProjectScratch\ScrF8B6\dummy.dat
+  OUTPUT FILE NAME             = C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ProjectScratch\ScrF8B6\solve.out
+  START-UP FILE MODE           = NOREAD
+  STOP FILE MODE               = NOREAD
+
+ RELEASE= 2025 R1              BUILD= 25.1      UP20241202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=file0  23:06:09  MAR 10, 2025 CP=      0.141
+
+
+ PARAMETER _DS_PROGRESS =     999.0000000    
+
+ /INPUT FILE= ds.dat  LINE=       0
+
+
+
+ *** NOTE ***                            CP =       0.422   TIME= 23:06:10
+ The /CONFIG,NOELDB command is not valid in a distributed memory         
+ parallel solution.  Command is ignored.                                 
+
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  23.1027778    
+
+ TITLE= 
+ ShaftCEA--Static Structural (A5)                                              
+
+  ACT Extensions:
+      LSDYNA, 2025.1
+      5f463412-bd3e-484b-87e7-cbc0a665e474, wbex
+ /COM,     ANSYSMotion, 2025.1
+      20180725-3f81-49eb-9f31-41364844c769, wbex
+ /COM,     RotorDynApp, 1.0
+      97cb66d9-d248-4d40-a54a-265af9484739, wbex
+  
+
+ SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ProjectScratch\ScrF8B6\
+
+ SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_SOLVERFILES_DIR(1) = C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\ShaftCEA_files\dp0\SYS\MECH\
+
+ SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_USERFILES_DIR(1) = C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\ShaftCEA_files\user_files\
+ --- Data in consistent MKS units. See Solving Units in the help system for more
+
+ MKS UNITS SPECIFIED FOR INTERNAL    
+  LENGTH        (l)  = METER (M)
+  MASS          (M)  = KILOGRAM (KG)
+  TIME          (t)  = SECOND (SEC)
+  TEMPERATURE   (T)  = CELSIUS (C)
+  TOFFSET            = 273.0
+  CHARGE        (Q)  = COULOMB
+  FORCE         (f)  = NEWTON (N) (KG-M/SEC2)
+  HEAT               = JOULE (N-M)
+
+  PRESSURE           = PASCAL (NEWTON/M**2)
+  ENERGY        (W)  = JOULE (N-M)
+  POWER         (P)  = WATT (N-M/SEC)
+  CURRENT       (i)  = AMPERE (COULOMBS/SEC)
+  CAPACITANCE   (C)  = FARAD
+  INDUCTANCE    (L)  = HENRY
+  MAGNETIC FLUX      = WEBER
+  RESISTANCE    (R)  = OHM
+  ELECTRIC POTENTIAL = VOLT
+
+ INPUT  UNITS ARE ALSO SET TO MKS 
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2025 R1          25.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   23:06:10  MAR 10, 2025 CP=      0.453
+
+ ShaftCEA--Static Structural (A5)                                              
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+ *********** Nodes for the whole assembly ***********
+ *********** Nodes for all Remote Points ***********
+ *********** Elements for Body 1 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 2 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 3 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 4 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 5 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 6 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 7 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 8 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 9 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 10 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 11 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 12 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 13 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 14 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 15 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 16 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 17 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 18 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 19 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 20 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 21 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 22 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 23 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 24 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 25 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 26 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 27 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 28 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 29 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 30 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 31 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 32 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 33 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 34 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 35 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 36 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 37 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 38 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 39 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 40 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 41 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 42 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 43 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 44 'Bearing_D6001-604-266C HQW' ***********
+ *********** Elements for Body 45 'Shaft' ***********
+ *********** Send User Defined Coordinate System(s) ***********
+ *********** Set Reference Temperature ***********
+ *********** Send Materials ***********
+ *********** Create Contact "Contact Region" ***********
+             Real Constant Set For Above Contact Is 47 & 46
+ *********** Create Contact "Contact Region 2" ***********
+             Real Constant Set For Above Contact Is 49 & 48
+ *********** Create Contact "Contact Region 3" ***********
+             Real Constant Set For Above Contact Is 51 & 50
+ *********** Create Contact "Contact Region 4" ***********
+             Real Constant Set For Above Contact Is 53 & 52
+ *********** Create Contact "Contact Region 5" ***********
+             Real Constant Set For Above Contact Is 55 & 54
+ *********** Create Contact "Contact Region 6" ***********
+             Real Constant Set For Above Contact Is 57 & 56
+ *********** Create Contact "Contact Region 7" ***********
+             Real Constant Set For Above Contact Is 59 & 58
+ *********** Create Contact "Contact Region 8" ***********
+             Real Constant Set For Above Contact Is 61 & 60
+ *********** Create Contact "Contact Region 9" ***********
+             Real Constant Set For Above Contact Is 63 & 62
+ *********** Create Contact "Contact Region 10" ***********
+             Real Constant Set For Above Contact Is 65 & 64
+ *********** Create Contact "Contact Region 11" ***********
+             Real Constant Set For Above Contact Is 67 & 66
+ *********** Create Contact "Contact Region 12" ***********
+             Real Constant Set For Above Contact Is 69 & 68
+ *********** Create Contact "Contact Region 13" ***********
+             Real Constant Set For Above Contact Is 71 & 70
+ *********** Create Contact "Contact Region 14" ***********
+             Real Constant Set For Above Contact Is 73 & 72
+ *********** Create Contact "Contact Region 15" ***********
+             Real Constant Set For Above Contact Is 75 & 74
+ *********** Create Contact "Contact Region 16" ***********
+             Real Constant Set For Above Contact Is 77 & 76
+ *********** Create Contact "Contact Region 17" ***********
+             Real Constant Set For Above Contact Is 79 & 78
+ *********** Create Contact "Contact Region 18" ***********
+             Real Constant Set For Above Contact Is 81 & 80
+ *********** Create Contact "Contact Region 19" ***********
+             Real Constant Set For Above Contact Is 83 & 82
+ *********** Create Contact "Contact Region 20" ***********
+             Real Constant Set For Above Contact Is 85 & 84
+ *********** Create Contact "Contact Region 21" ***********
+             Real Constant Set For Above Contact Is 87 & 86
+ *********** Create Contact "Contact Region 22" ***********
+             Real Constant Set For Above Contact Is 89 & 88
+ *********** Create Contact "Contact Region 23" ***********
+             Real Constant Set For Above Contact Is 91 & 90
+ *********** Create Contact "Contact Region 24" ***********
+             Real Constant Set For Above Contact Is 93 & 92
+ *********** Create Contact "Contact Region 25" ***********
+             Real Constant Set For Above Contact Is 95 & 94
+ *********** Create Contact "Contact Region 26" ***********
+             Real Constant Set For Above Contact Is 97 & 96
+ *********** Create Contact "Contact Region 27" ***********
+             Real Constant Set For Above Contact Is 99 & 98
+ *********** Create Contact "Contact Region 28" ***********
+             Real Constant Set For Above Contact Is 101 & 100
+ *********** Create Contact "Contact Region 29" ***********
+             Real Constant Set For Above Contact Is 103 & 102
+ *********** Create Contact "Contact Region 30" ***********
+             Real Constant Set For Above Contact Is 105 & 104
+ *********** Create Contact "Contact Region 31" ***********
+             Real Constant Set For Above Contact Is 107 & 106
+ *********** Create Contact "Contact Region 32" ***********
+             Real Constant Set For Above Contact Is 109 & 108
+ *********** Create Contact "Contact Region 33" ***********
+             Real Constant Set For Above Contact Is 111 & 110
+ *********** Create Contact "Contact Region 34" ***********
+             Real Constant Set For Above Contact Is 113 & 112
+ *********** Create Contact "Contact Region 35" ***********
+             Real Constant Set For Above Contact Is 115 & 114
+ *********** Create Contact "Contact Region 36" ***********
+             Real Constant Set For Above Contact Is 117 & 116
+ *********** Create Contact "Contact Region 37" ***********
+             Real Constant Set For Above Contact Is 119 & 118
+ *********** Create Contact "Contact Region 38" ***********
+             Real Constant Set For Above Contact Is 121 & 120
+ *********** Create Contact "Contact Region 39" ***********
+             Real Constant Set For Above Contact Is 123 & 122
+ *********** Create Contact "Contact Region 40" ***********
+             Real Constant Set For Above Contact Is 125 & 124
+ *********** Create Contact "Contact Region 41" ***********
+             Real Constant Set For Above Contact Is 127 & 126
+ *********** Create Contact "Contact Region 42" ***********
+             Real Constant Set For Above Contact Is 129 & 128
+ *********** Create Contact "Contact Region 43" ***********
+             Real Constant Set For Above Contact Is 131 & 130
+ *********** Create Contact "Contact Region 44" ***********
+             Real Constant Set For Above Contact Is 133 & 132
+ *********** Create Contact "Contact Region 45" ***********
+             Real Constant Set For Above Contact Is 135 & 134
+ *********** Create Contact "Contact Region 46" ***********
+             Real Constant Set For Above Contact Is 137 & 136
+ *********** Create Contact "Contact Region 47" ***********
+             Real Constant Set For Above Contact Is 139 & 138
+ *********** Create Contact "Contact Region 48" ***********
+             Real Constant Set For Above Contact Is 141 & 140
+ *********** Create Contact "Contact Region 49" ***********
+             Real Constant Set For Above Contact Is 143 & 142
+ *********** Create Contact "Contact Region 50" ***********
+             Real Constant Set For Above Contact Is 145 & 144
+ *********** Create Contact "Contact Region 51" ***********
+             Real Constant Set For Above Contact Is 147 & 146
+ *********** Create Contact "Contact Region 52" ***********
+             Real Constant Set For Above Contact Is 149 & 148
+ *********** Create Contact "Contact Region 53" ***********
+             Real Constant Set For Above Contact Is 151 & 150
+ *********** Create Contact "Contact Region 54" ***********
+             Real Constant Set For Above Contact Is 153 & 152
+ *********** Create Contact "Contact Region 55" ***********
+             Real Constant Set For Above Contact Is 155 & 154
+ *********** Create Contact "Contact Region 56" ***********
+             Real Constant Set For Above Contact Is 157 & 156
+ *********** Create Contact "Contact Region 57" ***********
+             Real Constant Set For Above Contact Is 159 & 158
+ *********** Create Contact "Contact Region 58" ***********
+             Real Constant Set For Above Contact Is 161 & 160
+ *********** Create Contact "Contact Region 59" ***********
+             Real Constant Set For Above Contact Is 163 & 162
+ *********** Create Contact "Contact Region 60" ***********
+             Real Constant Set For Above Contact Is 165 & 164
+ *********** Create Contact "Contact Region 61" ***********
+             Real Constant Set For Above Contact Is 167 & 166
+ *********** Create Contact "Contact Region 62" ***********
+             Real Constant Set For Above Contact Is 169 & 168
+ *********** Create Contact "Contact Region 63" ***********
+             Real Constant Set For Above Contact Is 171 & 170
+ *********** Create Contact "Contact Region 64" ***********
+             Real Constant Set For Above Contact Is 173 & 172
+ *********** Create Contact "Contact Region 65" ***********
+             Real Constant Set For Above Contact Is 175 & 174
+ *********** Create Contact "Contact Region 66" ***********
+             Real Constant Set For Above Contact Is 177 & 176
+ *********** Create Contact "Contact Region 67" ***********
+             Real Constant Set For Above Contact Is 179 & 178
+ *********** Create Contact "Contact Region 68" ***********
+             Real Constant Set For Above Contact Is 181 & 180
+ *********** Create Contact "Contact Region 69" ***********
+             Real Constant Set For Above Contact Is 183 & 182
+ *********** Create Contact "Contact Region 70" ***********
+             Real Constant Set For Above Contact Is 185 & 184
+ *********** Create Contact "Contact Region 71" ***********
+             Real Constant Set For Above Contact Is 187 & 186
+ *********** Create Contact "Contact Region 72" ***********
+             Real Constant Set For Above Contact Is 189 & 188
+ *********** Create Contact "Contact Region 73" ***********
+             Real Constant Set For Above Contact Is 191 & 190
+ *********** Create Contact "Contact Region 74" ***********
+             Real Constant Set For Above Contact Is 193 & 192
+ *********** Create Contact "Contact Region 75" ***********
+             Real Constant Set For Above Contact Is 195 & 194
+ *********** Create Contact "Contact Region 76" ***********
+             Real Constant Set For Above Contact Is 197 & 196
+ *********** Create Contact "Contact Region 77" ***********
+             Real Constant Set For Above Contact Is 199 & 198
+ *********** Create Contact "Contact Region 78" ***********
+             Real Constant Set For Above Contact Is 201 & 200
+ *********** Create Contact "Contact Region 79" ***********
+             Real Constant Set For Above Contact Is 203 & 202
+ *********** Create Contact "Contact Region 80" ***********
+             Real Constant Set For Above Contact Is 205 & 204
+ *********** Create Contact "Contact Region 81" ***********
+             Real Constant Set For Above Contact Is 207 & 206
+ *********** Create Contact "Contact Region 82" ***********
+             Real Constant Set For Above Contact Is 209 & 208
+ *********** Create Contact "Contact Region 83" ***********
+             Real Constant Set For Above Contact Is 211 & 210
+ *********** Create Contact "Contact Region 84" ***********
+             Real Constant Set For Above Contact Is 213 & 212
+ *********** Create Contact "Contact Region 85" ***********
+             Real Constant Set For Above Contact Is 215 & 214
+ *********** Create Contact "Contact Region 86" ***********
+             Real Constant Set For Above Contact Is 217 & 216
+ *********** Create Contact "Contact Region 87" ***********
+             Real Constant Set For Above Contact Is 219 & 218
+ *********** Create Contact "Contact Region 88" ***********
+             Real Constant Set For Above Contact Is 221 & 220
+ *********** Create Contact "Contact Region 89" ***********
+             Real Constant Set For Above Contact Is 223 & 222
+ *********** Create Contact "Contact Region 90" ***********
+             Real Constant Set For Above Contact Is 225 & 224
+ *********** Create Contact "Contact Region 91" ***********
+             Real Constant Set For Above Contact Is 227 & 226
+ *********** Create Contact "Contact Region 92" ***********
+             Real Constant Set For Above Contact Is 229 & 228
+ *********** Create Contact "Contact Region 93" ***********
+             Real Constant Set For Above Contact Is 231 & 230
+ *********** Create Contact "Contact Region 94" ***********
+             Real Constant Set For Above Contact Is 233 & 232
+ *********** Create Contact "Contact Region 95" ***********
+             Real Constant Set For Above Contact Is 235 & 234
+ *********** Create Contact "Contact Region 96" ***********
+             Real Constant Set For Above Contact Is 237 & 236
+ *********** Create Contact "Contact Region 97" ***********
+             Real Constant Set For Above Contact Is 239 & 238
+ *********** Create Contact "Contact Region 98" ***********
+             Real Constant Set For Above Contact Is 241 & 240
+ *********** Create Contact "Contact Region 99" ***********
+             Real Constant Set For Above Contact Is 243 & 242
+ *********** Create Contact "Contact Region 100" ***********
+             Real Constant Set For Above Contact Is 245 & 244
+ *********** Create Contact "Contact Region 101" ***********
+             Real Constant Set For Above Contact Is 247 & 246
+ *********** Create Contact "Contact Region 102" ***********
+             Real Constant Set For Above Contact Is 249 & 248
+ *********** Create Contact "Contact Region 103" ***********
+             Real Constant Set For Above Contact Is 251 & 250
+ *********** Create Contact "Contact Region 104" ***********
+             Real Constant Set For Above Contact Is 253 & 252
+ *********** Create Contact "Contact Region 105" ***********
+             Real Constant Set For Above Contact Is 255 & 254
+ *********** Create Contact "Contact Region 106" ***********
+             Real Constant Set For Above Contact Is 257 & 256
+ *********** Create Contact "Contact Region 107" ***********
+             Real Constant Set For Above Contact Is 259 & 258
+ *********** Create Contact "Contact Region 108" ***********
+             Real Constant Set For Above Contact Is 261 & 260
+ *********** Create Contact "Contact Region 109" ***********
+             Real Constant Set For Above Contact Is 263 & 262
+ *********** Create Contact "Contact Region 110" ***********
+             Real Constant Set For Above Contact Is 265 & 264
+ *********** Create Contact "Contact Region 111" ***********
+             Real Constant Set For Above Contact Is 267 & 266
+ *********** Create Contact "Contact Region 112" ***********
+             Real Constant Set For Above Contact Is 269 & 268
+ *********** Create Contact "Contact Region 113" ***********
+             Real Constant Set For Above Contact Is 271 & 270
+ *********** Create Contact "Contact Region 114" ***********
+             Real Constant Set For Above Contact Is 273 & 272
+ *********** Send Named Selection as Element Component ***********
+ *********** Create Remote Point "Internal Remote Point 2" ***********
+ *********** Create Remote Point "Internal Remote Point 3" ***********
+ *********** Construct Remote Displacement ***********
+ *********** Construct Remote Displacement ***********
+ *** Create a component for all remote displacements ***
+ *********** Define Rotational Velocity ***********
+
+
+ ***** ROUTINE COMPLETED *****  CP =         2.359
+
+
+ --- Number of total nodes = 41044
+ --- Number of contact elements = 21314
+ --- Number of spring elements = 0
+ --- Number of bearing elements = 0
+ --- Number of solid elements = 16292
+ --- Number of condensed parts = 0
+ --- Number of total elements = 37608
+
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  23.1027778    
+ ****************************************************************************
+ *************************    SOLUTION       ********************************
+ ****************************************************************************
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ PARAMETER _THICKRATIO =    0.7560000000    
+
+ USE PRECONDITIONED CONJUGATE GRADIENT SOLVER
+  CONVERGENCE TOLERANCE = 1.00000E-08
+  MAXIMUM ITERATION     = NumNode*DofPerNode*  1.0000    
+
+ CONTACT INFORMATION PRINTOUT LEVEL       1
+
+ CONTACT PAIR INFO IS WRITTEN TO FILE= file.cnm                                                                                                                                                                                                                                                            
+
+ DO NOT COMBINE ELEMENT MATRIX FILES (.emat) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ DO NOT COMBINE ELEMENT SAVE DATA FILES (.esav) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ NLDIAG: Nonlinear diagnostics CONT option is set to ON. 
+         Writing frequency : each ITERATION.
+
+ DO NOT SAVE ANY RESTART FILES AT ALL
+ ****************************************************
+ ******************* SOLVE FOR LS 1 OF 1 ****************
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        41043 TO       41043 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES        41043 TO       41043 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES        41043 TO       41043 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT ROTY FOR SELECTED NODES        41043 TO       41043 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT ROTZ FOR SELECTED NODES        41043 TO       41043 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES        41044 TO       41044 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES        41044 TO       41044 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT ROTY FOR SELECTED NODES        41044 TO       41044 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT ROTZ FOR SELECTED NODES        41044 TO       41044 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ CMOMEGA on component= CM_ROTVELCITY546
+  OMEGAX, OMEGAY, OMEGAZ=   8377.6      0.0000      0.0000    
+  X1, Y1, Z1= -0.48069E-01 0.60248E-01-0.20387E-01
+
+ PRINTOUT RESUMED BY /GOP
+
+ USE       1 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE      1 SUBSTEPS AS A MAXIMUM
+   USE      1 SUBSTEPS AS A MINIMUM
+
+ TIME=  1.0000    
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EANG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE ETMP ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE VENG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPEL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPPL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE CONT ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000    
+
+ *IF  ANSINTER_  ( =   0.00000     )  NE  
+      0  ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *** NOTE ***                            CP =       2.516   TIME= 23:06:10
+ The automatic domain decomposition logic has selected the MESH domain   
+ decomposition method with 4 processes per solution.                     
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =       2.969   TIME= 23:06:11
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** NOTE ***                            CP =       3.344   TIME= 23:06:11
+ The model data was checked and warning messages were found.             
+  Please review output or errors file (                                  
+ C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ 
+ _ProjectScratch\ScrF8B6\file0.err ) for these warning messages.         
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+      --- GIVE SUGGESTIONS AND RESET THE KEY OPTIONS ---
+
+ ELEMENT TYPE         1 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         2 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE         3 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         4 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE         5 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE         6 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         7 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         8 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         9 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        10 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        11 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        12 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        13 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        14 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        15 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        16 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        17 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        18 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        19 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        20 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        21 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        22 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        23 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        24 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        25 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        26 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        27 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        28 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        29 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        30 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        31 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        32 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        33 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        34 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        35 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        36 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        37 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        38 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        39 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        40 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        41 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        42 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        43 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        44 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        45 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2025 R1          25.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   23:06:11  MAR 10, 2025 CP=      3.344
+
+ ShaftCEA--Static Structural (A5)                                              
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ   ROTX ROTY ROTZ
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
+   EQUATION SOLVER OPTION. . . . . . . . . . . . .PCG                
+      TOLERANCE. . . . . . . . . . . . . . . . . . 1.00000E-08
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            CP =       3.406   TIME= 23:06:11
+ Property EX of material 1 is defined over a temperature range from 25   
+ to 1000 which does not include the uniform temperature (22).  Change    
+ either temperature range or the uniform temperature.  Checking for      
+ this condition discontinues.                                            
+
+ *** WARNING ***                         CP =       3.547   TIME= 23:06:11
+ It has been detected that you are using reduced integration brick       
+ elements along with the PCG solver (EQSLV,PCG).  Please verify that     
+ you have multiple elements through the thickness in your model or       
+ switch to the SPARSE solver (EQSLV,SPARSE).                             
+
+ *** NOTE ***                            CP =       3.547   TIME= 23:06:11
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+ *** NOTE ***                            CP =       3.688   TIME= 23:06:11
+ Internal nodes from 41045 to 41046 are created.                         
+ 2 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+
+ *** NOTE ***                            CP =       4.016   TIME= 23:06:11
+ Internal nodes from 41045 to 41046 are created.                         
+ 2 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+
+ *** NOTE ***                            CP =       7.219   TIME= 23:06:14
+ Internal nodes from 41045 to 41046 are created.                         
+ 2 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+
+  
+  
+     D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
+  
+  ...Number of elements: 37608
+  ...Number of nodes:    41046
+  ...Decompose to 4 CPU domains
+  ...Element load balance ratio =     1.069
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      EANG        ALL               
+      ETMP        ALL               
+      VENG        ALL               
+      STRS        ALL               
+      EPEL        ALL               
+      EPPL        ALL               
+      CONT        ALL               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
+
+
+ *** WARNING ***                         CP =      10.578   TIME= 23:06:16
+ Multiple constraints have been applied on degree of freedom 1 of        
+ contact node 20751.  The program will remove certain internal MPCs.     
+ Please check the model carefully.                                       
+
+ *** WARNING ***                         CP =      10.578   TIME= 23:06:16
+ Multiple constraints have been applied on degree of freedom 1 of        
+ contact node 520.  The program will remove certain internal MPCs.       
+ Please check the model carefully.                                       
+
+ *** WARNING ***                         CP =      10.875   TIME= 23:06:16
+ Material property EX of material 35 of element 13003 is evaluated at a  
+ temperature of 22, which is below the supplied temperature range.       
+ Temperature range checking terminates.                                  
+
+ *** WARNING ***                         CP =      10.875   TIME= 23:06:16
+ Material property EX of material 13 of element 6463 is evaluated at a   
+ temperature of 22, which is below the supplied temperature range.       
+ Temperature range checking terminates.                                  
+
+ *** WARNING ***                         CP =      10.875   TIME= 23:06:16
+ Material property EX of material 35 of element 12820 is evaluated at a  
+ temperature of 22, which is below the supplied temperature range.       
+ Temperature range checking terminates.                                  
+
+ *** NOTE ***                            CP =      11.000   TIME= 23:06:17
+ The PCG solver has automatically set the level of difficulty for this   
+ model to 3.                                                             
+ *WARNING*: The geometrical gap for certain contact pairs (e.g.  ID 260) 
+ may be too large.  Increase pinball if it is a true geometrical gap.    
+ Decrease pinball if it is a false one.                                  
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.77052        0.0000        0.0000     |     0.0000      -0.15731E-01  -0.36810E-01
+         0.0000       0.77052        0.0000     |    0.15731E-01    0.0000      -0.40695E-01
+         0.0000        0.0000       0.77052     |    0.36810E-01   0.40695E-01    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.21344E-02   0.19426E-02  -0.83072E-03
+                                                |    0.19426E-02   0.56480E-02   0.75158E-03
+                                                |   -0.83072E-03   0.75158E-03   0.70883E-02
+
+   TOTAL MASS = 0.77052    
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=  -0.52815E-01   0.47773E-01  -0.20416E-01
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.54700E-04  -0.14795E-05   0.10264E-06
+       -0.14795E-05   0.31776E-02   0.75822E-07
+        0.10264E-06   0.75822E-07   0.31805E-02
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.107071E-03
+     2  0.918684E-06
+     3  0.107066E-03
+     4  0.918684E-06
+     5  0.918685E-06
+     6  0.187223E-03
+     7  0.107061E-03
+     8  0.107049E-03
+     9  0.918684E-06
+    10  0.187223E-03
+    11  0.266679E-02
+    12  0.107067E-03
+    13  0.477680E-02
+    14  0.107094E-03
+    15  0.107069E-03
+    16  0.918684E-06
+    17  0.107013E-03
+    18  0.918685E-06
+    19  0.918684E-06
+    20  0.920310E-06
+    21  0.107076E-03
+    22  0.918685E-06
+    23  0.107069E-03
+    24  0.918684E-06
+    25  0.107059E-03
+    26  0.918684E-06
+    27  0.918685E-06
+    28  0.187217E-03
+    29  0.107072E-03
+    30  0.107056E-03
+    31  0.918685E-06
+    32  0.187217E-03
+    33  0.266665E-02
+    34  0.107062E-03
+    35  0.477688E-02
+    36  0.107030E-03
+    37  0.107058E-03
+    38  0.918684E-06
+    39  0.107077E-03
+    40  0.918684E-06
+    41  0.918684E-06
+    42  0.921018E-06
+    43  0.107038E-03
+    44  0.918684E-06
+    45  0.752938    
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 1.650930627E+10 at element 47956.                             
+ Minimum = 17424924.1 at element 15466.                                  
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1       181  SOLID187      0.031   0.000173
+        2       110  SOLID186      0.062   0.000568
+        3       190  SOLID187      0.031   0.000164
+        4       110  SOLID186      0.031   0.000284
+        5       110  SOLID186      0.047   0.000426
+        6       947  SOLID187      0.250   0.000264
+        7       182  SOLID187      0.016   0.000086
+        8       168  SOLID187      0.000   0.000000
+        9       110  SOLID186      0.000   0.000000
+       10       943  SOLID187      0.156   0.000166
+       11      1105  SOLID187      0.094   0.000085
+       12       179  SOLID187      0.016   0.000087
+       13      2366  SOLID187      0.422   0.000178
+       14       192  SOLID187      0.000   0.000000
+       15       180  SOLID187      0.000   0.000000
+       16       110  SOLID186      0.031   0.000284
+       17       167  SOLID187      0.047   0.000281
+       18       110  SOLID186      0.000   0.000000
+       19       110  SOLID186      0.016   0.000142
+       20       199  SOLID187      0.031   0.000157
+       21       172  SOLID187      0.031   0.000182
+       22       110  SOLID186      0.031   0.000284
+       23       171  SOLID187      0.047   0.000274
+       24       110  SOLID186      0.000   0.000000
+       25       162  SOLID187      0.016   0.000096
+       26       110  SOLID186      0.047   0.000426
+       27       110  SOLID186      0.031   0.000284
+       28       945  SOLID187      0.094   0.000099
+       29       178  SOLID187      0.031   0.000176
+       30       184  SOLID187      0.016   0.000085
+       31       110  SOLID186      0.016   0.000142
+       32       949  SOLID187      0.188   0.000198
+       33      1065  SOLID187      0.156   0.000147
+       34       173  SOLID187      0.062   0.000361
+       35      2271  SOLID187      0.234   0.000103
+       36       181  SOLID187      0.000   0.000000
+       37       176  SOLID187      0.031   0.000178
+       38       110  SOLID186      0.031   0.000284
+       39       174  SOLID187      0.031   0.000180
+       40       110  SOLID186      0.062   0.000568
+       41       110  SOLID186      0.094   0.000852
+       42       213  SOLID187      0.016   0.000073
+       43       183  SOLID187      0.031   0.000171
+       44       110  SOLID186      0.000   0.000000
+       45       336  SOLID187      0.062   0.000186
+       46       114  CONTA174      0.000   0.000000
+       47       114  TARGE170      0.000   0.000000
+       48       114  CONTA174      0.000   0.000000
+       49       114  TARGE170      0.000   0.000000
+       50        68  CONTA174      0.000   0.000000
+       51        68  TARGE170      0.000   0.000000
+       52        71  CONTA174      0.000   0.000000
+       53        71  TARGE170      0.000   0.000000
+       54        66  CONTA174      0.000   0.000000
+       55        66  TARGE170      0.000   0.000000
+       56        66  CONTA174      0.000   0.000000
+       57        66  TARGE170      0.016   0.000237
+       58       110  CONTA174      0.016   0.000142
+       59       110  TARGE170      0.000   0.000000
+       60       110  CONTA174      0.016   0.000142
+       61       110  TARGE170      0.000   0.000000
+       62        64  CONTA174      0.000   0.000000
+       63        64  TARGE170      0.000   0.000000
+       64        68  CONTA174      0.000   0.000000
+       65        68  TARGE170      0.000   0.000000
+       66        66  CONTA174      0.016   0.000237
+       67        66  TARGE170      0.000   0.000000
+       68        66  CONTA174      0.000   0.000000
+       69        66  TARGE170      0.000   0.000000
+       70        66  CONTA174      0.000   0.000000
+       71        66  TARGE170      0.000   0.000000
+       72        66  CONTA174      0.000   0.000000
+       73        66  TARGE170      0.000   0.000000
+       74       116  CONTA174      0.000   0.000000
+       75       116  TARGE170      0.000   0.000000
+       76       113  CONTA174      0.016   0.000138
+       77       113  TARGE170      0.000   0.000000
+       78        66  CONTA174      0.000   0.000000
+       79        66  TARGE170      0.000   0.000000
+       80       232  CONTA174      0.031   0.000135
+       81       232  TARGE170      0.000   0.000000
+       82       113  CONTA174      0.000   0.000000
+       83       113  TARGE170      0.000   0.000000
+       84       118  CONTA174      0.000   0.000000
+       85       118  TARGE170      0.000   0.000000
+       86       109  CONTA174      0.000   0.000000
+       87       109  TARGE170      0.000   0.000000
+       88        66  CONTA174      0.000   0.000000
+       89        66  TARGE170      0.000   0.000000
+       90       105  CONTA174      0.000   0.000000
+       91       105  TARGE170      0.000   0.000000
+       92        66  CONTA174      0.016   0.000237
+       93        66  TARGE170      0.000   0.000000
+       94        66  CONTA174      0.000   0.000000
+       95        66  TARGE170      0.000   0.000000
+       96       100  CONTA174      0.000   0.000000
+       97       100  TARGE170      0.000   0.000000
+       98       116  CONTA174      0.016   0.000135
+       99       116  TARGE170      0.000   0.000000
+      100        66  CONTA174      0.000   0.000000
+      101        66  TARGE170      0.000   0.000000
+      102       111  CONTA174      0.000   0.000000
+      103       111  TARGE170      0.000   0.000000
+      104        62  CONTA174      0.000   0.000000
+      105        62  TARGE170      0.000   0.000000
+      106        70  CONTA174      0.000   0.000000
+      107        70  TARGE170      0.000   0.000000
+      108       107  CONTA174      0.000   0.000000
+      109       107  TARGE170      0.000   0.000000
+      110        66  CONTA174      0.016   0.000237
+      111        66  TARGE170      0.000   0.000000
+      112        68  CONTA174      0.031   0.000460
+      113        68  TARGE170      0.000   0.000000
+      114        66  CONTA174      0.000   0.000000
+      115        66  TARGE170      0.000   0.000000
+      116       112  CONTA174      0.000   0.000000
+      117       112  TARGE170      0.000   0.000000
+      118       118  CONTA174      0.016   0.000132
+      119       118  TARGE170      0.000   0.000000
+      120       109  CONTA174      0.000   0.000000
+      121       109  TARGE170      0.000   0.000000
+      122        66  CONTA174      0.000   0.000000
+      123        66  TARGE170      0.000   0.000000
+      124       104  CONTA174      0.000   0.000000
+      125       104  TARGE170      0.000   0.000000
+      126        66  CONTA174      0.000   0.000000
+      127        66  TARGE170      0.000   0.000000
+      128        66  CONTA174      0.016   0.000237
+      129        66  TARGE170      0.000   0.000000
+      130       100  CONTA174      0.000   0.000000
+      131       100  TARGE170      0.000   0.000000
+      132       113  CONTA174      0.000   0.000000
+      133       113  TARGE170      0.000   0.000000
+      134        66  CONTA174      0.000   0.000000
+      135        66  TARGE170      0.000   0.000000
+      136        68  CONTA174      0.000   0.000000
+      137        68  TARGE170      0.000   0.000000
+      138        72  CONTA174      0.016   0.000217
+      139        72  TARGE170      0.000   0.000000
+      140        66  CONTA174      0.000   0.000000
+      141        66  TARGE170      0.000   0.000000
+      142        64  CONTA174      0.000   0.000000
+      143        64  TARGE170      0.000   0.000000
+      144        68  CONTA174      0.000   0.000000
+      145        68  TARGE170      0.000   0.000000
+      146       446  CONTA174      0.109   0.000245
+      147       446  TARGE170      0.000   0.000000
+      148        70  CONTA174      0.000   0.000000
+      149        70  TARGE170      0.000   0.000000
+      150        70  CONTA174      0.000   0.000000
+      151        70  TARGE170      0.000   0.000000
+      152        68  CONTA174      0.000   0.000000
+      153        68  TARGE170      0.000   0.000000
+      154        63  CONTA174      0.000   0.000000
+      155        63  TARGE170      0.000   0.000000
+      156        71  CONTA174      0.000   0.000000
+      157        71  TARGE170      0.000   0.000000
+      158       120  CONTA174      0.031   0.000260
+      159       120  TARGE170      0.000   0.000000
+      160       111  CONTA174      0.000   0.000000
+      161       111  TARGE170      0.000   0.000000
+      162       111  CONTA174      0.000   0.000000
+      163       111  TARGE170      0.000   0.000000
+      164        68  CONTA174      0.016   0.000230
+      165        68  TARGE170      0.000   0.000000
+      166        69  CONTA174      0.000   0.000000
+      167        69  TARGE170      0.000   0.000000
+      168        66  CONTA174      0.000   0.000000
+      169        66  TARGE170      0.000   0.000000
+      170        66  CONTA174      0.000   0.000000
+      171        66  TARGE170      0.000   0.000000
+      172       110  CONTA174      0.000   0.000000
+      173       110  TARGE170      0.000   0.000000
+      174       108  CONTA174      0.000   0.000000
+      175       108  TARGE170      0.000   0.000000
+      176        64  CONTA174      0.000   0.000000
+      177        64  TARGE170      0.000   0.000000
+      178        66  CONTA174      0.000   0.000000
+      179        66  TARGE170      0.000   0.000000
+      180        66  CONTA174      0.000   0.000000
+      181        66  TARGE170      0.000   0.000000
+      182        66  CONTA174      0.000   0.000000
+      183        66  TARGE170      0.000   0.000000
+      184        66  CONTA174      0.000   0.000000
+      185        66  TARGE170      0.000   0.000000
+      186        66  CONTA174      0.000   0.000000
+      187        66  TARGE170      0.000   0.000000
+      188       113  CONTA174      0.000   0.000000
+      189       113  TARGE170      0.000   0.000000
+      190       111  CONTA174      0.000   0.000000
+      191       111  TARGE170      0.000   0.000000
+      192        66  CONTA174      0.016   0.000237
+      193        66  TARGE170      0.000   0.000000
+      194       236  CONTA174      0.031   0.000132
+      195       236  TARGE170      0.000   0.000000
+      196       113  CONTA174      0.000   0.000000
+      197       113  TARGE170      0.016   0.000138
+      198       109  CONTA174      0.000   0.000000
+      199       109  TARGE170      0.000   0.000000
+      200       110  CONTA174      0.000   0.000000
+      201       110  TARGE170      0.000   0.000000
+      202        66  CONTA174      0.000   0.000000
+      203        66  TARGE170      0.000   0.000000
+      204       112  CONTA174      0.031   0.000279
+      205       112  TARGE170      0.000   0.000000
+      206        66  CONTA174      0.000   0.000000
+      207        66  TARGE170      0.000   0.000000
+      208        66  CONTA174      0.000   0.000000
+      209        66  TARGE170      0.000   0.000000
+      210       100  CONTA174      0.000   0.000000
+      211       100  TARGE170      0.000   0.000000
+      212       109  CONTA174      0.000   0.000000
+      213       109  TARGE170      0.000   0.000000
+      214        66  CONTA174      0.000   0.000000
+      215        66  TARGE170      0.000   0.000000
+      216       113  CONTA174      0.000   0.000000
+      217       113  TARGE170      0.000   0.000000
+      218        64  CONTA174      0.000   0.000000
+      219        64  TARGE170      0.000   0.000000
+      220        70  CONTA174      0.000   0.000000
+      221        70  TARGE170      0.000   0.000000
+      222       112  CONTA174      0.000   0.000000
+      223       112  TARGE170      0.000   0.000000
+      224        64  CONTA174      0.031   0.000488
+      225        64  TARGE170      0.000   0.000000
+      226        71  CONTA174      0.016   0.000220
+      227        71  TARGE170      0.000   0.000000
+      228        66  CONTA174      0.000   0.000000
+      229        66  TARGE170      0.000   0.000000
+      230       112  CONTA174      0.000   0.000000
+      231       112  TARGE170      0.000   0.000000
+      232       113  CONTA174      0.016   0.000138
+      233       113  TARGE170      0.000   0.000000
+      234       108  CONTA174      0.000   0.000000
+      235       108  TARGE170      0.000   0.000000
+      236        66  CONTA174      0.000   0.000000
+      237        66  TARGE170      0.000   0.000000
+      238       112  CONTA174      0.000   0.000000
+      239       112  TARGE170      0.000   0.000000
+      240        66  CONTA174      0.000   0.000000
+      241        66  TARGE170      0.000   0.000000
+      242        66  CONTA174      0.000   0.000000
+      243        66  TARGE170      0.000   0.000000
+      244       100  CONTA174      0.031   0.000313
+      245       100  TARGE170      0.000   0.000000
+      246       109  CONTA174      0.000   0.000000
+      247       109  TARGE170      0.000   0.000000
+      248        66  CONTA174      0.000   0.000000
+      249        66  TARGE170      0.000   0.000000
+      250        72  CONTA174      0.000   0.000000
+      251        72  TARGE170      0.000   0.000000
+      252        64  CONTA174      0.000   0.000000
+      253        64  TARGE170      0.000   0.000000
+      254        68  CONTA174      0.000   0.000000
+      255        68  TARGE170      0.000   0.000000
+      256        66  CONTA174      0.000   0.000000
+      257        66  TARGE170      0.000   0.000000
+      258        68  CONTA174      0.000   0.000000
+      259        68  TARGE170      0.000   0.000000
+      260       432  CONTA174      0.141   0.000326
+      261       432  TARGE170      0.000   0.000000
+      262        65  CONTA174      0.016   0.000240
+      263        65  TARGE170      0.000   0.000000
+      264        69  CONTA174      0.016   0.000226
+      265        69  TARGE170      0.000   0.000000
+      266        64  CONTA174      0.000   0.000000
+      267        64  TARGE170      0.000   0.000000
+      268        69  CONTA174      0.000   0.000000
+      269        69  TARGE170      0.000   0.000000
+      270        69  CONTA174      0.016   0.000226
+      271        69  TARGE170      0.000   0.000000
+      272       120  CONTA174      0.016   0.000130
+      273       120  TARGE170      0.000   0.000000
+      274       124  CONTA174      0.000   0.000000
+      275         1  TARGE170      0.000   0.000000
+      276       124  CONTA174      0.016   0.000126
+      277         1  TARGE170      0.000   0.000000
+ Time at end of element matrix formulation CP = 13.125.                  
+ Iteration=     5 Ratio=  0.202529     Limit=  1.000000E-08 Wall=     0.1
+ Iteration=   105 Ratio=  9.287382E-04 Limit=  1.000000E-08 Wall=     1.8
+ Iteration=   230 Ratio=  2.089862E-06 Limit=  1.000000E-08 Wall=     3.4
+
+ DISTRIBUTED PCG SOLVER SOLUTION CONVERGED
+
+ DISTRIBUTED PCG SOLVER SOLUTION STATISTICS
+
+   NUMBER OF ITERATIONS=         331
+   NUMBER OF EQUATIONS =      123150
+   CALCULATED NORM     = 0.75387E-08
+   SPECIFIED TOLERANCE = 0.10000E-07
+   TOTAL CPU TIME (sec)=        5.02
+   TOTAL WALL TIME(sec)=        5.31
+   TOTAL MEMORY (GB)   =        0.07
+
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1       181  SOLID187      0.000   0.000000
+        2       110  SOLID186      0.016   0.000142
+        3       190  SOLID187      0.000   0.000000
+        4       110  SOLID186      0.016   0.000142
+        5       110  SOLID186      0.031   0.000284
+        6       947  SOLID187      0.109   0.000115
+        7       182  SOLID187      0.000   0.000000
+        8       168  SOLID187      0.000   0.000000
+        9       110  SOLID186      0.000   0.000000
+       10       943  SOLID187      0.062   0.000066
+       11      1105  SOLID187      0.062   0.000057
+       12       179  SOLID187      0.016   0.000087
+       13      2366  SOLID187      0.172   0.000073
+       14       192  SOLID187      0.047   0.000244
+       15       180  SOLID187      0.016   0.000087
+       16       110  SOLID186      0.016   0.000142
+       17       167  SOLID187      0.016   0.000094
+       18       110  SOLID186      0.031   0.000284
+       19       110  SOLID186      0.000   0.000000
+       20       199  SOLID187      0.016   0.000079
+       21       172  SOLID187      0.000   0.000000
+       22       110  SOLID186      0.000   0.000000
+       23       171  SOLID187      0.016   0.000091
+       24       110  SOLID186      0.000   0.000000
+       25       162  SOLID187      0.016   0.000096
+       26       110  SOLID186      0.016   0.000142
+       27       110  SOLID186      0.016   0.000142
+       28       945  SOLID187      0.078   0.000083
+       29       178  SOLID187      0.000   0.000000
+       30       184  SOLID187      0.031   0.000170
+       31       110  SOLID186      0.016   0.000142
+       32       949  SOLID187      0.094   0.000099
+       33      1065  SOLID187      0.125   0.000117
+       34       173  SOLID187      0.000   0.000000
+       35      2271  SOLID187      0.141   0.000062
+       36       181  SOLID187      0.016   0.000086
+       37       176  SOLID187      0.031   0.000178
+       38       110  SOLID186      0.000   0.000000
+       39       174  SOLID187      0.000   0.000000
+       40       110  SOLID186      0.000   0.000000
+       41       110  SOLID186      0.031   0.000284
+       42       213  SOLID187      0.016   0.000073
+       43       183  SOLID187      0.000   0.000000
+       44       110  SOLID186      0.016   0.000142
+       45       336  SOLID187      0.016   0.000047
+       46       114  CONTA174      0.000   0.000000
+       48       114  CONTA174      0.000   0.000000
+       50        68  CONTA174      0.016   0.000230
+       52        71  CONTA174      0.000   0.000000
+       54        60  CONTA174      0.000   0.000000
+       56        54  CONTA174      0.000   0.000000
+       58       110  CONTA174      0.000   0.000000
+       60       110  CONTA174      0.000   0.000000
+       62        64  CONTA174      0.000   0.000000
+       64        68  CONTA174      0.000   0.000000
+       66        60  CONTA174      0.000   0.000000
+       68        54  CONTA174      0.000   0.000000
+       70        60  CONTA174      0.016   0.000260
+       72        54  CONTA174      0.000   0.000000
+       74       116  CONTA174      0.000   0.000000
+       76       113  CONTA174      0.000   0.000000
+       78        60  CONTA174      0.000   0.000000
+       80       232  CONTA174      0.000   0.000000
+       82       113  CONTA174      0.000   0.000000
+       84       118  CONTA174      0.000   0.000000
+       86       109  CONTA174      0.000   0.000000
+       88        60  CONTA174      0.016   0.000260
+       90       105  CONTA174      0.000   0.000000
+       92        60  CONTA174      0.000   0.000000
+       94        60  CONTA174      0.000   0.000000
+       96       100  CONTA174      0.000   0.000000
+       98       116  CONTA174      0.000   0.000000
+      100        60  CONTA174      0.000   0.000000
+      102       111  CONTA174      0.000   0.000000
+      104        62  CONTA174      0.016   0.000252
+      106        70  CONTA174      0.000   0.000000
+      108       107  CONTA174      0.000   0.000000
+      110        66  CONTA174      0.000   0.000000
+      112        68  CONTA174      0.000   0.000000
+      114        54  CONTA174      0.016   0.000289
+      116       112  CONTA174      0.000   0.000000
+      118       118  CONTA174      0.016   0.000132
+      120       109  CONTA174      0.000   0.000000
+      122        54  CONTA174      0.000   0.000000
+      124       104  CONTA174      0.000   0.000000
+      126        54  CONTA174      0.016   0.000289
+      128        54  CONTA174      0.000   0.000000
+      130       100  CONTA174      0.016   0.000156
+      132       113  CONTA174      0.016   0.000138
+      134        54  CONTA174      0.016   0.000289
+      136        68  CONTA174      0.000   0.000000
+      138        72  CONTA174      0.000   0.000000
+      140        66  CONTA174      0.000   0.000000
+      142        64  CONTA174      0.000   0.000000
+      144        68  CONTA174      0.000   0.000000
+      146       446  CONTA174      0.031   0.000070
+      148        70  CONTA174      0.000   0.000000
+      150        70  CONTA174      0.000   0.000000
+      152        68  CONTA174      0.016   0.000230
+      154        63  CONTA174      0.000   0.000000
+      156        71  CONTA174      0.000   0.000000
+      158       120  CONTA174      0.016   0.000130
+      160       111  CONTA174      0.000   0.000000
+      162       111  CONTA174      0.000   0.000000
+      164        68  CONTA174      0.000   0.000000
+      166        69  CONTA174      0.000   0.000000
+      168        60  CONTA174      0.000   0.000000
+      170        54  CONTA174      0.016   0.000289
+      172       110  CONTA174      0.000   0.000000
+      174       108  CONTA174      0.016   0.000145
+      176        64  CONTA174      0.000   0.000000
+      178        66  CONTA174      0.000   0.000000
+      180        60  CONTA174      0.000   0.000000
+      182        54  CONTA174      0.016   0.000289
+      184        60  CONTA174      0.000   0.000000
+      186        54  CONTA174      0.000   0.000000
+      188       113  CONTA174      0.000   0.000000
+      190       111  CONTA174      0.000   0.000000
+      192        60  CONTA174      0.000   0.000000
+      194       236  CONTA174      0.047   0.000199
+      196       113  CONTA174      0.000   0.000000
+      198       109  CONTA174      0.000   0.000000
+      200       110  CONTA174      0.000   0.000000
+      202        60  CONTA174      0.000   0.000000
+      204       112  CONTA174      0.000   0.000000
+      206        60  CONTA174      0.000   0.000000
+      208        60  CONTA174      0.000   0.000000
+      210       100  CONTA174      0.016   0.000156
+      212       109  CONTA174      0.000   0.000000
+      214        60  CONTA174      0.000   0.000000
+      216       113  CONTA174      0.000   0.000000
+      218        64  CONTA174      0.000   0.000000
+      220        70  CONTA174      0.000   0.000000
+      222       112  CONTA174      0.016   0.000140
+      224        64  CONTA174      0.000   0.000000
+      226        71  CONTA174      0.000   0.000000
+      228        54  CONTA174      0.000   0.000000
+      230       112  CONTA174      0.000   0.000000
+      232       113  CONTA174      0.000   0.000000
+      234       108  CONTA174      0.000   0.000000
+      236        54  CONTA174      0.000   0.000000
+      238       112  CONTA174      0.000   0.000000
+      240        54  CONTA174      0.016   0.000289
+      242        54  CONTA174      0.000   0.000000
+      244       100  CONTA174      0.000   0.000000
+      246       109  CONTA174      0.000   0.000000
+      248        54  CONTA174      0.000   0.000000
+      250        72  CONTA174      0.000   0.000000
+      252        64  CONTA174      0.000   0.000000
+      254        68  CONTA174      0.000   0.000000
+      256        66  CONTA174      0.000   0.000000
+      258        68  CONTA174      0.000   0.000000
+      260       432  CONTA174      0.047   0.000109
+      262        65  CONTA174      0.000   0.000000
+      264        69  CONTA174      0.000   0.000000
+      266        64  CONTA174      0.000   0.000000
+      268        69  CONTA174      0.000   0.000000
+      270        69  CONTA174      0.016   0.000226
+      272       120  CONTA174      0.000   0.000000
+      274       124  CONTA174      0.000   0.000000
+      276       124  CONTA174      0.000   0.000000
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1       181  SOLID187      0.000   0.000000
+        2       110  SOLID186      0.000   0.000000
+        3       190  SOLID187      0.000   0.000000
+        4       110  SOLID186      0.000   0.000000
+        5       110  SOLID186      0.000   0.000000
+        6       947  SOLID187      0.016   0.000016
+        7       182  SOLID187      0.000   0.000000
+        8       168  SOLID187      0.000   0.000000
+        9       110  SOLID186      0.016   0.000142
+       10       943  SOLID187      0.031   0.000033
+       11      1105  SOLID187      0.000   0.000000
+       12       179  SOLID187      0.000   0.000000
+       13      2366  SOLID187      0.125   0.000053
+       14       192  SOLID187      0.000   0.000000
+       15       180  SOLID187      0.000   0.000000
+       16       110  SOLID186      0.000   0.000000
+       17       167  SOLID187      0.000   0.000000
+       18       110  SOLID186      0.000   0.000000
+       19       110  SOLID186      0.000   0.000000
+       20       199  SOLID187      0.000   0.000000
+       21       172  SOLID187      0.000   0.000000
+       22       110  SOLID186      0.000   0.000000
+       23       171  SOLID187      0.000   0.000000
+       24       110  SOLID186      0.000   0.000000
+       25       162  SOLID187      0.000   0.000000
+       26       110  SOLID186      0.000   0.000000
+       27       110  SOLID186      0.000   0.000000
+       28       945  SOLID187      0.031   0.000033
+       29       178  SOLID187      0.016   0.000088
+       30       184  SOLID187      0.000   0.000000
+       31       110  SOLID186      0.000   0.000000
+       32       949  SOLID187      0.000   0.000000
+       33      1065  SOLID187      0.031   0.000029
+       34       173  SOLID187      0.031   0.000181
+       35      2271  SOLID187      0.016   0.000007
+       36       181  SOLID187      0.016   0.000086
+       37       176  SOLID187      0.016   0.000089
+       38       110  SOLID186      0.000   0.000000
+       39       174  SOLID187      0.016   0.000090
+       40       110  SOLID186      0.000   0.000000
+       41       110  SOLID186      0.000   0.000000
+       42       213  SOLID187      0.000   0.000000
+       43       183  SOLID187      0.000   0.000000
+       44       110  SOLID186      0.000   0.000000
+       45       336  SOLID187      0.000   0.000000
+       46       114  CONTA174      0.000   0.000000
+       48       114  CONTA174      0.016   0.000137
+       50        68  CONTA174      0.000   0.000000
+       52        71  CONTA174      0.000   0.000000
+       54        60  CONTA174      0.000   0.000000
+       56        54  CONTA174      0.000   0.000000
+       58       110  CONTA174      0.000   0.000000
+       60       110  CONTA174      0.000   0.000000
+       62        64  CONTA174      0.000   0.000000
+       64        68  CONTA174      0.000   0.000000
+       66        60  CONTA174      0.000   0.000000
+       68        54  CONTA174      0.000   0.000000
+       70        60  CONTA174      0.000   0.000000
+       72        54  CONTA174      0.000   0.000000
+       74       116  CONTA174      0.000   0.000000
+       76       113  CONTA174      0.000   0.000000
+       78        60  CONTA174      0.000   0.000000
+       80       232  CONTA174      0.000   0.000000
+       82       113  CONTA174      0.000   0.000000
+       84       118  CONTA174      0.000   0.000000
+       86       109  CONTA174      0.000   0.000000
+       88        60  CONTA174      0.000   0.000000
+       90       105  CONTA174      0.000   0.000000
+       92        60  CONTA174      0.000   0.000000
+       94        60  CONTA174      0.000   0.000000
+       96       100  CONTA174      0.000   0.000000
+       98       116  CONTA174      0.000   0.000000
+      100        60  CONTA174      0.000   0.000000
+      102       111  CONTA174      0.000   0.000000
+      104        62  CONTA174      0.000   0.000000
+      106        70  CONTA174      0.000   0.000000
+      108       107  CONTA174      0.000   0.000000
+      110        66  CONTA174      0.000   0.000000
+      112        68  CONTA174      0.000   0.000000
+      114        54  CONTA174      0.000   0.000000
+      116       112  CONTA174      0.000   0.000000
+      118       118  CONTA174      0.000   0.000000
+      120       109  CONTA174      0.000   0.000000
+      122        54  CONTA174      0.000   0.000000
+      124       104  CONTA174      0.000   0.000000
+      126        54  CONTA174      0.000   0.000000
+      128        54  CONTA174      0.000   0.000000
+      130       100  CONTA174      0.000   0.000000
+      132       113  CONTA174      0.000   0.000000
+      134        54  CONTA174      0.000   0.000000
+      136        68  CONTA174      0.000   0.000000
+      138        72  CONTA174      0.000   0.000000
+      140        66  CONTA174      0.000   0.000000
+      142        64  CONTA174      0.000   0.000000
+      144        68  CONTA174      0.016   0.000230
+      146       446  CONTA174      0.000   0.000000
+      148        70  CONTA174      0.000   0.000000
+      150        70  CONTA174      0.000   0.000000
+      152        68  CONTA174      0.000   0.000000
+      154        63  CONTA174      0.000   0.000000
+      156        71  CONTA174      0.000   0.000000
+      158       120  CONTA174      0.000   0.000000
+      160       111  CONTA174      0.000   0.000000
+      162       111  CONTA174      0.000   0.000000
+      164        68  CONTA174      0.000   0.000000
+      166        69  CONTA174      0.000   0.000000
+      168        60  CONTA174      0.000   0.000000
+      170        54  CONTA174      0.000   0.000000
+      172       110  CONTA174      0.000   0.000000
+      174       108  CONTA174      0.000   0.000000
+      176        64  CONTA174      0.000   0.000000
+      178        66  CONTA174      0.000   0.000000
+      180        60  CONTA174      0.000   0.000000
+      182        54  CONTA174      0.000   0.000000
+      184        60  CONTA174      0.000   0.000000
+      186        54  CONTA174      0.000   0.000000
+      188       113  CONTA174      0.000   0.000000
+      190       111  CONTA174      0.000   0.000000
+      192        60  CONTA174      0.000   0.000000
+      194       236  CONTA174      0.000   0.000000
+      196       113  CONTA174      0.000   0.000000
+      198       109  CONTA174      0.000   0.000000
+      200       110  CONTA174      0.000   0.000000
+      202        60  CONTA174      0.000   0.000000
+      204       112  CONTA174      0.000   0.000000
+      206        60  CONTA174      0.000   0.000000
+      208        60  CONTA174      0.000   0.000000
+      210       100  CONTA174      0.000   0.000000
+      212       109  CONTA174      0.000   0.000000
+      214        60  CONTA174      0.000   0.000000
+      216       113  CONTA174      0.000   0.000000
+      218        64  CONTA174      0.000   0.000000
+      220        70  CONTA174      0.000   0.000000
+      222       112  CONTA174      0.000   0.000000
+      224        64  CONTA174      0.000   0.000000
+      226        71  CONTA174      0.000   0.000000
+      228        54  CONTA174      0.000   0.000000
+      230       112  CONTA174      0.000   0.000000
+      232       113  CONTA174      0.000   0.000000
+      234       108  CONTA174      0.000   0.000000
+      236        54  CONTA174      0.000   0.000000
+      238       112  CONTA174      0.000   0.000000
+      240        54  CONTA174      0.000   0.000000
+      242        54  CONTA174      0.000   0.000000
+      244       100  CONTA174      0.000   0.000000
+      246       109  CONTA174      0.000   0.000000
+      248        54  CONTA174      0.000   0.000000
+      250        72  CONTA174      0.000   0.000000
+      252        64  CONTA174      0.000   0.000000
+      254        68  CONTA174      0.000   0.000000
+      256        66  CONTA174      0.000   0.000000
+      258        68  CONTA174      0.000   0.000000
+      260       432  CONTA174      0.000   0.000000
+      262        65  CONTA174      0.000   0.000000
+      264        69  CONTA174      0.000   0.000000
+      266        64  CONTA174      0.000   0.000000
+      268        69  CONTA174      0.000   0.000000
+      270        69  CONTA174      0.000   0.000000
+      272       120  CONTA174      0.000   0.000000
+      274       124  CONTA174      0.000   0.000000
+      276       124  CONTA174      0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+       10.062 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+        5.250 MB WRITTEN ON RESULTS FILE: file0.rst
+ *************** Write FE CONNECTORS *********
+
+ WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 1 *************
+
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  23.1075000    
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _PCGITER  FROM  ACTI  ITEM=SOLU CGIT  VALUE=  331.000000    
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        21.453
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2025 R1          25.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   23:06:28  MAR 10, 2025 CP=     21.500
+
+ ShaftCEA--Static Structural (A5)                                              
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            CP =      21.500   TIME= 23:06:28
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+ Set Encoding of XML File to:ISO-8859-1
+
+ Set Output of XML File to:
+     PARM,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,
+         ,     ,     ,     ,     ,     ,     ,
+
+ DATABASE WRITTEN ON FILE  parm.xml                                                                                                                                                                                                                                                            
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  CP =        21.547
+
+
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  23.1077778    
+
+ PARAMETER _PREPTIME =     0.000000000    
+
+ PARAMETER _SOLVTIME =     17.00000000    
+
+ PARAMETER _POSTTIME =     1.000000000    
+
+ PARAMETER _TOTALTIM =     18.00000000    
+
+ *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.06855355    
+
+ *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.231026100    
+
+ *GET  _SSMODE   FROM  ACTI  ITEM=SOLU SSMM  VALUE=  2.00000000    
+
+ *GET  _NDOFS    FROM  ACTI  ITEM=SOLU NDOF  VALUE=  123129.000    
+
+ *GET  _SOL_END_TIME  FROM  ACTI  ITEM=SET  TIME  VALUE=  1.00000000    
+
+ *IF  _sol_end_time  ( =   1.00000     )  EQ  
+      1.000000  ( =   1.00000     )  THEN    
+
+ /FCLEAN COMMAND REMOVING ALL LOCAL FILES
+
+ *ENDIF
+ --- Total number of nodes = 41044
+ --- Total number of elements = 37608
+ --- Element load balance ratio = 1.06855355
+ --- Time to combine distributed files = 0.2310261
+ --- Sparse memory mode = 2
+ --- Number of DOF = 123129
+
+ EXIT MAPDL WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=         11
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2025 R1            Build: 25.1       Update: UP20241202   Platform: WINDOWS x64 
+Date Run: 03/10/2025   Time: 23:06     Process ID: 24860
+Operating System: Windows 11  (Build: 26100)
+
+Processor Model: 11th Gen Intel(R) Core(TM) i7-1195G7 @ 2.90GHz
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303
+
+Number of machines requested            :    1
+Total number of cores available         :    8
+Number of physical cores available      :    4
+Number of processes requested           :    4
+Number of threads per process requested :    1
+Total number of cores requested         :    4 (Distributed Memory Parallel)               
+MPI Type: INTELMPI
+MPI Version: Intel(R) MPI Library 2021.13 for Windows* OS
+
+
+GPU Acceleration: Not Requested
+
+Job Name: file0
+Input File: dummy.dat
+
+  Core                Machine Name   Working Directory
+ -----------------------------------------------------
+     0                      Laptop   C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ProjectScratch\ScrF8B6
+     1                      Laptop   C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ProjectScratch\ScrF8B6
+     2                      Laptop   C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ProjectScratch\ScrF8B6
+     3                      Laptop   C:\Users\peter\OneDrive\Documents\GitHub\Turbojet\RotorDynamics\newer\_ProjectScratch\ScrF8B6
+ 
+Latency time from master to core     1 =   11.424 microseconds
+Latency time from master to core     2 =    6.655 microseconds
+Latency time from master to core     3 =    3.867 microseconds
+ 
+Communication speed from master to core     1 =  4127.33 MB/sec
+Communication speed from master to core     2 =  4272.07 MB/sec
+Communication speed from master to core     3 =  4549.95 MB/sec
+
+Total CPU time for main thread                    :       17.7 seconds
+Total CPU time summed for all threads             :       22.2 seconds
+
+Elapsed time spent obtaining a license            :        0.5 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.8 seconds
+Elapsed time spent solution - preprocessing       :        4.1 seconds
+Elapsed time spent computing solution             :       11.2 seconds
+Elapsed time spent solution - postprocessing      :        0.2 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+Equation solver used                              :            PCG (symmetric)
+Equation solver computational rate                :        2.8 Gflops
+
+Sum of disk space used on all processes           :      230.8 MB
+
+Sum of memory used on all processes               :      700.0 MB
+Sum of memory allocated on all processes          :     2976.0 MB
+Physical memory available                         :         16 GB
+Total amount of I/O written to disk               :        0.4 GB
+Total amount of I/O read from disk                :        0.2 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2025 R1         Build 25.1         UP20241202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)     1024 MB     Scratch Memory Requested   1024 MB |
+ |  Max Database Used(Master)     74 MB     Max Scratch Used(Master)    201 MB |
+ |  Max Database Used(Workers)     1 MB     Max Scratch Used(Workers)   163 MB |
+ |  Sum Database Used(All)        77 MB     Sum Scratch Used(All)       623 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =         22.156       Time  =  23:06:29          |
+ |        Elapsed Time (sec) =         21.000       Date  =  03/10/2025        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*
