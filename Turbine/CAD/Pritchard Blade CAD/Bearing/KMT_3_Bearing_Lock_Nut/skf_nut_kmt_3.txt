@@ -1,0 +1,11 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-10052017-071907";"";
+"REFERENCE";"KMT 3";"";
+"TraceParts.PartVersion";"1.1.9";"";
+"TraceParts.InstanceId";"10-10052017-071907CH2WK611Z0QPQQ5ET78WKLZ0O";"";
+"TraceParts.PartTitle";"KMT precision lock nuts with locking pins";"";
+"SUPPLIER";"SKF";"";
+"DESIGN";"KMT precision lock nuts with locking pins, Thread M 17x1, Outside Ø 37 mm";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"MASS";"0.102";"";
