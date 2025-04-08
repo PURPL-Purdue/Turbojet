@@ -38,7 +38,7 @@ rotor_exclusion_factor = 0.0;
 
 %% PLOTTING CONTROLS
 plot_throat = true;     % Set "true" to display the throat lines
-plot_t_max  = true;     % Set "true" to display the maximum airfoil thickness lines
+plot_t_max  = false;     % Set "true" to display the maximum airfoil thickness lines
 plot_bez_p1 = false;    % Set "true" to display the P0 -> P1 and P1 -> P2 lines
 LE_align = true;        % Set "true" to align the leading edges
 triangles = true;       % Set "true" to display velocity triangles
@@ -47,8 +47,8 @@ plot_optimized_stator = false;  % Set "true" to search directory for blades of m
 plot_optimized_rotor = false;  % Set "true" to search directory for blades of max fitness and plot those
 evo_to_search = 2;
 
-num_stators = 4;        % Number of stators to display, minimum 3
-num_rotors  = 5;        % Number of rotors to display, minimum 3
+num_stators = 2;        % Number of stators to display, minimum 3
+num_rotors  = 2;        % Number of rotors to display, minimum 3
 
 %% MAIN
 if plot_optimized_stator
@@ -69,23 +69,23 @@ stator_blade = generate_blade(stator_params, stator_exclusion_factor, "stator");
 fprintf("\nOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\n\n")
 rotor_blade  = generate_blade(rotor_params, rotor_exclusion_factor, "rotor");
 
-tiledlayout(1,4, TileSpacing='tight', Padding='tight')
+tiledlayout(1,1, TileSpacing='tight', Padding='tight')
 
 nexttile
 title("Full Blade")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3,4,5], 2, triangles)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3], 2, triangles)
 
-nexttile
-title("Hub Profiles")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1], 1, triangles)
+% nexttile
+% title("Hub Profiles")
+% plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1], 1, triangles)
 
-nexttile
-title("Mid Profiles")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [2], 2, triangles)
+% nexttile
+% title("Mid Profiles")
+% plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [2], 2, triangles)
 
-nexttile
-title("Tip Profiles")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [3], 3, triangles)
+% nexttile
+% title("Tip Profiles")
+% plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [3], 3, triangles)
 
 fprintf("\nINFO: -------------------------------\n\n")
 for i = 1:3
@@ -144,15 +144,16 @@ function full_blade = generate_blade(params, exclusion_factor, type)
 
     % GENERATING GEOMETRY
     [full_blade(1), failcode_hub] = pritchard(params_hub, exclusion_factor);
-    fprintf("\n" + params_hub.name + " profile done\n")
+    % fprintf("\n" + params_hub.name + " profile done\n")
     [full_blade(2), failcode_mid] = pritchard(params, exclusion_factor);
-    fprintf("\n" + params.name + " profile done\n")
+    % fprintf("\n" + params.name + " profile done\n")
     [full_blade(3), failcode_tip] = pritchard(params_tip, exclusion_factor);
-    fprintf("\n" + params_tip.name + " profile done\n")
+    % fprintf("\n" + params_tip.name + " profile done\n")
     [full_blade(4), failcode_mega_hub] = pritchard(params_mega_hub, exclusion_factor);
-    fprintf("\n" + params_mega_hub.name + " profile done\n")
+    % fprintf("\n" + params_mega_hub.name + " profile done\n")
     [full_blade(5), failcode_mega_tip] = pritchard(params_mega_tip, exclusion_factor);
-    fprintf("\n" + params_mega_tip.name + " profile done\n")
+    % fprintf("\n" + params_mega_tip.name + " profile done\n")
+    fprintf("done")
 
     full_blade(1).failcode = failcode_hub;
     full_blade(2).failcode = failcode_mid;

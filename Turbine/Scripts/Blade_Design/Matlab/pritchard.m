@@ -18,7 +18,7 @@ function [blade, failcode] = pritchard(params, exclusion_factor)
     while factor > iteration_threshold
         [pts, failcode] = points(params.R, params.R_LE, params.R_TE, params.Cx, params.Ct, params.zeta, params.beta_IN, params.ep_IN, params.beta_OUT, params.ep_OUT, params.N_B, o);
         blade = generate_curves(pts.x_coords, pts.y_coords, pts.betas, params.R_LE, params.R_TE, pts.R_new, o);
-        [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade);     % Combine separate sections into big x and y vectors (good for solidworks exporting later too)
+        [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade, 0);     % Combine separate sections into big x and y vectors (good for solidworks exporting later too)
     
         if params.Ct == 0
             params.Ct = pts.Ct;
@@ -91,6 +91,8 @@ function [blade, failcode] = pritchard(params, exclusion_factor)
 
     blade.x_thicc = [blade.x_pressure(pos_ps), blade.x_ss_comb(pos_ss)];
     blade.y_thicc = [blade.y_pressure(pos_ps), blade.y_ss_comb(pos_ss)];
+    [blade.ss_splinex, blade.ss_spliny, blade.x_ss_spline_pts, blade.y_ss_spline_pts] = spliny_the_elder(pts.x_coords, pts.y_coords, pts.betas);
+    [blade.x_comb, blade.y_comb, blade.x_ss_comb, blade.y_ss_comb] = combiner(blade, 1);
 
     % Extra params
     blade.parameters.R = params.R;
@@ -118,7 +120,7 @@ function [blade, failcode] = pritchard(params, exclusion_factor)
 
     % fprintf("zweifel: %.3f\n", blade.parameters.zweifel)
     % fprintf("blade: " + params.name)
-    % fprintf("-#-#-#-#-\n\n\n _/~~~\\_ \n  (O_o)  \n \\__|__/ \n    |    \n  _/ \\_  \n_________\n")
+    fprintf("-#-#-#-#-\n\n\n _/~~~\\_ \n  (O_o)  \n \\__|__/ \n    |    \n  _/ \\_  \n_________\n")
 end
 
 %% HELPER FUNCTIONS
@@ -189,6 +191,47 @@ function [x_suction, y_suction, x_pressure, y_pressure, ss_p1x, ss_p1y, ps_p1x, 
     d2y_dt2 = 2*(P2(2) - 2*P1(2)+P0(2));
 
     k_max_ps = max(abs(abs(dx_dt .* d2y_dt2 - dy_dt .* d2x_dt2) ./ (dx_dt.^2 + dy_dt.^2).^(3/2)));
+end
+
+function [x_suction_spline, y_suction_spline, x_suction_pts, y_suction_pts] = spliny_the_elder(x, y, betas)
+    %% Splineless idiots
+
+    % Tangent Line Equations at Points 2-5
+    syms x_perp
+    % Slopes
+    p1_slope = tan(betas(1));
+    p2_slope = tan(betas(2));
+    p3_slope = tan(betas(3));
+    % Tangent Line Equations
+    x1_tan_sym = p1_slope*(x_perp-x(1))+y(1);
+    x2_tan_sym = p2_slope*(x_perp-x(2))+y(2);
+    x3_tan_sym = p3_slope*(x_perp-x(3))+y(3);
+
+    % Intersection of tangent lines to find P1's
+    ss_12x = double(vpasolve(x1_tan_sym == x2_tan_sym, x_perp));
+    ss_12y = double(subs(x1_tan_sym, x_perp, ss_12x));
+
+    ss_23x = double(vpasolve(x2_tan_sym == x3_tan_sym, x_perp));
+    ss_23y = double(subs(x2_tan_sym, x_perp, ss_23x));
+
+    handle_xlength = 0.1;
+    % left_handle_x = x(2)-handle_xlength;
+    % left_handle_y = double(subs(x2_tan_sym, x_perp, left_handle_x));
+    right_handle_x = x(2)+handle_xlength;
+    right_handle_y = double(subs(x2_tan_sym, x_perp, right_handle_x));
+
+    x_suction_pts = [x(3), ss_23x,         x(2), x(2), x(2), x(2),    right_handle_x         ss_12x, x(1)];
+    y_suction_pts = [y(3), ss_23y,         y(2), y(2), y(2), y(2),    right_handle_y         ss_12y, y(1)];
+
+    ctrlp = [x_suction_pts; y_suction_pts];
+    knots = aptknt(x_suction_pts, 5);
+    ss_spline = spmak(knots, ctrlp);
+
+    t = linspace(x(3), x(1), 1000);
+    spline_coords = fnval(ss_spline, t);
+    x_suction_spline = flip(spline_coords(1,:));
+    y_suction_spline = flip(spline_coords(2,:));
+
 end
 
 % Generates the throat line
@@ -324,9 +367,14 @@ function [x_arc, y_arc] = arc(x,y,r, x1, x2, y1, y2, multiplier)
 end
 
 % Combines XY matricies into one big XY matrix
-function [x_comb, y_comb, x_ss_comb, y_ss_comb] = combiner(blade)
-    x_comb = [blade.LEx, blade.x_pressure, blade.TEx, blade.UGx, blade.x_suction];
-    y_comb = [blade.LEy, blade.y_pressure, blade.TEy, blade.UGy, blade.y_suction];
+function [x_comb, y_comb, x_ss_comb, y_ss_comb] = combiner(blade, final)
+    if final == 0
+        x_comb = [blade.LEx, blade.x_pressure, blade.TEx, blade.UGx, blade.x_suction];
+        y_comb = [blade.LEy, blade.y_pressure, blade.TEy, blade.UGy, blade.y_suction];
+    else
+        x_comb = [blade.LEx, blade.x_pressure, blade.TEx, blade.ss_splinex];
+        y_comb = [blade.LEy, blade.y_pressure, blade.TEy, blade.ss_spliny];
+    end
     x_ss_comb = flip([blade.UGx, blade.x_suction]);
     y_ss_comb = flip([blade.UGy, blade.y_suction]);
 end

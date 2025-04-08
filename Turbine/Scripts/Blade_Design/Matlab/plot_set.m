@@ -11,35 +11,41 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
 
     % Flipping Stator upside down and translating back down
     for i = profiles_to_plot
-        stator_blade(i).y_comb  = 2*y_flip - stator_blade(i).y_comb  - stator_blade(2).parameters.Ct/2;
-        stator_blade(i).y       = 2*y_flip - stator_blade(i).y       - stator_blade(2).parameters.Ct/2;
-        stator_blade(i).y_thicc = 2*y_flip - stator_blade(i).y_thicc - stator_blade(2).parameters.Ct/2;
-        stator_blade(i).y_o     = 2*y_flip - stator_blade(i).y_o     - stator_blade(2).parameters.Ct/2;
-        stator_blade(i).ss_p1y  = 2*y_flip - stator_blade(i).ss_p1y  - stator_blade(2).parameters.Ct/2;
-        stator_blade(i).ps_p1y  = 2*y_flip - stator_blade(i).ps_p1y  - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).y_comb          = 2*y_flip - stator_blade(i).y_comb             - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).ss_spliny       = 2*y_flip - stator_blade(i).ss_spliny          - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).y_ss_spline_pts = 2*y_flip - stator_blade(i).y_ss_spline_pts    - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).y               = 2*y_flip - stator_blade(i).y                  - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).y_thicc         = 2*y_flip - stator_blade(i).y_thicc            - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).y_o             = 2*y_flip - stator_blade(i).y_o                - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).ss_p1y          = 2*y_flip - stator_blade(i).ss_p1y             - stator_blade(2).parameters.Ct/2;
+        stator_blade(i).ps_p1y          = 2*y_flip - stator_blade(i).ps_p1y             - stator_blade(2).parameters.Ct/2;
     end
     
     % Lines up leading edges
     if LE_align
         for i = profiles_to_plot
-            stator_blade(i).y_comb  = stator_blade(i).y_comb  - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
-            stator_blade(i).y       = stator_blade(i).y       - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
-            stator_blade(i).y_thicc = stator_blade(i).y_thicc - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
-            stator_blade(i).y_o     = stator_blade(i).y_o     - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
-            stator_blade(i).ss_p1y  = stator_blade(i).ss_p1y  - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
-            stator_blade(i).ps_p1y  = stator_blade(i).ps_p1y  - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).y_comb          = stator_blade(i).y_comb            - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).ss_spliny       = stator_blade(i).ss_spliny         - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).y_ss_spline_pts = stator_blade(i).y_ss_spline_pts   - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).y               = stator_blade(i).y                 - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).y_thicc         = stator_blade(i).y_thicc           - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).y_o             = stator_blade(i).y_o               - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).ss_p1y          = stator_blade(i).ss_p1y            - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
+            stator_blade(i).ps_p1y          = stator_blade(i).ps_p1y            - (stator_blade(2).parameters.Ct-stator_blade(i).parameters.Ct);
         end
     end
 
     % Lines up leading edges
     if LE_align
         for i = profiles_to_plot
-            rotor_blade(i).y_comb  = rotor_blade(i).y_comb  + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
-            rotor_blade(i).y       = rotor_blade(i).y       + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
-            rotor_blade(i).y_thicc = rotor_blade(i).y_thicc + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
-            rotor_blade(i).y_o     = rotor_blade(i).y_o     + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
-            rotor_blade(i).ss_p1y  = rotor_blade(i).ss_p1y  + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
-            rotor_blade(i).ps_p1y  = rotor_blade(i).ps_p1y  + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).y_comb           = rotor_blade(i).y_comb             + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).ss_spliny        = rotor_blade(i).ss_spliny          + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).y_ss_spline_pts  = rotor_blade(i).y_ss_spline_pts    + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).y                = rotor_blade(i).y                  + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).y_thicc          = rotor_blade(i).y_thicc            + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).y_o              = rotor_blade(i).y_o                + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).ss_p1y           = rotor_blade(i).ss_p1y             + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
+            rotor_blade(i).ps_p1y           = rotor_blade(i).ps_p1y             + (rotor_blade(2).parameters.Ct-rotor_blade(i).parameters.Ct);
         end
     end
 
@@ -52,12 +58,14 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
 
     % Shifting rotor to the right
     for i = profiles_to_plot
-        rotor_blade(i).x_comb  = rotor_blade(i).x_comb  + x_offset;
-        rotor_blade(i).x       = rotor_blade(i).x       + x_offset;
-        rotor_blade(i).x_o     = rotor_blade(i).x_o     + x_offset;
-        rotor_blade(i).x_thicc = rotor_blade(i).x_thicc + x_offset;
-        rotor_blade(i).ss_p1x  = rotor_blade(i).ss_p1x  + x_offset;
-        rotor_blade(i).ps_p1x  = rotor_blade(i).ps_p1x  + x_offset;
+        rotor_blade(i).x_comb           = rotor_blade(i).x_comb             + x_offset;
+        rotor_blade(i).ss_splinex       = rotor_blade(i).ss_splinex         + x_offset;
+        rotor_blade(i).x_ss_spline_pts  = rotor_blade(i).x_ss_spline_pts    + x_offset;
+        rotor_blade(i).x                = rotor_blade(i).x                  + x_offset;
+        rotor_blade(i).x_o              = rotor_blade(i).x_o                + x_offset;
+        rotor_blade(i).x_thicc          = rotor_blade(i).x_thicc            + x_offset;
+        rotor_blade(i).ss_p1x           = rotor_blade(i).ss_p1x             + x_offset;
+        rotor_blade(i).ps_p1x           = rotor_blade(i).ps_p1x             + x_offset;
     end
 
     % Shifting upwards for multiple blade display
@@ -79,12 +87,14 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
     end
     for j = 1:num_stator-1
         for i = profiles_to_plot
-            stator_blade(i).y_comb  = stator_blade(i).y_comb  + stator_pitch;
-            stator_blade(i).y       = stator_blade(i).y       + stator_pitch;
-            stator_blade(i).y_thicc = stator_blade(i).y_thicc + stator_pitch;
-            stator_blade(i).y_o     = stator_blade(i).y_o     + stator_pitch;
-            stator_blade(i).ss_p1y  = stator_blade(i).ss_p1y  + stator_pitch;
-            stator_blade(i).ps_p1y  = stator_blade(i).ps_p1y  + stator_pitch;
+            stator_blade(i).y_comb          = stator_blade(i).y_comb    + stator_pitch;
+            stator_blade(i).ss_spliny       = stator_blade(i).ss_spliny + stator_pitch;
+            stator_blade(i).y_ss_spline_pts = stator_blade(i).y_ss_spline_pts + stator_pitch;
+            stator_blade(i).y               = stator_blade(i).y         + stator_pitch;
+            stator_blade(i).y_thicc         = stator_blade(i).y_thicc   + stator_pitch;
+            stator_blade(i).y_o             = stator_blade(i).y_o       + stator_pitch;
+            stator_blade(i).ss_p1y          = stator_blade(i).ss_p1y    + stator_pitch;
+            stator_blade(i).ps_p1y          = stator_blade(i).ps_p1y    + stator_pitch;
             
             plot_blade_V3(stator_blade(i), plot_throat, plot_t_max, plot_bez_p1, '-k')
             if j == 1 && length(profiles_to_plot) == 3
@@ -99,12 +109,14 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
     end
     for j = 1:num_rotor-1
         for i = profiles_to_plot
-            rotor_blade(i).y_comb  = rotor_blade(i).y_comb  + rotor_pitch;
-            rotor_blade(i).y       = rotor_blade(i).y       + rotor_pitch;
-            rotor_blade(i).y_thicc = rotor_blade(i).y_thicc + rotor_pitch;
-            rotor_blade(i).y_o     = rotor_blade(i).y_o     + rotor_pitch;
-            rotor_blade(i).ss_p1y  = rotor_blade(i).ss_p1y  + rotor_pitch;
-            rotor_blade(i).ps_p1y  = rotor_blade(i).ps_p1y  + rotor_pitch;
+            rotor_blade(i).y_comb           = rotor_blade(i).y_comb             + rotor_pitch;
+            rotor_blade(i).ss_spliny        = rotor_blade(i).ss_spliny          + rotor_pitch;
+            rotor_blade(i).y_ss_spline_pts  = rotor_blade(i).y_ss_spline_pts    + rotor_pitch;
+            rotor_blade(i).y                = rotor_blade(i).y                  + rotor_pitch;
+            rotor_blade(i).y_thicc          = rotor_blade(i).y_thicc            + rotor_pitch;
+            rotor_blade(i).y_o              = rotor_blade(i).y_o                + rotor_pitch;
+            rotor_blade(i).ss_p1y           = rotor_blade(i).ss_p1y             + rotor_pitch;
+            rotor_blade(i).ps_p1y           = rotor_blade(i).ps_p1y             + rotor_pitch;
     
             plot_blade_V3(rotor_blade(i), plot_throat, plot_t_max, plot_bez_p1, '-k')
             if j == 1 && length(profiles_to_plot) == 3
@@ -120,11 +132,11 @@ function plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p
     y_low = min(min_ys)-2;
     y_high = max(max_ys)+2;
 
-    if triangles
-        y_low = y_low - 0.5*y_diff;
-        triangle_y = y_low + 0.25*(y_diff);
-        % plot_triangles(rotor_blade, stator_blade, triangle_vectors)
-    end
+    % if triangles
+    %     y_low = y_low - 0.5*y_diff;
+    %     triangle_y = y_low + 0.25*(y_diff);
+    %     % plot_triangles(rotor_blade, stator_blade, triangle_vectors)
+    % end
     xlim([x_low,x_high]);
     ylim([y_low,y_high]);
     pbaspect([x_high-x_low,y_high-y_low,stator_blade(2).parameters.blade_height]);
