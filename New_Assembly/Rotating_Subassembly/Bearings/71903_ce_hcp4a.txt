@@ -1,0 +1,10 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"34-26072024-091900";"";
+"REFERENCE";"71903 CE/HCP4A";"";
+"TraceParts.PartTitle";"Angular contact ball bearings, super-precision - Single Bearings";"";
+"TraceParts.InstanceId";"34-26072024-091900AJX2HBE2KOJ3VWI9J9UREHSFF";"";
+"SUPPLIER";"SKF";"";
+"DESIGN";"Angular contact ball bearings, super-precision, Bore Ø 17 mm";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartVersion";"1.0.5";"";
