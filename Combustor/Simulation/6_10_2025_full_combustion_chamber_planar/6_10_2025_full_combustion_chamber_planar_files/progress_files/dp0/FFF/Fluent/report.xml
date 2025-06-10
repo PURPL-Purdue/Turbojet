@@ -1,0 +1,286 @@
+<FluentXMLReport>
+<version>
+Fluent
+Version: 2d, dp, pbns, spe, sstkw (2d, double precision, pressure-based,  species, SST k-omega)
+Release: 25.1.0
+Title: 
+</version>
+
+<Models>
+
+Models
+------
+
+   Model                        Settings                       
+   ---------------------------------------------------------
+   Space                        2D                             
+   Time                         Steady                         
+   Viscous                      SST k-omega turbulence model   
+   Heat Transfer                Enabled                        
+   Solidification and Melting   Disabled                       
+   Radiation                    None                           
+   Species                      Reacting (5 species)           
+   Coupled Dispersed Phase      Disabled                       
+   NOx Pollutants               Disabled                       
+   SOx Pollutants               Disabled                       
+   Soot                         Disabled                       
+   Mercury Pollutants           Disabled                       
+   Structure                    Disabled                       
+   Acoustics                    Disabled                       
+   Eulerian Wall Film           Disabled                       
+   Potential/Electrochemistry   Disabled                       
+   Multiphase                   Disabled                       
+
+</Models>
+
+<MaterialProperties>
+Material Properties
+-------------------
+
+   Material: propane-air (mixture)
+
+      Property               Units      Method                     Value(s)                                                                                                                                                                                                                                                       
+      -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Mixture Species                   names                      (c3h8 o2 co2 h2o n2)                                                                                                                                                                                                                                           
+      Reaction                          finite-rate                ((reaction-1 ((c3h8 1 0.1 1) (o2 5 1.65 1)) ((co2 3 0 1) (h2o 4 0 1)) ((n2 0 1)) (stoichiometry 1c3h8 + 5o2 --&amp;gt; 3co2 + 4h2o) (arrhenius 4.836e+09 1.256e+08 0) (mixing-rate 4 0.5) (specified-rate-exponents? . #t) (use-third-body-efficiencies? . #f)))   
+      Mechanism                         reaction-mechs             ((mechanism-1 (reaction-type . all) (reaction-list reaction-1) (site-info)))                                                                                                                                                                                   
+      Density                kg/m^3     incompressible-ideal-gas   #f                                                                                                                                                                                                                                                             
+      Cp (Specific Heat)     J/(kg K)   mixing-law                 #f                                                                                                                                                                                                                                                             
+      Thermal Conductivity   W/(m K)    constant                   0.0454                                                                                                                                                                                                                                                         
+      Viscosity              kg/(m s)   constant                   1.72e-05                                                                                                                                                                                                                                                       
+      Mass Diffusivity       m^2/s      constant-dilute-appx       (2.88e-05)                                                                                                                                                                                                                                                     
+
+   Material: aluminum (solid)
+
+      Property               Units      Method     Value(s)   
+      -----------------------------------------------------
+      Density                kg/m^3     constant   2719       
+      Cp (Specific Heat)     J/(kg K)   constant   871        
+      Thermal Conductivity   W/(m K)    constant   202.4      
+
+   Material: air (fluid)
+
+      Property                  Units         Method     Value(s)     
+      -------------------------------------------------------------
+      Density                   kg/m^3        constant   1.225        
+      Cp (Specific Heat)        J/(kg K)      constant   1006.43      
+      Thermal Conductivity      W/(m K)       constant   0.0242       
+      Viscosity                 kg/(m s)      constant   1.7894e-05   
+      Molecular Weight          kg/kmol       constant   28.966       
+      Standard State Enthalpy   J/kgmol       constant   0            
+      Standard State Entropy    J/(kgmol K)   constant   194336       
+      Reference Temperature     K             constant   298.15       
+
+   Material: (propane . propane-air) (fluid)
+
+      Property                  Units         Method                 Value(s)                                                                                                                                                 
+      ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Cp (Specific Heat)        J/(kg K)      piecewise-polynomial   (300-1000: 169.11057 5.0322586 0.0010240719 -4.0084819e-06 1.7427903e-09) (1000-5000: 1418.8474 3.5616926 -0.0011848069 1.7307314e-07 -9.0735927e-12)    
+      Molecular Weight          kg/kmol       constant               44.09                                                                                                                                                    
+      Standard State Enthalpy   J/kgmol       constant               -1.0386024e+08                                                                                                                                           
+      Standard State Entropy    J/(kgmol K)   constant               270137.91                                                                                                                                                
+      Reference Temperature     K             constant               298.15                                                                                                                                                   
+
+   Material: (oxygen . propane-air) (fluid)
+
+      Property                  Units         Method                 Value(s)                                                                                                                                                      
+      --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Cp (Specific Heat)        J/(kg K)      piecewise-polynomial   (300-1000: 834.82647 0.29295801 -0.00014956371 3.4138849e-07 -2.2783585e-10) (1000-5000: 960.75234 0.15941258 -3.2708852e-05 4.6127648e-09 -2.9528324e-13)    
+      Molecular Weight          kg/kmol       constant               31.9988                                                                                                                                                       
+      Standard State Enthalpy   J/kgmol       constant               0                                                                                                                                                             
+      Standard State Entropy    J/(kgmol K)   constant               205026.86                                                                                                                                                     
+      Reference Temperature     K             constant               298.15                                                                                                                                                        
+
+   Material: (carbon-dioxide . propane-air) (fluid)
+
+      Property                  Units         Method                 Value(s)                                                                                                                                                   
+      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Cp (Specific Heat)        J/(kg K)      piecewise-polynomial   (300-1000: 429.92889 1.8744735 -0.001966485 1.2972514e-06 -3.9999562e-10) (1000-5000: 841.37645 0.59323928 -0.00024151675 4.5227279e-08 -3.1531301e-12)    
+      Molecular Weight          kg/kmol       constant               44.00995                                                                                                                                                   
+      Standard State Enthalpy   J/kgmol       constant               -3.9353235e+08                                                                                                                                             
+      Standard State Entropy    J/(kgmol K)   constant               213720.2                                                                                                                                                   
+      Reference Temperature     K             constant               298.15                                                                                                                                                     
+
+   Material: (water-vapor . propane-air) (fluid)
+
+      Property                  Units         Method                 Value(s)                                                                                                                                                  
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Cp (Specific Heat)        J/(kg K)      piecewise-polynomial   (300-1000: 1563.0767 1.6037546 -0.0029327841 3.2161009e-06 -1.1568268e-09) (1000-5000: 1233.2338 1.4105233 -0.00040291411 5.5427718e-08 -2.949824e-12)    
+      Molecular Weight          kg/kmol       constant               18.01534                                                                                                                                                  
+      Standard State Enthalpy   J/kgmol       constant               -2.418379e+08                                                                                                                                             
+      Standard State Entropy    J/(kgmol K)   constant               188696.44                                                                                                                                                 
+      Reference Temperature     K             constant               298.15                                                                                                                                                    
+
+   Material: (nitrogen . propane-air) (fluid)
+
+      Property                  Units         Method                 Value(s)                                                                                                                                                    
+      ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Cp (Specific Heat)        J/(kg K)      piecewise-polynomial   (300-1000: 979.04298 0.4179639 -0.0011762792 1.6743943e-06 -7.2562971e-10) (1000-5000: 868.62291 0.44162954 -0.00016872295 2.9967875e-08 -2.0043858e-12)    
+      Molecular Weight          kg/kmol       constant               28.0134                                                                                                                                                     
+      Standard State Enthalpy   J/kgmol       constant               0                                                                                                                                                           
+      Standard State Entropy    J/(kgmol K)   constant               191494.78                                                                                                                                                   
+      Reference Temperature     K             constant               298.15                                                                                                                                                      
+
+</MaterialProperties>
+
+<CellZoneConditions>
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name           id   type    material      
+      ---------------------------------------
+      surface_body   2    fluid   propane-air   
+
+   Setup Conditions
+
+      surface_body
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+         Mesh Motion?    no      
+
+</CellZoneConditions>
+
+<BoundaryConditions>
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name         id   type              
+      ---------------------------------
+      inlet        5    velocity-inlet    
+      outlet       6    pressure-outlet   
+      fuel_inlet   7    velocity-inlet    
+      walls        8    wall              
+
+   Setup Conditions
+
+      inlet
+
+         Condition                                Value                                                                                                                       
+         ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+         Velocity Magnitude [m/s]                 50                                                                                                                          
+         Supersonic/Initial Gauge Pressure [Pa]   202000                                                                                                                      
+         Temperature [K]                          450                                                                                                                         
+                                                  (((constant . 0) (profile  )) ((constant . 0.233) (profile  )) ((constant . 0) (profile  )) ((constant . 0) (profile  )))   
+
+      outlet
+
+         Condition   Value                                                                                                                   
+         ---------------------------------------------------------------------------------------------------------------------------------
+         Backflow    (((constant . 0) (profile  )) ((constant . 0) (profile  )) ((constant . 0) (profile  )) ((constant . 0) (profile  )))   
+
+      fuel_inlet
+
+         Condition                                Value                                                                                                                   
+         --------------------------------------------------------------------------------------------------------------------------------------------------------------
+         Velocity Magnitude [m/s]                 221                                                                                                                     
+         Supersonic/Initial Gauge Pressure [Pa]   450255.6                                                                                                                
+         Temperature [K]                          400                                                                                                                     
+                                                  (((constant . 1) (profile  )) ((constant . 0) (profile  )) ((constant . 0) (profile  )) ((constant . 0) (profile  )))   
+
+      walls
+
+         Condition                     Value                                                                                                                   
+         ---------------------------------------------------------------------------------------------------------------------------------------------------
+         Thermal BC Type               Heat Flux                                                                                                               
+         Wall Motion                   Stationary Wall                                                                                                         
+         Shear Boundary Condition      No Slip                                                                                                                 
+         Wall Surface Roughness        Standard                                                                                                                
+         Species Boundary Conditions   Specified Flux (Mass)/Specified Flux (Mass)                                                                             
+                                       (((constant . 0) (profile  )) ((constant . 0) (profile  )) ((constant . 0) (profile  )) ((constant . 0) (profile  )))   
+
+</BoundaryConditions>
+
+<SolverSettings>
+Solver Settings
+---------------
+
+   Equations
+
+      Equation     Solved   
+      -------------------
+      Flow         yes      
+      Turbulence   yes      
+      c3h8         yes      
+      o2           yes      
+      co2          yes      
+      h2o          yes      
+      Energy       yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Pseudo Time Explicit Relaxation Factors
+
+      Variable                    Relaxation Factor   
+      ---------------------------------------------
+      Density                     0.25                
+      Body Forces                 1                   
+      Turbulent Kinetic Energy    0.75                
+      Specific Dissipation Rate   0.75                
+      Turbulent Viscosity         1                   
+      c3h8                        0.75                
+      o2                          0.75                
+      co2                         0.75                
+      h2o                         0.75                
+      Energy                      0.75                
+      Explicit Momentum           0.5                 
+      Explicit Pressure           0.5                 
+
+   Linear Solver
+
+      Variable                    Solver Type   Termination Criterion   Residual Reduction Tolerance   
+      ----------------------------------------------------------------------------------------------
+      Flow                        F-Cycle       0.1                                                    
+      Turbulent Kinetic Energy    F-Cycle       0.1                                                    
+      Specific Dissipation Rate   F-Cycle       0.1                                                    
+      c3h8                        F-Cycle       0.1                                                    
+      o2                          F-Cycle       0.1                                                    
+      co2                         F-Cycle       0.1                                                    
+      h2o                         F-Cycle       0.1                                                    
+      Energy                      F-Cycle       0.1                                                    
+
+   Pressure-Velocity Coupling
+
+      Parameter                               Value     
+      -----------------------------------------------
+      Type                                    Coupled   
+      Pseudo Time Method (Global Time Step)   yes       
+
+   Discretization Scheme
+
+      Variable                    Scheme                
+      -----------------------------------------------
+      Pressure                    Second Order          
+      Momentum                    Second Order Upwind   
+      Turbulent Kinetic Energy    Second Order Upwind   
+      Specific Dissipation Rate   Second Order Upwind   
+      c3h8                        Second Order Upwind   
+      o2                          Second Order Upwind   
+      co2                         Second Order Upwind   
+      h2o                         Second Order Upwind   
+      Energy                      Second Order Upwind   
+
+   Solution Limits
+
+      Quantity                                 Limit    
+      -----------------------------------------------
+      Minimum Absolute Pressure [Pa]           1        
+      Maximum Absolute Pressure [Pa]           5e+10    
+      Minimum Static Temperature [K]           1        
+      Maximum Static Temperature [K]           5000     
+      Minimum Turb. Kinetic Energy [m^2/s^2]   1e-14    
+      Minimum Spec. Dissipation Rate [s^-1]    1e-20    
+      Maximum Turb. Viscosity Ratio            100000   
+
+</SolverSettings>
+
+</FluentXMLReport>
