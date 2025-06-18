@@ -117,4 +117,3 @@ set(gca,'XTick',[])
 ylim([50 450])
 
 power = mass_flow_air * specHeat_hot / 1000 * diffuser_temp * (compr_pressure^((gamma_hot-1)/gamma_hot)-1) / .7
-

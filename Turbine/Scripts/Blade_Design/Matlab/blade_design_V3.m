@@ -73,7 +73,7 @@ tiledlayout(1,1, TileSpacing='tight', Padding='tight')
 
 nexttile
 title("Full Blade")
-plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3, 4, 5], 2, triangles)
+plot_set(rotor_blade, stator_blade, plot_throat, plot_t_max, plot_bez_p1, LE_align, num_stators, num_rotors, [1,2,3], 2, triangles)
 
 % nexttile
 % title("Hub Profiles")

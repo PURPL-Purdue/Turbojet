@@ -7,11 +7,11 @@ S_R_LE = 1.4;           % Leading edge radius       i| mm           0.031
 S_R_TE = 0.7;           % Trailing edge radius      i| mm           0.016
 
 % !!!! Currently being optimized for !!!!           S_ttc = 15;             % Thickness to Chord ratio  i| %            N/A
-% !!!! Currently being optimiz   ed for !!!!           S_Cx = 17;              % Axial chord               i| mm           1.102              
+% !!!! Currently being optimized for !!!!           S_Cx = 17;              % Axial chord               i| mm           1.102              
 S_zeta = 0.01;          % Unguided turning angle    i| degrees      6.3
 S_beta_IN = 0;          % Inlet blade angle         i| degrees      35
 S_ep_IN = 8;            % Inlet half wedge angle    i| degrees      8
-S_beta_OUT = -64.48;       % Exit blade angle          i| degrees      -57
+S_beta_OUT = -64.48;    % Exit blade angle          i| degrees      -57
 S_ep_OUT = S_zeta/2;    % Exit half wedge angle     u| degrees      3.32
 
 % !!!! Currently being optimized for !!!!           S_N_B = 23;             % Number of blades          i| N/A          51 
@@ -27,7 +27,7 @@ T_R_TE = .6;            % Trailing edge radius      i| mm           0.016
 % !!!! Currently being optimized for !!!!           T_ttc = 15;             % Thickness to Chord ratio  i| %            N/A
 % !!!! Currently being optimized for !!!!           T_Cx = 15;              % Axial chord               i| mm           1.102
 T_zeta = 0.01;          % Unguided turning angle    i| degrees      6.3
-T_beta_IN = 23.67;        % Inlet blade angle         i| degrees      35
+T_beta_IN = 23.67;      % Inlet blade angle         i| degrees      35
 T_ep_IN = 10;           % Inlet half wedge angle    i| degrees      8
 T_beta_OUT = -51;       % Exit blade angle          i| degrees      -57
 T_ep_OUT = T_zeta/2;    % Exit half wedge angle     u| degrees      3.32
