@@ -1,0 +1,51 @@
+const int sensorPin = 40;    // out pin
+const int ledPin = 13;       // attached LED
+
+unsigned long previousTime = 0;
+const unsigned long interval = 5000; // 5 seconds
+
+bool newBlock = true; //holds for next block
+
+int blockCount = 0;
+
+void setup() {
+  pinMode(sensorPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+  while (!Serial);
+  delay(2000);
+  Serial.println("Start!");
+}
+
+void loop() {
+  int val = digitalRead(sensorPin);
+
+  // an object is detected, slot blocked
+  if (val == LOW) {
+    digitalWrite(ledPin, LOW);
+    if (newBlock) {
+      blockCount++;  // counts once per block event
+      newBlock = false;
+    }
+  } else {
+    digitalWrite(ledPin, HIGH);
+    newBlock = true;
+  }
+
+  // prints speed every 5 seconds
+  unsigned long currentTime = millis();
+  if (currentTime - previousTime >= interval) {
+    previousTime = currentTime;
+
+    float blocksPerSecond = blockCount / 5.0; // average over 5 seconds
+
+    Serial.print("Blocks per second: ");
+    Serial.println(blocksPerSecond);
+
+    Serial.println(blocksPerSecond); // for serial plotter
+
+    blockCount = 0; // reset counter
+  }
+
+  delay(10); 
+}
