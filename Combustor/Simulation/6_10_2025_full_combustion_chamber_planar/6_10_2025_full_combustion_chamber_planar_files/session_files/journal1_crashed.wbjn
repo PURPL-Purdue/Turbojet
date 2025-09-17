@@ -360,3 +360,4 @@ setup1.SendCommand(Command='(cx-use-window-id 51)(cx-gui-do cx-activate-item "Co
 setup1.SendCommand(Command='(cx-use-window-id 51)(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|General"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|General"))')
 setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|General"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
 Save(Overwrite=True)
+setup1.Stop()
