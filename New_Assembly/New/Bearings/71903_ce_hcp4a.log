@@ -1,0 +1,92 @@
+﻿STEP to UG
+! INFO-     NX STEP AP214 - V2007
+! INFO-      
+! INFO-     Start of Translation: 21-APR-2025  12:12:31 AM
+! INFO-      
+! STATUS-   Converting Part: C:\Users\zheng\Documents\Documents\Purdue_Clubs\PURPL\Github\Turbojet\Organized_Assembly\Rotating_Subassembly\Bearings\71903_ce_hcp4a.stp
+! SUMMARY-   
+! SUMMARY-    STEP Header Information
+! SUMMARY-   
+! SUMMARY-  Description      STEP AP214
+! SUMMARY-  Imp_Level        1
+! SUMMARY-  File_Name        71903_ce_hcp4a.stp
+! SUMMARY-  Date             2025-03-14T07:22:35
+! SUMMARY-  Author           TraceParts
+! SUMMARY-  Organization     TraceParts S.A.
+! SUMMARY-  Pre_Version      Spatial InterOp 3D
+! SUMMARY-  Orig_System       
+! SUMMARY-  Authorization     
+! SUMMARY-  Schema_ID        automotive_design
+! SUMMARY-   
+! SUMMARY-    Summary of STEP Entities
+! SUMMARY-   
+! SUMMARY-  Entity Type                                                   Count
+! SUMMARY-  -----------                                                   ------
+! SUMMARY-  advanced_face ..............................................:     84
+! SUMMARY-  application_context ........................................:      1
+! SUMMARY-  axis2_placement_3d .........................................:    205
+! SUMMARY-  b_spline_curve_with_knots ..................................:     52
+! SUMMARY-  cartesian_point ............................................:   1285
+! SUMMARY-  circle .....................................................:    118
+! SUMMARY-  closed_shell ...............................................:      3
+! SUMMARY-  conical_surface ............................................:      4
+! SUMMARY-  conversion_based_unit_and_length_unit ......................:      1
+! SUMMARY-  cylindrical_surface ........................................:     10
+! SUMMARY-  dimensional_exponents ......................................:      2
+! SUMMARY-  direction ..................................................:    424
+! SUMMARY-  edge_curve .................................................:    184
+! SUMMARY-  edge_loop ..................................................:    114
+! SUMMARY-  face_bound .................................................:     30
+! SUMMARY-  face_outer_bound ...........................................:     84
+! SUMMARY-  geometric_representation_context_and_global_uncertainty_a ..:      1
+! SUMMARY-  length_measure_with_unit ...................................:      1
+! SUMMARY-  length_unit_and_si_unit ....................................:      1
+! SUMMARY-  line .......................................................:     14
+! SUMMARY-  manifold_solid_brep ........................................:      3
+! SUMMARY-  oriented_edge ..............................................:    368
+! SUMMARY-  plane ......................................................:      4
+! SUMMARY-  plane_angle_unit_and_si_unit ...............................:      1
+! SUMMARY-  product ....................................................:      1
+! SUMMARY-  product_category ...........................................:      1
+! SUMMARY-  product_context ............................................:      1
+! SUMMARY-  product_definition .........................................:      1
+! SUMMARY-  product_definition_context .................................:      1
+! SUMMARY-  product_definition_formation_with_specified_source .........:      1
+! SUMMARY-  product_definition_shape ...................................:      1
+! SUMMARY-  product_related_product_category ...........................:      1
+! SUMMARY-  si_unit_and_solid_angle_unit ...............................:      1
+! SUMMARY-  spherical_surface ..........................................:     26
+! SUMMARY-  toroidal_surface ...........................................:     40
+! SUMMARY-  uncertainty_measure_with_unit ..............................:      1
+! SUMMARY-  vector .....................................................:     14
+! SUMMARY-  vertex_point ...............................................:    130
+! SUMMARY-                                                               -------
+! SUMMARY-  Total                                                           3214
+! STATUS-    
+! STATUS-   Converting to Output Form (Phase 2 of 3): 21-APR-2025 12:12:31 AM
+! STATUS-    
+! STATUS-    
+! STATUS-   Generating UG geometry and placing them in parts
+! STATUS-    
+! STATUS-   Creating the UG part (Phase 3 of 3): 21-APR-2025  12:12:31 AM
+! INFO-     Filing Part ..: C:\Users\zheng\Documents\Documents\Purdue_Clubs\PURPL\Github\Turbojet\Organized_Assembly\Rotating_Subassembly\Bearings\71903_ce_hcp4a_stp.prt
+! SUMMARY-   
+! SUMMARY-  Summary of Unigraphics Part Entities
+! SUMMARY-   
+! SUMMARY-  Entities Processed             Count
+! SUMMARY-  ------------------             -----
+! SUMMARY-  Reference Set ...............:     3
+! SUMMARY-  Solid .......................:     3
+! SUMMARY-                                 -----
+! SUMMARY-  Total                              6
+! INFO-      
+! INFO-     Total number of solids input for this translation       :         3
+! INFO-      
+! INFO-     Number of solids created without body validation faults :         3
+! INFO-      
+! INFO-     Number of solids created with body validation fault(s)  :         0
+! INFO-      
+! INFO-     Number of solids ending up as sheet bodies              :         0
+! INFO-      
+! INFO-     End of Translation: 21-APR-2025  12:12:32 AM
+! INFO-      
