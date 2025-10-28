@@ -18,7 +18,7 @@ function results = MidSpan_ThruFlow(reaction, blade_height_mm, r_tip_mm, rpm, ma
     % Backpressure: [in pascals] static backpressure behind turbine
     % Stator Loss:  Enthalpy Loss Coefficient of Stator
     % Rotor Loss:   Enthalpy Loss Coefficient of Rotor
-    % Show Plot:    set to true to show convergence plot/triangles.
+    Show Plot:    set to true to show convergence plot/triangles.
 
 
     % I hate writting out the Isentropic Relations a bunch of times, I made
