@@ -5,8 +5,7 @@ Based on the architecture.md specification.
 
 import pint
 from typing import Optional, Literal
-
-ureg = pint.UnitRegistry()
+from utils.units import ureg
 
 
 class ThermoState:
