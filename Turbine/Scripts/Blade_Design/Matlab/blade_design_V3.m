@@ -24,15 +24,15 @@ T_R = 50;               % Tip Radius                i| mm           5.5
 T_R_LE = 0.8;           % Leading edge radius       i| mm           0.031
 T_R_TE = 0.6;           % Trailing edge radius      i| mm           0.016
 
-T_ttc = 15.28;             % Thickness to Chord ratio  i| %            N/A
-T_Cx = 23.74;              % Axial chord               i| mm           1.102
+T_ttc = 20;             % Thickness to Chord ratio  i| %            N/A
+T_Cx = 12;              % Axial chord               i| mm           1.102 | Current design 23.74mm
 T_zeta = 0.01;          % Unguided turning angle    i| degrees      6.3
 T_beta_IN = 23.67;        % Inlet blade angle         i| degrees      35
 T_ep_IN = 10;           % Inlet half wedge angle    i| degrees      8
 T_beta_OUT = -51;       % Exit blade angle          i| degrees      -57
 T_ep_OUT = T_zeta/2;    % Exit half wedge angle     u| degrees      3.32
 
-T_N_B = 17;             % Number of blades          i| N/A          51 
+T_N_B = 29;             % Number of blades          i| N/A          51 
 T_blade_height = 11;    % Height of blade           i| mm           N/A
 rotor_exclusion_factor = 0.0;
 
@@ -47,8 +47,8 @@ plot_optimized_stator = false;  % Set "true" to search directory for blades of m
 plot_optimized_rotor = false;  % Set "true" to search directory for blades of max fitness and plot those
 evo_to_search = 2;
 
-num_stators = 2;        % Number of stators to display, minimum 3
-num_rotors  = 2;        % Number of rotors to display, minimum 3
+num_stators = 3;        % Number of stators to display, minimum 3
+num_rotors  = 5;        % Number of rotors to display, minimum 3
 
 %% MAIN
 if plot_optimized_stator

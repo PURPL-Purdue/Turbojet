@@ -38,7 +38,7 @@ rotor_exclusion_factor = 0.0;
 
 %% Optimization Stuff
 % Controls
-blade_type = "stator";          % Which type of blade we are optimizing
+blade_type = "rotor";          % Which type of blade we are optimizing
 
 evolution_number = 3;
 population_size = 200;
@@ -53,7 +53,7 @@ weights = [zweifel_weight, curvature_weight];
 
 % Randomization limits
 lim_ttc  = [5, 30];
-lim_Cx   = [10, 25];
+lim_Cx   = [13, 14];
 lim_N_B  = [13, 35];
 
 % Get last generation, if it exists
