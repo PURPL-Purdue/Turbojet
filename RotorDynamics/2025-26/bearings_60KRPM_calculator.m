@@ -94,9 +94,6 @@ R_s = 0.36 * ( (d_m)^2 ) * (x - sin(x) ) * F_a; %
 
 %%% f_t fuction created
 
-% Ai help used here, but I was able to check by having a figure ploted, it looks
-% good
-
 % Define the piecewise function
 f = @(t) (t >= 0 & t <= pi) .* sin(0.5*t) + ...
          (t > pi & t < 2*pi) .* 1;
